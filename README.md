@@ -1,27 +1,37 @@
 # Asas Vantage Marketing
 
-Standalone Vite + React marketing site for `http://asaas.local`.
+Laravel 12 + Inertia React marketing site for `http://asaas.local`.
 
 ## Setup
 
 ```bash
+composer install
+cp .env.example .env
+php artisan key:generate
 npm install
-npm run dev
+npm run build   # or npm run dev for Vite HMR
 ```
 
-Dev server: `http://127.0.0.1:5174`
-
-Point Apache/`asaas.local` at this Vite server (or `npm run build` → `dist/`).
+Point Apache `asaas.local` at `marketing/public` (see XAMPP `httpd-vhosts.conf`).
 
 ## Env
 
 | Variable | Purpose |
 |---|---|
-| `VITE_PLATFORM_URL` | Laravel platform host (`http://app.asaas.local`) for Sign in / Get started and marketing APIs |
+| `APP_URL` | This site (`http://asaas.local`) |
+| `PLATFORM_URL` / `VITE_PLATFORM_URL` | Central platform (`http://app.asaas.local`) for Sign in / Get started and marketing APIs |
+
+## Dev
+
+```bash
+npm run dev
+```
+
+Open `http://asaas.local` (Apache) with Vite HMR on `127.0.0.1`.
 
 ## Cross-app links
 
-- Sign in → `${VITE_PLATFORM_URL}/login`
-- Get started → `${VITE_PLATFORM_URL}/get-started/{applicationCode}`
-- Contact form → `POST ${VITE_PLATFORM_URL}/api/v1/marketing/contact`
-- Registerable apps → `GET ${VITE_PLATFORM_URL}/api/v1/marketing/registerable-applications`
+- Sign in → `${PLATFORM_URL}/login`
+- Get started → `${PLATFORM_URL}/get-started/{applicationCode}`
+- Contact form → `POST ${PLATFORM_URL}/api/v1/marketing/contact`
+- Registerable apps → `GET ${PLATFORM_URL}/api/v1/marketing/registerable-applications`

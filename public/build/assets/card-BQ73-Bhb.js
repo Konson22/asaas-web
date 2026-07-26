@@ -1,0 +1,1 @@
+import{a as e,n as t,r as n}from"./Container-DxsXK3BT.js";e();var r=t();function i({className:e,...t}){return(0,r.jsx)(`div`,{className:n(`rounded-card border border-border bg-surface shadow-[0_2px_8px_rgb(15,31,68,0.06)]`,e),...t})}export{i as t};
