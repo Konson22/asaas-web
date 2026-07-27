@@ -12,7 +12,7 @@ npm install
 npm run build   # or npm run dev for Vite HMR
 ```
 
-Point Apache/Nginx `asaasvantage.com` at `marketing/public`.
+Point your web server at `marketing/public` for `asaasvantage.com` (local Apache may still use `asaas.local` — see XAMPP `httpd-vhosts.conf`).
 
 ## Env
 
