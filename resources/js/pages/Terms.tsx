@@ -33,7 +33,7 @@ const sections = [
   },
   {
     title: 'Contact',
-    body: 'Questions about these terms can be sent to legal@asasvantage.com.',
+    body: 'Questions about these terms can be sent to legal@asaasvantage.com.',
   },
 ]
 

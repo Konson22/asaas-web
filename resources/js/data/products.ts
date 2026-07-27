@@ -76,7 +76,7 @@ export const products: Product[] = [
     ],
     access: ['cloud', 'desktop'],
     downloadUrl: '#',
-    launchUrl: 'http://pharma.asaasvantage.com',
+    launchUrl: 'https://pharma.asaasvantage.com',
     image: '/images/products/dashboard-devices-blue.png',
   },
   {
@@ -155,7 +155,7 @@ export const products: Product[] = [
     ],
     access: ['cloud', 'desktop'],
     downloadUrl: '#',
-    launchUrl: 'http://inventory.asaasvantage.com',
+    launchUrl: 'https://inventory.asaasvantage.com',
     image: '/images/products/inventory.png',
   },
 ]

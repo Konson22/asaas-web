@@ -1,5 +1,5 @@
 const platformUrl = (import.meta.env.VITE_PLATFORM_URL as string | undefined)?.replace(/\/$/, '')
-  || 'http://app.asaas.local'
+  || 'https://app.asaasvantage.com'
 
 export function getPlatformUrl(path = ''): string {
   if (!path) {

@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://asaas.local'),
+    'url' => env('APP_URL', 'https://asaasvantage.com'),
 
     /*
     |--------------------------------------------------------------------------
@@ -63,7 +63,7 @@ return [
     |
     */
 
-    'platform_url' => env('PLATFORM_URL', 'http://app.asaas.local'),
+    'platform_url' => env('PLATFORM_URL', 'https://app.asaasvantage.com'),
 
     /*
     |--------------------------------------------------------------------------

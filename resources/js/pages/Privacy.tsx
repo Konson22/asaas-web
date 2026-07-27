@@ -21,11 +21,11 @@ const sections = [
   },
   {
     title: 'Your rights',
-    body: 'You may request access to, correction of, or deletion of your personal data at any time by contacting privacy@asasvantage.com. We respond to all requests within 30 days.',
+    body: 'You may request access to, correction of, or deletion of your personal data at any time by contacting privacy@asaasvantage.com. We respond to all requests within 30 days.',
   },
   {
     title: 'Contact',
-    body: 'If you have questions about this policy or how we handle your data, contact us at privacy@asasvantage.com.',
+    body: 'If you have questions about this policy or how we handle your data, contact us at privacy@asaasvantage.com.',
   },
 ]
 

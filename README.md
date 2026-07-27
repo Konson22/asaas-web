@@ -1,6 +1,6 @@
 # Asas Vantage Marketing
 
-Laravel 12 + Inertia React marketing site for `http://asaas.local`.
+Laravel 12 + Inertia React marketing site for `https://asaasvantage.com`.
 
 ## Setup
 
@@ -12,14 +12,14 @@ npm install
 npm run build   # or npm run dev for Vite HMR
 ```
 
-Point Apache `asaas.local` at `marketing/public` (see XAMPP `httpd-vhosts.conf`).
+Point Apache/Nginx `asaasvantage.com` at `marketing/public`.
 
 ## Env
 
 | Variable | Purpose |
 |---|---|
-| `APP_URL` | This site (`http://asaas.local`) |
-| `PLATFORM_URL` / `VITE_PLATFORM_URL` | Central platform (`http://app.asaas.local`) for Sign in / Get started and marketing APIs |
+| `APP_URL` | This site (`https://asaasvantage.com`) |
+| `PLATFORM_URL` / `VITE_PLATFORM_URL` | Central platform (`https://app.asaasvantage.com`) for Sign in / Get started and marketing APIs |
 
 ## Dev
 
@@ -27,7 +27,7 @@ Point Apache `asaas.local` at `marketing/public` (see XAMPP `httpd-vhosts.conf`)
 npm run dev
 ```
 
-Open `http://asaas.local` (Apache) with Vite HMR on `127.0.0.1`.
+Open `https://asaasvantage.com` with Vite HMR on `127.0.0.1`.
 
 ## Cross-app links
 

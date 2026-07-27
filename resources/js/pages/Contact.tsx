@@ -13,22 +13,22 @@ const contactChannels = [
     icon: Mail,
     title: 'Email us',
     description: 'For general questions and support.',
-    detail: 'hello@asasvantage.com',
-    href: 'mailto:hello@asasvantage.com',
+    detail: 'hello@asaasvantage.com',
+    href: 'mailto:hello@asaasvantage.com',
   },
   {
     icon: MessageSquare,
     title: 'Talk to sales',
     description: 'Get a walkthrough tailored to your business.',
-    detail: 'sales@asasvantage.com',
-    href: 'mailto:sales@asasvantage.com',
+    detail: 'sales@asaasvantage.com',
+    href: 'mailto:sales@asaasvantage.com',
   },
   {
     icon: Building2,
     title: 'Partnerships',
     description: 'Resellers, integrators, and industry partners.',
-    detail: 'partners@asasvantage.com',
-    href: 'mailto:partners@asasvantage.com',
+    detail: 'partners@asaasvantage.com',
+    href: 'mailto:partners@asaasvantage.com',
   },
 ]
 
