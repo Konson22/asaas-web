@@ -9,10 +9,10 @@ composer install
 cp .env.example .env
 php artisan key:generate
 npm install
-npm run build   # or npm run dev for Vite HMR
+npm run build
 ```
 
-Point your web server at `marketing/public` for `asaasvantage.com` (local Apache may still use `asaas.local` — see XAMPP `httpd-vhosts.conf`).
+Point the web server document root at `marketing/public` for `asaasvantage.com`.
 
 ## Env
 
@@ -21,13 +21,36 @@ Point your web server at `marketing/public` for `asaasvantage.com` (local Apache
 | `APP_URL` | This site (`https://asaasvantage.com`) |
 | `PLATFORM_URL` / `VITE_PLATFORM_URL` | Central platform (`https://app.asaasvantage.com`) for Sign in / Get started and marketing APIs |
 
+`VITE_PLATFORM_URL` is baked in at build time — always run `npm run build` after changing it.
+
+## Production
+
+```bash
+APP_ENV=production
+APP_DEBUG=false
+APP_URL=https://asaasvantage.com
+PLATFORM_URL=https://app.asaasvantage.com
+VITE_PLATFORM_URL=https://app.asaasvantage.com
+
+composer install --no-dev --optimize-autoloader
+php artisan config:cache
+php artisan route:cache
+php artisan view:cache
+npm ci && npm run build
+```
+
+On the central platform (`asaas`), set `MARKETING_URL=https://asaasvantage.com` so CORS allows the products page to load registerable apps. Then:
+
+```bash
+php artisan apps:sync-product-urls
+php artisan db:seed --class=ApplicationClientSeeder
+```
+
 ## Dev
 
 ```bash
 npm run dev
 ```
-
-Open `https://asaasvantage.com` with Vite HMR on `127.0.0.1`.
 
 ## Cross-app links
 
