@@ -25,6 +25,8 @@ export default defineConfig({
     },
     cors: {
       origin: [
+        'http://asaas.local',
+        'https://asaas.local',
         'https://asaasvantage.com',
         'http://asaasvantage.com',
         /^https?:\/\/([a-z0-9-]+\.)*asaasvantage\.com(:\d+)?$/i,

@@ -3,9 +3,10 @@
 use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 
+Route::redirect('/platform', '/products');
+
 Route::controller(PageController::class)->group(function () {
     Route::get('/', 'home')->name('home');
-    Route::get('/platform', 'platform')->name('platform');
     Route::get('/industries', 'industries')->name('industries');
     Route::get('/products', 'products')->name('products');
     Route::get('/products/{productId}', 'productDetail')->name('products.show');

@@ -75,7 +75,7 @@ export default function ProductDetailPage() {
                 <img
                   src={product.image}
                   alt={`${product.name} product preview`}
-                  className="aspect-[16/10] w-full object-cover"
+                  className="aspect-[16/10] w-full object-contain p-4"
                 />
               </div>
 

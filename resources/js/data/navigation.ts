@@ -5,7 +5,6 @@ export interface NavLink {
 
 export const navLinks: NavLink[] = [
   { label: 'Home', href: '/' },
-  { label: 'Platform', href: '/platform' },
   { label: 'Products', href: '/products' },
   { label: 'Industries', href: '/industries' },
   { label: 'Pricing', href: '/pricing' },
@@ -20,14 +19,14 @@ export interface FooterColumn {
 
 export const footerColumns: FooterColumn[] = [
   {
-    title: 'Platform',
+    title: 'Products',
     links: [
-      { label: 'Sales & POS', href: '/platform' },
-      { label: 'Inventory', href: '/platform' },
-      { label: 'Accounting', href: '/platform' },
-      { label: 'Procurement', href: '/platform' },
-      { label: 'CRM', href: '/platform' },
-      { label: 'Workforce', href: '/platform' },
+      { label: 'Asas POS', href: '/products/pos' },
+      { label: 'Asas Pharmacy', href: '/products/pharmacy' },
+      { label: 'Asas Restaurant', href: '/products/restaurant' },
+      { label: 'Asas Distribution', href: '/products/distribution' },
+      { label: 'Asas Services', href: '/products/services' },
+      { label: 'Asas Inventory', href: '/products/inventory' },
     ],
   },
   {
@@ -43,7 +42,7 @@ export const footerColumns: FooterColumn[] = [
   {
     title: 'Company',
     links: [
-      { label: 'Products', href: '/products' },
+      { label: 'All products', href: '/products' },
       { label: 'Pricing', href: '/pricing' },
       { label: 'FAQ', href: '/faq' },
       { label: 'Contact Sales', href: '/contact' },

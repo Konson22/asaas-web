@@ -76,8 +76,8 @@ export const products: Product[] = [
     ],
     access: ['cloud', 'desktop'],
     downloadUrl: '#',
-    launchUrl: 'https://pharma.asaasvantage.com',
-    image: '/images/products/dashboard-devices-blue.png',
+    launchUrl: 'http://pharma.asaas.local',
+    image: '/images/products/pharmacy.png',
   },
   {
     id: 'restaurant',
@@ -97,7 +97,7 @@ export const products: Product[] = [
     ],
     access: ['cloud', 'desktop'],
     downloadUrl: '#',
-    image: '/images/products/dashboard-devices-bright.png',
+    image: '/images/products/restaurant.png',
   },
   {
     id: 'distribution',
@@ -116,7 +116,7 @@ export const products: Product[] = [
     ],
     access: ['cloud', 'desktop'],
     downloadUrl: '#',
-    image: '/images/warehouse-inventory.jpg',
+    image: '/images/products/inventory.png',
   },
   {
     id: 'services',
@@ -155,7 +155,7 @@ export const products: Product[] = [
     ],
     access: ['cloud', 'desktop'],
     downloadUrl: '#',
-    launchUrl: 'https://inventory.asaasvantage.com',
+    launchUrl: 'http://inventory.asaas.local',
     image: '/images/products/inventory.png',
   },
 ]

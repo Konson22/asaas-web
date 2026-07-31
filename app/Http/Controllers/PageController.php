@@ -23,11 +23,6 @@ class PageController extends Controller
         return Inertia::render('Home');
     }
 
-    public function platform(): Response
-    {
-        return Inertia::render('Platform');
-    }
-
     public function industries(): Response
     {
         return Inertia::render('Industries');

@@ -5,18 +5,11 @@ import { PageHero } from '@/components/common/PageHero'
 import { Container } from '@/components/common/Container'
 import { Reveal } from '@/components/common/Reveal'
 import { Card } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { CtaSection } from '@/sections/home/CtaSection'
-import { products, type Product } from '@/data/products'
+import { products } from '@/data/products'
 import { useRegisterableApplications } from '@/hooks/useRegisterableApplications'
 import { getPlatformUrl } from '@/lib/platform'
-
-const accessLabels: Record<Product['access'][number], string> = {
-  cloud: 'Cloud',
-  desktop: 'Desktop',
-  mobile: 'iOS & Android',
-}
 
 export default function ProductsPage() {
   const registerableApplications = useRegisterableApplications()
@@ -27,58 +20,49 @@ export default function ProductsPage() {
       <PageTitle title="Products" />
       <PageHero
         eyebrow="Products"
-        title="Every app in the Asas Vantage family"
-        description="Pick a product to create your account — then set up your business and start a free trial. Every app stays connected to the same data."
+        title="Choose the product built for your business"
+        description="Each Asas Vantage product is purpose-built for a specific industry. Pick one to start a free trial — or learn more before you decide."
       />
 
-      <section className="bg-background py-24">
-        <Container className="flex flex-col gap-8">
+      <section id="products" className="scroll-mt-20 bg-background py-24">
+        <Container>
           <div className="grid gap-8 sm:grid-cols-2 xl:grid-cols-3">
             {products.map((product) => {
-              const Icon = product.icon
               const canRegister = Boolean(
                 product.applicationCode && registerable.has(product.applicationCode),
               )
 
               return (
                 <Reveal key={product.id}>
-                  <Card className="flex h-full flex-col overflow-hidden transition-shadow hover:shadow-md">
+                  <Card className="flex h-full flex-col overflow-hidden border-0 bg-white shadow-none">
                     <Link
                       href={`/products/${product.id}`}
-                      className="relative block aspect-[16/10] overflow-hidden bg-background outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-inset"
+                      className="relative block aspect-[16/10] overflow-hidden bg-white outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-inset"
                       aria-label={`Learn more about ${product.name}`}
                     >
                       <img
                         src={product.image}
                         alt={`${product.name} product preview`}
-                        className="size-full object-cover transition-transform duration-300 hover:scale-[1.02]"
+                        className="size-full object-contain p-2 transition-transform duration-300 hover:scale-[1.02]"
                         loading="lazy"
                       />
                     </Link>
 
-                    <div className="flex flex-1 flex-col gap-4 p-6">
-                      <div className="flex items-start gap-3">
-                        <span className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                          <Icon className="size-5" />
-                        </span>
-                        <div className="flex min-w-0 flex-wrap items-center gap-2">
-                          {product.access.map((access) => (
-                            <Badge key={access} variant="primary">
-                              {accessLabels[access]}
-                            </Badge>
-                          ))}
-                          {canRegister ? <Badge variant="primary">Free trial</Badge> : null}
-                        </div>
-                      </div>
-
+                    <div className="flex flex-1 flex-col gap-5 p-6">
                       <div>
                         <h2 className="text-xl font-bold text-ink">{product.name}</h2>
                         <p className="mt-1 text-sm font-semibold text-primary">{product.tagline}</p>
                       </div>
 
-                      <p className="line-clamp-3 text-sm text-ink-muted">{product.description}</p>
+                      <ul className="flex flex-col gap-2">
+                        {product.features.slice(0, 3).map((feature) => (
+                          <li key={feature} className="text-sm text-ink-muted">
+                            {feature}
+                          </li>
+                        ))}
+                      </ul>
 
-                      <div className="mt-auto flex flex-col gap-3 pt-2 sm:flex-row">
+                      <div className="mt-auto flex flex-col gap-3 pt-1 sm:flex-row">
                         <Button variant="outline" asChild className="flex-1">
                           <Link href={`/products/${product.id}`}>
                             Learn more
@@ -108,7 +92,20 @@ export default function ProductsPage() {
         </Container>
       </section>
 
-      <CtaSection />
+      <CtaSection
+        title="Not sure which product fits?"
+        description="Tell us how you run your business and we’ll recommend the right Asas Vantage product — or walk you through a live demo."
+        actions={
+          <>
+            <Button variant="cta" size="lg" asChild>
+              <Link href="/contact">Request a demo</Link>
+            </Button>
+            <Button variant="secondary" size="lg" asChild>
+              <Link href="/contact">Contact sales</Link>
+            </Button>
+          </>
+        }
+      />
     </>
   )
 }

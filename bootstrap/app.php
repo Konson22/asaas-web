@@ -18,6 +18,15 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->trustProxies(at: '*');
 
+        $middleware->trustHosts(at: function () {
+            return array_values(array_filter(array_unique([
+                parse_url((string) config('app.url'), PHP_URL_HOST),
+                parse_url((string) config('app.platform_url'), PHP_URL_HOST),
+                'localhost',
+                '127.0.0.1',
+            ])));
+        }, subdomains: true);
+
         $middleware->web(append: [
             HandleInertiaRequests::class,
             AddLinkHeadersForPreloadedAssets::class,

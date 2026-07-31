@@ -13,9 +13,9 @@ export function ConnectedPlatformSection() {
     <section className="bg-surface py-24">
       <Container className="flex flex-col gap-14">
         <SectionHeading
-          eyebrow="Connected Platform"
+          eyebrow="Connected"
           title="One workflow, from purchase order to profit report"
-          description="Every module feeds the next automatically — nothing re-entered, nothing out of sync."
+          description="Every product feeds the next automatically — nothing re-entered, nothing out of sync."
         />
 
         <div className="flex flex-col items-center gap-2 lg:flex-row lg:justify-between lg:gap-0">
