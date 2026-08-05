@@ -63,7 +63,7 @@ return [
     |
     */
 
-    'platform_url' => env('PLATFORM_URL', 'https://app.asaasvantage.com'),
+    'platform_url' => env('PLATFORM_URL', 'https://platform.asaasvantage.com'),
 
     /*
     |--------------------------------------------------------------------------

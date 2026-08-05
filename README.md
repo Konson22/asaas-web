@@ -19,7 +19,7 @@ Point the web server document root at `marketing/public` for `asaasvantage.com`.
 | Variable | Purpose |
 |---|---|
 | `APP_URL` | This site (`https://asaasvantage.com`) |
-| `PLATFORM_URL` / `VITE_PLATFORM_URL` | Central platform (`https://app.asaasvantage.com`) for Sign in / Get started and marketing APIs |
+| `PLATFORM_URL` / `VITE_PLATFORM_URL` | Central platform (`https://platform.asaasvantage.com`) for Sign in / Get started and marketing APIs |
 
 `VITE_PLATFORM_URL` is baked in at build time — always run `npm run build` after changing it.
 
@@ -29,8 +29,8 @@ Point the web server document root at `marketing/public` for `asaasvantage.com`.
 APP_ENV=production
 APP_DEBUG=false
 APP_URL=https://asaasvantage.com
-PLATFORM_URL=https://app.asaasvantage.com
-VITE_PLATFORM_URL=https://app.asaasvantage.com
+PLATFORM_URL=https://platform.asaasvantage.com
+VITE_PLATFORM_URL=https://platform.asaasvantage.com
 
 composer install --no-dev --optimize-autoloader
 php artisan config:cache

@@ -17,7 +17,7 @@ import { ProductImplementation } from '@/sections/product/ProductImplementation'
 import { ProductAddons } from '@/sections/product/ProductAddons'
 import { RelatedProducts } from '@/sections/product/RelatedProducts'
 import { useRegisterableApplications } from '@/hooks/useRegisterableApplications'
-import { getPlatformUrl } from '@/lib/platform'
+import { getProductRegisterUrl } from '@/lib/platform'
 import { getProductVisual } from '@/lib/productVisuals'
 import type { ProductDetail as ProductDetailType } from '@/types/catalog'
 
@@ -70,7 +70,7 @@ export default function ProductDetailPage({ product }: { product: ProductDetailT
         <div className="flex flex-col gap-3 sm:flex-row">
           {showTrialCta && product.capability_badges.includes('cloud') && canRegister ? (
             <Button variant="cta" asChild>
-              <a href={getPlatformUrl(`/get-started/${product.code}`)}>
+              <a href={getProductRegisterUrl(product.code)}>
                 <Cloud className="size-4" />
                 {primaryLabel}
               </a>

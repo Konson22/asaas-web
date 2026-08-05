@@ -9,7 +9,7 @@ import { Button } from '@/components/ui/button'
 import { CtaSection } from '@/sections/home/CtaSection'
 import { useProducts } from '@/hooks/useProducts'
 import { useRegisterableApplications } from '@/hooks/useRegisterableApplications'
-import { getPlatformUrl } from '@/lib/platform'
+import { getProductRegisterUrl } from '@/lib/platform'
 import { getProductVisual } from '@/lib/productVisuals'
 
 export default function ProductsPage() {
@@ -102,7 +102,7 @@ export default function ProductsPage() {
                           </Button>
                           {isCloud && canRegister ? (
                             <Button variant="primary" asChild className="flex-1">
-                              <a href={getPlatformUrl(`/get-started/${product.code}`)}>
+                              <a href={getProductRegisterUrl(product.code)}>
                                 <Cloud className="size-4" />
                                 Get started
                               </a>
