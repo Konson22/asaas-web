@@ -2,10 +2,8 @@ import { lazy, Suspense } from 'react'
 import { PageTitle } from '@/components/common/PageTitle'
 import { PageHero } from '@/components/common/PageHero'
 import { CtaSection } from '@/sections/home/CtaSection'
+import { CatalogPricingSection } from '@/sections/pricing/CatalogPricingSection'
 
-const PricingSection = lazy(() =>
-  import('@/sections/home/PricingSection').then((m) => ({ default: m.PricingSection })),
-)
 const FaqSection = lazy(() =>
   import('@/sections/home/FaqSection').then((m) => ({ default: m.FaqSection })),
 )
@@ -17,15 +15,13 @@ function SectionFallback() {
 export default function PricingPage() {
   return (
     <>
-      <PageTitle title="Pricing" />
+      <PageTitle title="Asas Pricing and Deployment Options" />
       <PageHero
         eyebrow="Pricing"
-        title="Simple plans that scale with you"
-        description="Start free and grow into the plan that fits — online subscription, manual approval, or an offline license."
+        title="Flexible pricing for every business"
+        description="Choose cloud subscriptions, offline desktop licences, local-server deployment, or desktop applications with cloud synchronization. Asas pricing is designed for businesses of different sizes, industries, and connectivity environments."
       />
-      <Suspense fallback={<SectionFallback />}>
-        <PricingSection />
-      </Suspense>
+      <CatalogPricingSection />
       <Suspense fallback={<SectionFallback />}>
         <FaqSection />
       </Suspense>

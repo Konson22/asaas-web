@@ -9,7 +9,6 @@ export function FoundationSection() {
     <section className="bg-surface py-24">
       <Container className="flex flex-col gap-12">
         <SectionHeading
-          eyebrow="The Asas Vantage Foundation"
           title="Every Asas product runs on the same resilient stack"
           description="Cloud, desktop, mobile, and multi-branch — the same modern technology underneath every purpose-built solution."
         />

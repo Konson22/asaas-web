@@ -1,155 +1,108 @@
-import { Link, usePage } from '@inertiajs/react'
-import { ArrowLeft, Check, Cloud, Download, ExternalLink, Smartphone } from 'lucide-react'
+import { Cloud } from 'lucide-react'
 import { PageTitle } from '@/components/common/PageTitle'
 import { PageHero } from '@/components/common/PageHero'
-import { Container } from '@/components/common/Container'
-import { Reveal } from '@/components/common/Reveal'
+import { Breadcrumbs } from '@/components/common/Breadcrumbs'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { CtaSection } from '@/sections/home/CtaSection'
-import { getProductById, type Product } from '@/data/products'
+import { ProductOverview } from '@/sections/product/ProductOverview'
+import { ProductAudiences } from '@/sections/product/ProductAudiences'
+import { ProductBenefits } from '@/sections/product/ProductBenefits'
+import { ProductCapabilities } from '@/sections/product/ProductCapabilities'
+import { ProductFeatures } from '@/sections/product/ProductFeatures'
+import { ProductSubscriptionPlans } from '@/sections/product/ProductSubscriptionPlans'
+import { ProductDeploymentOptions } from '@/sections/product/ProductDeploymentOptions'
+import { ProductRequirements } from '@/sections/product/ProductRequirements'
+import { ProductImplementation } from '@/sections/product/ProductImplementation'
+import { ProductAddons } from '@/sections/product/ProductAddons'
+import { RelatedProducts } from '@/sections/product/RelatedProducts'
 import { useRegisterableApplications } from '@/hooks/useRegisterableApplications'
 import { getPlatformUrl } from '@/lib/platform'
-import NotFoundPage from '@/pages/NotFound'
+import { getProductVisual } from '@/lib/productVisuals'
+import type { ProductDetail as ProductDetailType } from '@/types/catalog'
 
-const accessLabels: Record<Product['access'][number], string> = {
+const capabilityLabels: Record<string, string> = {
   cloud: 'Cloud',
   desktop: 'Desktop',
-  mobile: 'iOS & Android',
+  offline: 'Offline',
+  cloud_sync: 'Cloud Sync',
+  local_server: 'Local Server',
 }
 
-export default function ProductDetailPage() {
-  const { productId } = usePage<{ productId: string }>().props
+export default function ProductDetailPage({ product }: { product: ProductDetailType }) {
   const registerableApplications = useRegisterableApplications()
-  const product = getProductById(productId)
+  const canRegister = registerableApplications.includes(product.code)
+  const visual = getProductVisual(product.code)
 
-  if (!product) {
-    return <NotFoundPage />
-  }
+  const showTrialCta =
+    Boolean(product.trial_days) &&
+    product.status !== 'coming_soon' &&
+    !(product.starting_price.is_custom && product.deployment_options.length === 1)
 
-  const Icon = product.icon
-  const canRegister = Boolean(
-    product.applicationCode && registerableApplications.includes(product.applicationCode),
-  )
+  const primaryLabel = product.primary_cta_label || (showTrialCta ? 'Start Free Trial' : 'Request a Quote')
+  const secondaryLabel = product.secondary_cta_label || 'Request a Quote'
 
   return (
     <>
-      <PageTitle title={product.name} />
-      <PageHero eyebrow="Products" title={product.name} description={product.tagline}>
+      <PageTitle title={product.seo.title} />
+      <PageHero eyebrow={product.category?.name ?? 'Products'} title={product.name} description={product.tagline ?? undefined}>
+        <Breadcrumbs
+          items={[{ label: 'Home', href: '/' }, { label: 'Products', href: '/products' }, { label: product.name }]}
+        />
+
         <div className="flex flex-wrap items-center gap-2">
-          {product.access.map((access) => (
-            <Badge key={access} variant="inverted">
-              {accessLabels[access]}
+          {product.capability_badges.map((c) => (
+            <Badge key={c} variant="inverted">
+              {capabilityLabels[c] ?? c}
             </Badge>
           ))}
-          {canRegister ? <Badge variant="inverted">Free trial</Badge> : null}
+          {product.status === 'coming_soon' ? <Badge variant="inverted">Coming soon</Badge> : null}
         </div>
+
+        <p className="text-lg font-semibold text-white">
+          {product.starting_price.is_custom
+            ? 'Custom pricing'
+            : product.starting_price.amount !== null
+              ? `Starting from ${product.starting_price.formatted}/month`
+              : null}
+        </p>
+
         <div className="flex flex-col gap-3 sm:flex-row">
-          {product.access.includes('cloud') && product.applicationCode && canRegister ? (
+          {showTrialCta && product.capability_badges.includes('cloud') && canRegister ? (
             <Button variant="cta" asChild>
-              <a href={getPlatformUrl(`/get-started/${product.applicationCode}`)}>
+              <a href={getPlatformUrl(`/get-started/${product.code}`)}>
                 <Cloud className="size-4" />
-                Get started
+                {primaryLabel}
               </a>
             </Button>
-          ) : product.access.includes('cloud') ? (
-            <Button variant="secondary" disabled>
-              <Cloud className="size-4" />
-              Coming soon
+          ) : (
+            <Button variant="cta" asChild>
+              <a href="/contact">{primaryLabel}</a>
             </Button>
-          ) : null}
+          )}
           <Button variant="secondary" asChild>
-            <Link href="/products">
-              <ArrowLeft className="size-4" />
-              All products
-            </Link>
+            <a href="/contact">{secondaryLabel}</a>
           </Button>
         </div>
+
+        {visual.image ? (
+          <div className="mt-4 w-full max-w-2xl overflow-hidden rounded-card bg-white/5 p-4">
+            <img src={visual.image} alt={`${product.name} preview`} className="aspect-[16/9] w-full object-contain" />
+          </div>
+        ) : null}
       </PageHero>
 
-      <section className="bg-background py-24">
-        <Container className="flex flex-col gap-16">
-          <Reveal>
-            <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
-              <div className="overflow-hidden rounded-card border border-border bg-surface shadow-[0_2px_8px_rgb(15,31,68,0.06)]">
-                <img
-                  src={product.image}
-                  alt={`${product.name} product preview`}
-                  className="aspect-[16/10] w-full object-contain p-4"
-                />
-              </div>
-
-              <div className="flex flex-col gap-5">
-                <div className="flex items-center gap-3">
-                  <span className="flex size-11 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                    <Icon className="size-5" />
-                  </span>
-                  <h2 className="text-2xl font-bold text-ink sm:text-3xl">{product.name}</h2>
-                </div>
-
-                <p className="text-base text-ink-muted">{product.description}</p>
-
-                <div className="flex flex-col gap-3 sm:flex-row">
-                  {product.access.includes('cloud') && product.applicationCode && canRegister ? (
-                    <Button variant="primary" asChild>
-                      <a href={getPlatformUrl(`/get-started/${product.applicationCode}`)}>
-                        <Cloud className="size-4" />
-                        Get started
-                      </a>
-                    </Button>
-                  ) : product.access.includes('cloud') ? (
-                    <Button variant="outline" disabled>
-                      <Cloud className="size-4" />
-                      Coming soon
-                    </Button>
-                  ) : null}
-                  {product.access.includes('desktop') && product.downloadUrl ? (
-                    <Button variant="outline" asChild>
-                      <a href={product.downloadUrl} download>
-                        <Download className="size-4" />
-                        Download for Desktop
-                      </a>
-                    </Button>
-                  ) : null}
-                  {product.access.includes('mobile') && product.downloadUrl ? (
-                    <Button variant="outline" asChild>
-                      <a href={product.downloadUrl}>
-                        <Smartphone className="size-4" />
-                        Get the App
-                      </a>
-                    </Button>
-                  ) : null}
-                  {product.launchUrl ? (
-                    <Button variant="outline" asChild>
-                      <a href={product.launchUrl} target="_blank" rel="noopener noreferrer">
-                        <ExternalLink className="size-4" />
-                        Launch App
-                      </a>
-                    </Button>
-                  ) : null}
-                </div>
-              </div>
-            </div>
-          </Reveal>
-
-          <Reveal>
-            <div className="flex flex-col gap-6">
-              <h3 className="text-2xl font-bold text-ink">What you get</h3>
-              <ul className="grid gap-3 sm:grid-cols-2">
-                {product.features.map((feature) => (
-                  <li
-                    key={feature}
-                    className="flex items-start gap-2.5 rounded-lg border border-border bg-surface px-4 py-3 text-sm text-ink"
-                  >
-                    <Check className="mt-0.5 size-4 shrink-0 text-primary" />
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </Reveal>
-        </Container>
-      </section>
+      <ProductOverview product={product} />
+      <ProductAudiences product={product} />
+      <ProductBenefits product={product} />
+      <ProductCapabilities product={product} />
+      <ProductFeatures product={product} />
+      <ProductSubscriptionPlans product={product} />
+      <ProductDeploymentOptions product={product} />
+      <ProductRequirements product={product} />
+      <ProductImplementation product={product} />
+      <ProductAddons product={product} />
+      <RelatedProducts product={product} />
 
       <CtaSection />
     </>

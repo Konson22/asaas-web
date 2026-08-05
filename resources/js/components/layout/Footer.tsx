@@ -2,8 +2,17 @@ import { Link } from '@inertiajs/react'
 import { Container } from '@/components/common/Container'
 import { Logo } from '@/components/common/Logo'
 import { footerColumns } from '@/data/navigation'
+import { useProducts } from '@/hooks/useProducts'
 
 export function Footer() {
+  const { products } = useProducts()
+
+  const columns = footerColumns.map((column) =>
+    column.title === 'Products' && products.length > 0
+      ? { ...column, links: products.map((p) => ({ label: p.name, href: `/products/${p.slug}` })) }
+      : column,
+  )
+
   return (
     <footer className="bg-primary-darker text-white">
       <Container className="grid gap-12 py-16 lg:grid-cols-[1.2fr_2fr]">
@@ -17,7 +26,7 @@ export function Footer() {
         </div>
 
         <div className="grid grid-cols-2 gap-8 sm:grid-cols-3">
-          {footerColumns.map((column) => (
+          {columns.map((column) => (
             <div key={column.title} className="flex flex-col gap-3">
               <h3 className="text-sm font-semibold text-white">{column.title}</h3>
               <ul className="flex flex-col gap-2.5">

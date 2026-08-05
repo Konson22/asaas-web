@@ -9,7 +9,6 @@ export function PowerfulFeaturesSection() {
     <section className="bg-surface py-24">
       <Container className="flex flex-col gap-12">
         <SectionHeading
-          eyebrow="Powerful Features"
           title="Capabilities that go beyond checkout"
           description="AI, business intelligence, hardware support, and integrations — built into every Asas Vantage product."
         />

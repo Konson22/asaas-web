@@ -13,7 +13,6 @@ export function CustomDevelopmentSection() {
       <Container className="relative flex flex-col items-center gap-10 text-center">
         <SectionHeading
           tone="dark"
-          eyebrow="Custom Development"
           title="Software That Fits You"
           description="Don’t change your business to fit the software. We’ll adapt the software to fit your business. Beyond our core platforms, our engineering team offers:"
         />

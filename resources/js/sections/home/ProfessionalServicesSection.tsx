@@ -9,7 +9,6 @@ export function ProfessionalServicesSection() {
     <section className="bg-background py-24">
       <Container className="flex flex-col gap-12">
         <SectionHeading
-          eyebrow="Professional Services"
           title="The expertise to make your implementation succeed"
           description="Beyond software, we provide the hands-on support that gets you live and keeps you running."
         />

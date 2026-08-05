@@ -60,20 +60,19 @@ export function HeroSection() {
       <Container className="relative grid gap-16 py-12 lg:grid-cols-2 lg:items-center lg:py-16">
         <div className="flex flex-col items-start gap-6">
           <h1 className="text-4xl font-bold leading-[1.1] text-white sm:text-5xl lg:text-6xl">
-            One Platform. Purpose-Built Business Solutions.
+            The business platform built for South Sudan — not adapted for it.
           </h1>
           <p className="max-w-lg text-lg text-white/70">
-            Whether you run a retail store, pharmacy, restaurant, warehouse, or service business,
-            Asas Vantage delivers powerful software built specifically for your industry. Deploy
-            in the cloud, as an offline desktop app, or use our hybrid solution for automatic
-            synchronization — so your business never stops.
+            Retail, wholesale, pharmacy, restaurant, and service businesses across Juba run on
+            Asas Vantage — a single system for sales, inventory, accounting, HR, and procurement
+            that works whether you're connected or not.
           </p>
           <div className="flex flex-col gap-3 sm:flex-row">
             <Button variant="cta" size="lg" asChild>
-              <Link href="/products">Explore Products</Link>
+              <Link href="/contact">Request a Demo</Link>
             </Button>
             <Button variant="secondary" size="lg" asChild>
-              <Link href="/contact">Start Free Trial</Link>
+              <Link href="/contact">Talk to Our Team</Link>
             </Button>
           </div>
         </div>

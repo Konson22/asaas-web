@@ -19,14 +19,15 @@ export interface FooterColumn {
 
 export const footerColumns: FooterColumn[] = [
   {
+    // Static fallback only — Footer.tsx replaces this with the live catalogue once
+    // `useProducts()` resolves. Kept in sync with the real product slugs so a briefly
+    // unreachable API doesn't show broken links instead.
     title: 'Products',
     links: [
-      { label: 'Asas POS', href: '/products/pos' },
-      { label: 'Asas Pharmacy', href: '/products/pharmacy' },
-      { label: 'Asas Restaurant', href: '/products/restaurant' },
-      { label: 'Asas Distribution', href: '/products/distribution' },
-      { label: 'Asas Services', href: '/products/services' },
-      { label: 'Asas Inventory', href: '/products/inventory' },
+      { label: 'Asas Retail POS', href: '/products/asas-retail-pos' },
+      { label: 'Asas Pharmacy', href: '/products/asas-pharmacy' },
+      { label: 'Asas Inventory', href: '/products/asas-inventory' },
+      { label: 'Asas Institute', href: '/products/asas-institute' },
     ],
   },
   {

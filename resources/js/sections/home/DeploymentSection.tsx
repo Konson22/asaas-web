@@ -9,7 +9,6 @@ export function DeploymentSection() {
     <section id="deployment" className="scroll-mt-20 bg-background py-24">
       <Container className="flex flex-col gap-12">
         <SectionHeading
-          eyebrow="Flexible Deployment Options"
           title="Choose the infrastructure that fits your operational reality"
           description="Cloud, desktop, hybrid, or mobile — deploy Asas Vantage the way that fits your infrastructure and connectivity."
         />

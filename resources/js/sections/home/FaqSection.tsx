@@ -9,7 +9,6 @@ export function FaqSection() {
     <section id="faq" className="scroll-mt-20 bg-background py-24">
       <Container className="flex flex-col gap-12">
         <SectionHeading
-          eyebrow="FAQ"
           title="Common questions"
           description="Everything you need to know about deployment, permissions, and how Asas Vantage fits your business."
         />

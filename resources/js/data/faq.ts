@@ -65,4 +65,46 @@ export const faqItems: FaqItem[] = [
     answer:
       'Yes, white-label branding is available where applicable, typically as part of an Enterprise or custom development engagement — contact sales to discuss your requirements.',
   },
+  {
+    id: 'works-without-internet',
+    question: 'Can Asas work without internet?',
+    answer:
+      'Yes, depending on the deployment you choose. Offline Single PC and Offline Local Server run entirely without internet, and Desktop with Cloud Sync keeps working offline and synchronizes automatically once connectivity returns. Cloud subscriptions require internet access.',
+  },
+  {
+    id: 'local-server-hardware',
+    question: 'Does the local-server price include computers and networking equipment?',
+    answer:
+      'No. The Offline Local Server price covers the software licence, installation, database configuration, mini-server setup, workstation connection, initial testing, and basic training. The client provides the mini-server PC, workstations, router or switch, cabling, UPS, printers, and scanners unless separately quoted.',
+  },
+  {
+    id: 'multiple-products',
+    question: 'Can I start with one product and add another later?',
+    answer:
+      'Yes. Each Asas product is purchased and licensed independently, so you can start with the one you need most and add others as your business grows.',
+  },
+  {
+    id: 'first-year-included',
+    question: 'What is included in the first year?',
+    answer:
+      'For perpetual (one-time) licences, the first year includes standard software updates and support at no extra cost. Annual maintenance after the first year is calculated at 20% of the original licence value unless otherwise stated.',
+  },
+  {
+    id: 'installation-training-included',
+    question: 'Do you provide installation and training?',
+    answer:
+      'Yes, initial installation and basic training are included with every deployment. Additional on-site training, data migration, and custom setup are available as optional services.',
+  },
+  {
+    id: 'offline-to-cloud-upgrade',
+    question: 'Can I upgrade from offline to cloud synchronization?',
+    answer:
+      'Yes. You can move from an offline deployment to Desktop with Cloud Sync or a full Cloud subscription — upgrades are possible but may involve implementation fees depending on scope.',
+  },
+  {
+    id: 'enterprise-pricing',
+    question: 'Is enterprise pricing available?',
+    answer:
+      'Yes. Enterprise deployments are quotation-based and tailored to dedicated infrastructure, custom integrations, data migration, training, and service-level support for large organizations.',
+  },
 ]

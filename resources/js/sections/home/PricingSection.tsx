@@ -14,7 +14,6 @@ export function PricingSection() {
     <section id="pricing" className="scroll-mt-20 bg-surface py-24">
       <Container className="flex flex-col gap-14">
         <SectionHeading
-          eyebrow="Pricing"
           title="Transparent pricing based on how you choose to deploy"
           description="Start free, upgrade as you grow, or move to an offline license when you need it."
         />
