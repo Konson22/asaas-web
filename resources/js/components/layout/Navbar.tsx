@@ -57,13 +57,16 @@ export function Navbar() {
       <TopBar />
       <header
         className={cn(
-          'border-b bg-background transition-shadow duration-300',
+          // Matches the logo files' own baked-in background exactly (sampled from
+          // dark-logo.png / light-logo.png) rather than the generic theme background,
+          // so the logo blends with no visible edge.
+          'border-b bg-[#fefefe] transition-shadow duration-300 dark:bg-[#0c1019]',
           scrolled ? 'border-border shadow-md shadow-black/[0.03] dark:shadow-black/20' : 'border-border/60',
         )}
       >
-        <Container className="flex items-center justify-between py-3">
+        <Container className="flex items-center justify-between">
           <Link href="/" className="shrink-0" aria-label="MileSoftwares home">
-            <Logo className="h-8" />
+            <Logo className="h-16" />
           </Link>
 
           <nav className="hidden items-center gap-1 lg:flex" aria-label="Primary">
