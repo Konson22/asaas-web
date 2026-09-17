@@ -14,7 +14,7 @@ export function ProductShowcaseSection() {
   }
 
   return (
-    <section className="scroll-mt-20 relative overflow-hidden bg-navy-purple py-24">
+    <section className="scroll-mt-20 relative overflow-hidden bg-navy-deep py-24">
       <div className="pointer-events-none absolute -left-20 top-10 h-80 w-80 rounded-full border border-white/10" />
       <Container className="relative flex flex-col gap-12">
         <SectionHeading
@@ -22,7 +22,7 @@ export function ProductShowcaseSection() {
           title={
             <>
               Choose the solution built for your{' '}
-              <span className="text-accent">exact</span> operational reality
+              <span className="text-primary">exact</span> operational reality
             </>
           }
           description="Stop paying for generic modules you don’t need. Every Asas product is engineered for a specific way of doing business."
@@ -47,7 +47,7 @@ export function ProductShowcaseSection() {
                 <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
                   <div className="flex flex-col gap-4">
                     <h3 className="text-2xl font-bold text-white sm:text-3xl">{product.name}</h3>
-                    {product.tagline ? <p className="text-base font-semibold text-accent">{product.tagline}</p> : null}
+                    {product.tagline ? <p className="text-base font-semibold text-primary">{product.tagline}</p> : null}
                     {product.short_description ? (
                       <p className="text-base text-ink-muted">{product.short_description}</p>
                     ) : null}
@@ -63,7 +63,7 @@ export function ProductShowcaseSection() {
                           loading="lazy"
                         />
                       ) : (
-                        <div className="flex aspect-[4/3] w-full items-center justify-center bg-primary/10 text-accent">
+                        <div className="flex aspect-[4/3] w-full items-center justify-center bg-primary/10 text-primary">
                           {(() => {
                             const Icon = getProductVisual(product.code).icon
                             return <Icon className="size-16" />

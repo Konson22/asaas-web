@@ -31,7 +31,7 @@ export default function ProductsPage() {
         eyebrow="Products"
         title={
           <>
-            Choose the product built for your <span className="text-accent">business</span>
+            Choose the product built for your <span className="text-primary">business</span>
           </>
         }
         description="Each MileSoftware product is purpose-built for a specific industry. Pick one to start a free trial — or learn more before you decide."

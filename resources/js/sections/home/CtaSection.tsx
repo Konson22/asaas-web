@@ -28,7 +28,7 @@ export function CtaSection({
 }: CtaSectionProps) {
   if (layout === 'banner') {
     return (
-      <section id="cta" className="scroll-mt-20 relative overflow-hidden bg-purple-electric">
+      <section id="cta" className="scroll-mt-20 relative overflow-hidden bg-brand-gradient">
         <div className="pointer-events-none absolute inset-0 grid-pattern" />
         <div className="relative clip-cta-diagonal">
           <Container className="flex flex-col items-start justify-between gap-6 py-16 sm:flex-row sm:items-center sm:py-20">
@@ -48,10 +48,10 @@ export function CtaSection({
   }
 
   return (
-    <section id="cta" className="scroll-mt-20 relative overflow-hidden bg-purple-electric py-24 lg:py-32">
+    <section id="cta" className="scroll-mt-20 relative overflow-hidden bg-brand-gradient py-24 lg:py-32">
       <div className="pointer-events-none absolute inset-0 grid-pattern" />
       <Container className="relative flex flex-col items-center gap-6 text-center">
-        <p className="text-sm font-semibold uppercase tracking-[0.14em] text-lime">{eyebrow}</p>
+        <p className="text-sm font-semibold uppercase tracking-[0.14em] text-white/90">{eyebrow}</p>
         <h2 className="max-w-2xl text-3xl font-bold text-white sm:text-4xl lg:text-5xl">{title}</h2>
         {subheading ? (
           <p className="max-w-xl text-xl font-semibold text-white/85 sm:text-2xl">{subheading}</p>
@@ -66,7 +66,12 @@ export function CtaSection({
                   <ArrowRight className="size-4" />
                 </Link>
               </Button>
-              <Button variant="secondary" size="lg" asChild>
+              <Button
+                variant="secondary"
+                size="lg"
+                className="text-white border-white/30 hover:border-white/50 hover:bg-white/10"
+                asChild
+              >
                 <Link href="/contact">
                   <MessageCircle className="size-4" />
                   Request a Demo
@@ -79,7 +84,7 @@ export function CtaSection({
           <p className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 pt-4 text-sm font-medium text-white/70">
             {productLine.map((item, index) => (
               <span key={item} className="flex items-center gap-2">
-                {index > 0 ? <span className="text-lime">•</span> : null}
+                {index > 0 ? <span className="text-white/50">•</span> : null}
                 {item}
               </span>
             ))}

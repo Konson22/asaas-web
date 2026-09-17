@@ -13,7 +13,7 @@ export function FoundationSection() {
           title={
             <>
               Every Asas product runs on the same{' '}
-              <span className="text-accent">resilient</span> stack
+              <span className="text-primary">resilient</span> stack
             </>
           }
           description="Cloud, desktop, mobile, and multi-branch — the same modern technology underneath every purpose-built solution."

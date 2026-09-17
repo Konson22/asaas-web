@@ -10,7 +10,7 @@ export function ProblemSection() {
           title={
             <>
               Software built elsewhere assumes a world that doesn&apos;t look like{' '}
-              <span className="text-accent">Juba</span>.
+              <span className="text-primary">Juba</span>.
             </>
           }
         />

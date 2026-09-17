@@ -51,7 +51,7 @@ export default function ContactPage() {
                   <p className="mt-0.5 text-sm text-ink-muted">{channel.description}</p>
                   <a
                     href={channel.href}
-                    className="mt-2 inline-block text-sm font-semibold text-accent hover:underline"
+                    className="mt-2 inline-block text-sm font-semibold text-primary hover:underline"
                   >
                     {channel.detail}
                   </a>

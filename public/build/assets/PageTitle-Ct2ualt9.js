@@ -1,0 +1,1 @@
+import{n as e}from"./Container-CAEMIfHs.js";import{b as t}from"./app-B58uE6QT.js";var n=e();function r({title:e}){return(0,n.jsx)(t,{title:e})}export{r as t};

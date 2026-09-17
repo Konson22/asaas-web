@@ -41,9 +41,9 @@ export function ProfessionalsSection() {
 
         <div className="flex flex-col gap-8">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-wide text-accent">We’re professionals</p>
+            <p className="text-sm font-semibold uppercase tracking-wide text-primary">We’re professionals</p>
             <h2 className="mt-3 text-3xl font-bold text-ink sm:text-4xl">
-              Built here. <span className="text-accent">Supported here.</span>
+              Built here. <span className="text-primary">Supported here.</span>
             </h2>
             <p className="mt-4 text-base text-ink-muted">
               MileSoftware isn’t a regional product with South Sudan added to a country list. It’s

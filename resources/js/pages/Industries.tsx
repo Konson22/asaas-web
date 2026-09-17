@@ -20,7 +20,7 @@ export default function IndustriesPage() {
         eyebrow="Industries"
         title={
           <>
-            Built for the way your industry <span className="text-accent">works</span>
+            Built for the way your industry <span className="text-primary">works</span>
           </>
         }
         description="From retail counters to pharmacy compliance and restaurant floors — MileSoftware adapts to your workflows, not the other way around."

@@ -20,7 +20,7 @@ export function Footer() {
     <footer className="bg-primary-darker text-white">
       <Container className="grid gap-12 py-16 lg:grid-cols-[1.2fr_2fr] lg:py-20">
         <div className="flex flex-col gap-4">
-          <Logo forceTheme="dark" />
+          <Logo variant="dark" />
           <p className="max-w-sm text-sm text-white/60">
             Ready business applications for pharmacies, schools, inventory operations,
             restaurants and Monitoring &amp; Evaluation — configured and customized around the

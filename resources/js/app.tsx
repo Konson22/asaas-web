@@ -6,7 +6,6 @@ import type { ReactNode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { route as routeFn } from 'ziggy-js'
 import { MainLayout } from '@/layouts/MarketingLayout'
-import { ThemeProvider } from '@/hooks/useTheme'
 
 declare global {
   const route: typeof routeFn
@@ -23,11 +22,7 @@ createInertiaApp({
     )
 
     const pageModule = page as { default: { layout?: (page: ReactNode) => ReactNode } }
-    pageModule.default.layout = (children) => (
-      <ThemeProvider>
-        <MainLayout>{children}</MainLayout>
-      </ThemeProvider>
-    )
+    pageModule.default.layout = (children) => <MainLayout>{children}</MainLayout>
 
     return page
   },

@@ -25,7 +25,7 @@ export function PageHero({ eyebrow, title, description, children, size = 'defaul
         )}
       >
         {eyebrow ? (
-          <span className="text-sm font-semibold uppercase tracking-wide text-accent">
+          <span className="text-sm font-semibold uppercase tracking-wide text-primary">
             {eyebrow}
           </span>
         ) : null}

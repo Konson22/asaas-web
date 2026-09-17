@@ -18,15 +18,14 @@ export function HeroSection() {
         }
 
   return (
-    // Always purple, regardless of site theme — same treatment as the other
-    // purple sections — so on-hero text below is fixed white/lime, not the
-    // light/dark-tracking ink tokens (which would go dark-on-purple in light mode).
-    <section className="relative overflow-hidden bg-purple-electric pb-20 pt-14 lg:pb-28 lg:pt-20">
+    // Navy → blue brand gradient — always on, so on-hero text below is fixed
+    // white, not the page's navy ink token (which would go navy-on-navy).
+    <section className="relative overflow-hidden bg-brand-gradient pb-20 pt-14 lg:pb-28 lg:pt-20">
       <Container className="relative grid gap-16 lg:grid-cols-[1.05fr_1fr] lg:items-center">
         <div className="order-2 flex flex-col items-start gap-6 lg:order-1">
           <motion.p
             {...fadeUp(0)}
-            className="text-sm font-semibold uppercase tracking-[0.14em] text-lime"
+            className="text-sm font-semibold uppercase tracking-[0.14em] text-white/90"
           >
             Business Software That Fits
           </motion.p>

@@ -11,7 +11,7 @@ export function LocalPresenceSection() {
         <SectionHeading
           title={
             <>
-              Built here. <span className="text-accent">Supported here.</span>
+              Built here. <span className="text-primary">Supported here.</span>
             </>
           }
           description="MileSoftware isn't a regional product with South Sudan added to a country list. It's built by a team that works where you work."

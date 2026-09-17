@@ -36,9 +36,9 @@ export function HomeContactSection() {
 
         <div className="flex flex-col gap-8 lg:pt-4">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-wide text-accent">Get started</p>
+            <p className="text-sm font-semibold uppercase tracking-wide text-primary">Get started</p>
             <h2 className="mt-3 text-3xl font-bold text-ink sm:text-4xl">
-              From checkout to a running <span className="text-accent">business</span>
+              From checkout to a running <span className="text-primary">business</span>
             </h2>
           </div>
           <ol className="flex flex-col gap-6">

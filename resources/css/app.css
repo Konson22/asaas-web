@@ -2,88 +2,74 @@
 @import 'tailwindcss';
 @plugin 'tailwindcss-animate';
 
-/* Tailwind v4 class-based dark mode: toggling `.dark` on <html> (see ThemeProvider) flips every `dark:` variant. */
-@custom-variant dark (&:where(.dark, .dark *));
-
 /**
- * MileSoftwares brand tokens: charcoal + purple + lime + white, derived from
- * the real logo files (public/images/dark-logo.png, public/images/light-logo.png)
- * and refined against the supplied reference palette (dark background/purple
- * scale/lime/text values below are the exact hexes supplied for the dark theme).
+ * MileSoftwares brand tokens: navy + blue + white/light-blue + a small green
+ * accent, derived from the MileSoftwares logo. Single fixed theme (no
+ * light/dark toggle) — white/light-blue is the default surface, with deep
+ * navy reserved for the footer and specific CTA/featured-pricing bands.
  *
- * Brand colors (purple scale, lime) are constant across themes — only the
- * neutrals (background/surface/foreground/border) flip. `--lime` is kept at
- * its supplied value for use on purple/dark surfaces (badges, dots, icons,
- * step numbers); `--accent`/`--accent-dark` are a theme-aware pair for TEXT
- * use, because that lime still fails WCAG contrast as text on a white surface
- * (~2.2:1) — on the light theme it resolves to a deepened, same-hue variant
- * that clears AA; on the dark theme it resolves to the supplied lime itself.
+ * --lime is the vivid brand green, for FILLED contexts only (badge/dot/icon
+ * backgrounds, paired with navy text — vivid green fails contrast under white
+ * text). --accent is a deepened, same-hue green safe as small TEXT/icon-stroke
+ * color directly on white (checkmarks, tiny status labels) — the vivid tone
+ * is ~1.8:1 on white and fails WCAG there.
  */
 :root {
+  --raw-navy-deep: #020b35;
+  --raw-navy: #03134d;
+
+  --raw-blue: #0878f9;
+  --raw-blue-dark: #075fea;
+  --raw-blue-light: #079df3;
+
+  --raw-lime: #9ae600;
+  --raw-lime-dark: #84d900;
+  --raw-accent: #4e8000;
+  --raw-accent-dark: #3d6600;
+
   --background: #ffffff;
-  --surface: #f7f7f8;
-  --surface-secondary: #efeff2;
+  --surface: #f8faff;
+  --surface-secondary: #f2f7ff;
+  --surface-strong: #eaf2ff;
 
-  --foreground: #111214;
-  --foreground-muted: #66666d;
-  --foreground-subtle: #97979c;
+  --foreground: #03134d;
+  --foreground-muted: #526078;
+  --foreground-subtle: #7b879b;
 
-  --border: rgba(17, 18, 20, 0.1);
-  --grid-line: rgba(17, 18, 20, 0.05);
-
-  --accent: #6b6d22;
-  --accent-dark: #52541a;
-}
-
-.dark {
-  --background: #18181c;
-  --surface: #18191b;
-  --surface-secondary: #1f2023;
-
-  --foreground: #f3f3f3;
-  --foreground-muted: #9b9aa3;
-  --foreground-subtle: #5a595e;
-
-  --border: rgba(255, 255, 255, 0.09);
-  --grid-line: rgba(255, 255, 255, 0.05);
-
-  --accent: #b3b639;
-  --accent-dark: #a3a451;
+  --border: #e5ebf5;
+  --grid-line: rgba(3, 19, 77, 0.05);
 }
 
 @theme {
   --font-sans: 'Manrope Variable', 'Manrope', system-ui, sans-serif;
 
-  /* Brand purple scale — theme-invariant. */
-  --color-primary: #5d54c3;
-  --color-primary-dark: #3b3495;
-  --color-primary-darker: #18181c;
-  --color-primary-light: #423a9c;
-  --color-primary-deep: #282268;
-  --color-primary-section: #534db1;
+  /* Brand blue — primary interactive color (buttons, links, active states, icons). */
+  --color-primary: var(--raw-blue);
+  --color-primary-dark: var(--raw-blue-dark);
+  --color-primary-light: var(--raw-blue-light);
+  /* Deep navy — headings, footer, CTA/featured-pricing bands. */
+  --color-primary-darker: var(--raw-navy);
+  --color-primary-deep: var(--raw-navy-deep);
 
-  --color-purple: #5d54c3;
+  /* Vivid brand green — fills only (badges, dots, icon-container backgrounds). */
+  --color-lime: var(--raw-lime);
+  --color-lime-dark: var(--raw-lime-dark);
 
-  /* Supplied brand lime — theme-invariant; safe on purple/dark surfaces, NOT on light ones (see --accent above). */
-  --color-lime: #b3b639;
-  --color-lime-dark: #a3a451;
+  /* Text-safe green pair — small checkmarks/status text/icon strokes on white. */
+  --color-accent: var(--raw-accent);
+  --color-accent-dark: var(--raw-accent-dark);
+  --color-success: var(--raw-accent);
 
-  /* Text-safe accent pair — flips with the theme via :root/.dark above. */
-  --color-accent: var(--accent);
-  --color-accent-dark: var(--accent-dark);
-
-  --color-success: var(--accent);
-
-  /* Neutrals — flip with the theme via :root/.dark above. */
   --color-background: var(--background);
   --color-surface: var(--surface);
   --color-surface-secondary: var(--surface-secondary);
+  --color-surface-strong: var(--surface-strong);
   --color-ink: var(--foreground);
   --color-ink-muted: var(--foreground-muted);
   --color-ink-subtle: var(--foreground-subtle);
   --color-border: var(--border);
 
-  --radius-card: 0.875rem;
+  --radius-card: 0.75rem;
 
   --animate-accordion-down: accordion-down 0.2s ease-out;
   --animate-accordion-up: accordion-up 0.2s ease-out;
@@ -133,13 +119,14 @@
   background-size: 48px 48px;
 }
 
-/* Named "purple" utilities — kept for call-site compatibility across sections. */
-@utility bg-navy-purple {
-  background-image: linear-gradient(135deg, #18181c 0%, #3b3495 100%);
+/* The navy → blue brand gradient — used for CTA banners, the editorial
+   statement, and "How It Works". Purple is gone from the palette entirely. */
+@utility bg-brand-gradient {
+  background-image: linear-gradient(120deg, #03134d 0%, #075fea 100%);
 }
 
-@utility bg-purple-electric {
-  background-image: linear-gradient(135deg, #282268 0%, #534db1 100%);
+@utility bg-navy-deep {
+  background-image: linear-gradient(135deg, #020b35 0%, #03134d 100%);
 }
 
 @utility clip-hero-diagonal {
@@ -155,8 +142,8 @@
   left: 1rem;
   top: -3rem;
   z-index: 100;
-  background: var(--color-lime);
-  color: var(--color-primary-darker);
+  background: var(--color-blue);
+  color: #ffffff;
   padding: 0.75rem 1.25rem;
   border-radius: 0.5rem;
   transition: top 0.2s ease;
@@ -165,21 +152,13 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    color-scheme: light;
   }
 
   body {
     @apply m-0 min-h-svh bg-background font-sans text-ink antialiased;
     font-size: 1rem;
     line-height: 1.6;
-    transition: background-color 0.2s ease, color 0.2s ease;
-  }
-
-  :root {
-    color-scheme: light;
-  }
-
-  .dark {
-    color-scheme: dark;
   }
 
   h1,
@@ -191,20 +170,16 @@
   }
 
   a {
-    /* text-accent, not text-primary: the accent pair is tuned to clear AA
-       contrast as body text in both themes; the purple scale reads weak
-       (~3:1) as small text on the dark surfaces and is reserved for
-       buttons/section fills/icons instead. */
-    @apply text-accent;
+    @apply text-primary;
   }
 
   ::selection {
-    background: rgb(93 84 195 / 0.3);
+    background: rgb(7 95 234 / 0.18);
     color: var(--color-ink);
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-accent);
+    outline: 2px solid var(--color-blue);
     outline-offset: 2px;
     border-radius: 0.25rem;
   }

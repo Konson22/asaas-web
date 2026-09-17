@@ -3,7 +3,6 @@ import { Mail, Phone } from 'lucide-react'
 import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog'
 import { Button } from '@/components/ui/button'
 import { Logo } from '@/components/common/Logo'
-import { ThemeToggle } from '@/components/common/ThemeToggle'
 import { navLinks } from '@/data/navigation'
 import { contactInfo, socialLinks } from '@/data/social'
 import { useProducts } from '@/hooks/useProducts'
@@ -23,12 +22,9 @@ export function MobileNav({ open, onOpenChange }: MobileNavProps) {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent side="right" className="flex flex-col gap-6 overflow-y-auto bg-background p-6">
-        <div className="flex items-center justify-between">
-          <DialogTitle asChild>
-            <Logo />
-          </DialogTitle>
-          <ThemeToggle />
-        </div>
+        <DialogTitle asChild>
+          <Logo />
+        </DialogTitle>
 
         <nav className="flex flex-col gap-1" aria-label="Mobile">
           {navLinks.map((link) => {
@@ -43,7 +39,7 @@ export function MobileNav({ open, onOpenChange }: MobileNavProps) {
                 onClick={() => onOpenChange(false)}
                 className={cn(
                   'rounded-lg px-3 py-3 text-base font-semibold transition-colors',
-                  isActive ? 'bg-accent/10 text-accent' : 'text-ink hover:bg-surface',
+                  isActive ? 'bg-primary/10 text-primary' : 'text-ink hover:bg-surface',
                 )}
                 aria-current={isActive ? 'page' : undefined}
               >
@@ -81,14 +77,14 @@ export function MobileNav({ open, onOpenChange }: MobileNavProps) {
           <div className="flex flex-col gap-2 border-t border-border pt-5">
             <a
               href={`mailto:${contactInfo.email}`}
-              className="flex items-center gap-2 text-sm text-ink-muted hover:text-accent"
+              className="flex items-center gap-2 text-sm text-ink-muted hover:text-primary"
             >
               <Mail className="size-4" aria-hidden="true" />
               {contactInfo.email}
             </a>
             <a
               href={`tel:${contactInfo.phone.replace(/\s+/g, '')}`}
-              className="flex items-center gap-2 text-sm text-ink-muted hover:text-accent"
+              className="flex items-center gap-2 text-sm text-ink-muted hover:text-primary"
             >
               <Phone className="size-4" aria-hidden="true" />
               {contactInfo.phone}
@@ -104,7 +100,7 @@ export function MobileNav({ open, onOpenChange }: MobileNavProps) {
                     target="_blank"
                     rel="noreferrer noopener"
                     aria-label={social.label}
-                    className="text-ink-muted hover:text-accent"
+                    className="text-ink-muted hover:text-primary"
                   >
                     <Icon className="size-4" />
                   </a>

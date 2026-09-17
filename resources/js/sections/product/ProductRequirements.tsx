@@ -22,7 +22,7 @@ export function ProductRequirements({ product }: { product: ProductDetail }) {
           {requirements.map((requirement, index) => (
             <Reveal key={`${requirement.type}-${requirement.title}`} delay={index * 0.03}>
               <Card className="h-full p-5">
-                <p className="text-xs font-semibold uppercase tracking-wide text-accent">
+                <p className="text-xs font-semibold uppercase tracking-wide text-primary">
                   {requirement.type.replaceAll('_', ' ')}
                 </p>
                 <h3 className="mt-1 font-semibold text-ink">{requirement.title}</h3>

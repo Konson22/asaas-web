@@ -19,7 +19,7 @@ export function WhyChooseUsSection() {
             title={
               <>
                 A strategic partner, not another rigid{' '}
-                <span className="text-accent">ERP</span>
+                <span className="text-primary">ERP</span>
               </>
             }
             description="Five reasons businesses move to MileSoftware — and stay."

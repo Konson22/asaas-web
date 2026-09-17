@@ -31,7 +31,7 @@ export function SectionHeading({
       {eyebrow ? (
         <span
           className={cn(
-            'text-sm font-semibold uppercase tracking-wide text-accent',
+            'text-sm font-semibold uppercase tracking-wide text-primary',
           )}
         >
           {eyebrow}

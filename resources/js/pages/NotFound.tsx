@@ -10,7 +10,7 @@ export default function NotFoundPage() {
       <section className="relative overflow-hidden bg-background">
         <div className="pointer-events-none absolute inset-0 grid-pattern" />
         <Container className="relative flex min-h-[60svh] flex-col items-center justify-center gap-6 py-24 text-center">
-          <span className="text-sm font-semibold uppercase tracking-wide text-accent">
+          <span className="text-sm font-semibold uppercase tracking-wide text-primary">
             404
           </span>
           <h1 className="max-w-xl text-4xl font-bold text-white sm:text-5xl">

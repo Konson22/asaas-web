@@ -5,29 +5,36 @@ import { Reveal } from '@/components/common/Reveal'
 import { cn } from '@/lib/utils'
 
 const flowSteps = [
-  { id: 'online', label: 'Online', detail: 'Sales, stock, and records live in the cloud.', icon: Wifi, tone: 'lime' },
+  { id: 'online', label: 'Online', detail: 'Sales, stock, and records live in the cloud.', icon: Wifi, tone: 'blue' },
   { id: 'lost', label: 'Connection Lost', detail: 'The line drops. The counter does not.', icon: WifiOff, tone: 'navy' },
   {
     id: 'offline',
     label: 'Continue Offline',
     detail: 'Checkout, inventory, and records continue locally.',
     icon: Monitor,
-    tone: 'lime',
+    tone: 'blue',
   },
   { id: 'returns', label: 'Internet Returns', detail: 'Connectivity comes back on its own.', icon: Wifi, tone: 'navy' },
   { id: 'sync', label: 'Sync', detail: 'Local data reconciles with the cloud automatically.', icon: RefreshCw, tone: 'blue' },
-  { id: 'updated', label: 'Cloud Updated', detail: 'Every branch sees the same current state.', icon: Cloud, tone: 'lime' },
+  {
+    id: 'updated',
+    label: 'Cloud Updated',
+    detail: 'Every branch sees the same current state.',
+    icon: Cloud,
+    // Green reserved for the one moment that represents successful sync (brief §12).
+    tone: 'success',
+  },
 ] as const
 
 const toneClasses = {
-  lime: 'border-accent bg-accent text-white dark:text-primary-darker',
-  navy: 'border-border bg-background text-ink-muted',
   blue: 'border-primary bg-primary text-white',
+  navy: 'border-border bg-background text-ink-muted',
+  success: 'border-lime bg-lime text-primary-darker',
 }
 
 export function OfflineCapabilitySection() {
   return (
-    <section id="offline" className="scroll-mt-24 relative overflow-hidden bg-surface py-24">
+    <section id="offline" className="scroll-mt-24 relative overflow-hidden bg-surface-secondary py-24">
       <div className="pointer-events-none absolute -right-24 top-16 h-72 w-72 rounded-full border border-primary/20" />
 
       <Container className="relative flex flex-col gap-14">
@@ -37,7 +44,7 @@ export function OfflineCapabilitySection() {
             <>
               No Internet?
               <br />
-              <span className="text-accent">Keep Working.</span>
+              <span className="text-primary">Keep Working.</span>
             </>
           }
           description="Supported applications can continue operating locally when internet connectivity is unavailable, and synchronize with cloud services when connectivity returns."
@@ -52,7 +59,7 @@ export function OfflineCapabilitySection() {
                 <li key={step.id} className="relative flex flex-col items-center gap-4 text-center">
                   {index < flowSteps.length - 1 ? (
                     <span
-                      className="pointer-events-none absolute left-[calc(50%+2.5rem)] top-10 hidden h-px w-[calc(100%-5rem)] bg-gradient-to-r from-primary/50 to-accent/30 xl:block"
+                      className="pointer-events-none absolute left-[calc(50%+2.5rem)] top-10 hidden h-px w-[calc(100%-5rem)] bg-primary/25 xl:block"
                       aria-hidden="true"
                     />
                   ) : null}
@@ -76,7 +83,7 @@ export function OfflineCapabilitySection() {
 
         <Reveal className="text-center">
           <p className="text-xl font-bold text-ink sm:text-2xl">
-            Online when connected. <span className="text-accent">Operational when offline.</span>
+            Online when connected. <span className="text-primary">Operational when offline.</span>
           </p>
         </Reveal>
       </Container>

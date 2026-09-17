@@ -3,7 +3,6 @@ import { Link, usePage } from '@inertiajs/react'
 import { ChevronDown, Menu } from 'lucide-react'
 import { Container } from '@/components/common/Container'
 import { Logo } from '@/components/common/Logo'
-import { ThemeToggle } from '@/components/common/ThemeToggle'
 import { Button } from '@/components/ui/button'
 import { MobileNav } from './MobileNav'
 import { TopBar } from './TopBar'
@@ -57,16 +56,13 @@ export function Navbar() {
       <TopBar />
       <header
         className={cn(
-          // Matches the logo files' own baked-in background exactly (sampled from
-          // dark-logo.png / light-logo.png) rather than the generic theme background,
-          // so the logo blends with no visible edge.
-          'border-b bg-[#fefefe] transition-shadow duration-300 dark:bg-[#0c1019]',
-          scrolled ? 'border-border shadow-md shadow-black/[0.03] dark:shadow-black/20' : 'border-border/60',
+          'border-b bg-background transition-shadow duration-300',
+          scrolled ? 'border-border shadow-sm shadow-black/[0.04]' : 'border-border/70',
         )}
       >
-        <Container className="flex items-center justify-between">
+        <Container className="flex items-center justify-between py-3">
           <Link href="/" className="shrink-0" aria-label="MileSoftwares home">
-            <Logo className="h-16" />
+            <Logo className="h-14" />
           </Link>
 
           <nav className="hidden items-center gap-1 lg:flex" aria-label="Primary">
@@ -77,7 +73,7 @@ export function Navbar() {
                 aria-expanded={appsOpen}
                 className={cn(
                   'flex items-center gap-1 rounded-lg px-4 py-2 text-sm font-semibold transition-colors',
-                  appsOpen ? 'text-accent' : 'text-ink-muted hover:text-ink',
+                  appsOpen ? 'text-primary' : 'text-ink-muted hover:text-ink',
                 )}
               >
                 Apps
@@ -92,7 +88,7 @@ export function Navbar() {
                         key={product.slug}
                         href={`/products/${product.slug}`}
                         onClick={() => setAppsOpen(false)}
-                        className="block px-4 py-2.5 text-sm font-medium text-ink transition-colors hover:bg-surface-secondary hover:text-accent"
+                        className="block px-4 py-2.5 text-sm font-medium text-ink transition-colors hover:bg-surface-secondary hover:text-primary"
                       >
                         {product.name}
                       </Link>
@@ -101,7 +97,7 @@ export function Navbar() {
                     <Link
                       href="/products"
                       onClick={() => setAppsOpen(false)}
-                      className="block px-4 py-2.5 text-sm font-medium text-ink transition-colors hover:bg-surface-secondary hover:text-accent"
+                      className="block px-4 py-2.5 text-sm font-medium text-ink transition-colors hover:bg-surface-secondary hover:text-primary"
                     >
                       View all apps
                     </Link>
@@ -110,7 +106,7 @@ export function Navbar() {
                     <Link
                       href="/products"
                       onClick={() => setAppsOpen(false)}
-                      className="block px-4 py-2.5 text-sm font-semibold text-accent"
+                      className="block px-4 py-2.5 text-sm font-semibold text-primary"
                     >
                       View all apps →
                     </Link>
@@ -132,7 +128,7 @@ export function Navbar() {
                     href={link.href}
                     className={cn(
                       'relative rounded-lg px-4 py-2 text-sm font-semibold transition-colors',
-                      isActive ? 'text-accent' : 'text-ink-muted hover:text-ink',
+                      isActive ? 'text-primary' : 'text-ink-muted hover:text-ink',
                     )}
                     aria-current={isActive ? 'page' : undefined}
                   >
@@ -143,7 +139,6 @@ export function Navbar() {
           </nav>
 
           <div className="hidden items-center gap-3 lg:flex">
-            <ThemeToggle />
             <Button variant="ghost" size="sm" className="text-ink-muted hover:text-ink" asChild>
               <a href={getPlatformUrl('/login')}>Sign in</a>
             </Button>
@@ -153,7 +148,6 @@ export function Navbar() {
           </div>
 
           <div className="flex items-center gap-2 lg:hidden">
-            <ThemeToggle />
             <button
               type="button"
               className="inline-flex items-center justify-center rounded-lg p-2 text-ink"

@@ -28,7 +28,7 @@ export function IndustrySolutionsSection() {
   }, [emblaApi, onSelect])
 
   return (
-    <section id="industries" className="scroll-mt-20 relative overflow-hidden bg-navy-purple py-24">
+    <section id="industries" className="scroll-mt-20 relative overflow-hidden bg-navy-deep py-24">
       <div className="pointer-events-none absolute -right-16 bottom-0 h-72 w-72 rounded-full border border-white/10" />
       <Container className="relative flex flex-col gap-10">
         <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
@@ -79,7 +79,7 @@ export function IndustrySolutionsSection() {
                     </ul>
                     <Link
                       href="/contact"
-                      className="mt-auto inline-flex items-center gap-1.5 text-sm font-semibold text-accent hover:underline"
+                      className="mt-auto inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline"
                     >
                       {industry.ctaLabel}
                       <ArrowUpRight className="size-4" />

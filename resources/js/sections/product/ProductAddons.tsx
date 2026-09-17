@@ -19,7 +19,7 @@ export function ProductAddons({ product }: { product: ProductDetail }) {
               <Card className="flex h-full flex-col gap-2 p-5">
                 <div className="flex items-center justify-between gap-2">
                   <h3 className="font-semibold text-ink">{addon.name}</h3>
-                  <span className="shrink-0 text-sm font-semibold text-accent">
+                  <span className="shrink-0 text-sm font-semibold text-primary">
                     {addon.is_starting_price ? 'From ' : ''}
                     {addon.formatted_price}
                   </span>

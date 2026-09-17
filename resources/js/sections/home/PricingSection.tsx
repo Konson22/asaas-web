@@ -42,7 +42,7 @@ export function PricingSection() {
                       {plan.name}
                     </h3>
                     {highlighted ? (
-                      <Badge className="bg-accent text-white dark:text-primary-darker">Most Popular</Badge>
+                      <Badge className="bg-accent text-primary-darker">Most Popular</Badge>
                     ) : null}
                   </div>
                   <div>

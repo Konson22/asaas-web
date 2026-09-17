@@ -8,7 +8,7 @@ const emphasized = ['Your workflows.', 'Your reports.', 'Your users.', 'Your bra
 
 export function BrandStatementSection() {
   return (
-    <section className="relative overflow-hidden bg-purple-electric py-24 lg:py-32">
+    <section className="relative overflow-hidden bg-brand-gradient py-24 lg:py-32">
       <div className="pointer-events-none absolute inset-0 grid-pattern" />
       <Container className="relative flex flex-col items-center gap-8 text-center">
         <Reveal className="flex flex-col items-center gap-6">

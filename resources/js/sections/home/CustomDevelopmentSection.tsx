@@ -8,7 +8,7 @@ import { customDevelopmentItems } from '@/data/customDevelopment'
 
 export function CustomDevelopmentSection() {
   return (
-    <section className="relative overflow-hidden bg-purple-electric py-24">
+    <section className="relative overflow-hidden bg-brand-gradient py-24">
       <div className="pointer-events-none absolute inset-0 grid-pattern" />
       <div className="pointer-events-none absolute -bottom-24 -right-16 h-72 w-72 rounded-full border border-white/15" />
       <Container className="relative flex flex-col items-center gap-10 text-center">

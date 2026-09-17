@@ -15,14 +15,14 @@ export function MediaBannerSection() {
           />
           <div className="absolute inset-x-0 bottom-0 z-20 flex flex-col items-start justify-between gap-4 bg-gradient-to-t from-primary-darker via-primary-darker/80 to-transparent p-6 sm:flex-row sm:items-end sm:p-10">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-wide text-accent">See the product</p>
+              <p className="text-sm font-semibold uppercase tracking-wide text-primary">See the product</p>
               <h2 className="mt-2 max-w-xl text-2xl font-bold text-white sm:text-3xl">
                 Inspires a brighter way to run the counter
               </h2>
             </div>
             <Link
               href="/products"
-              className="inline-flex items-center gap-2 rounded-full bg-accent px-5 py-3 text-sm font-semibold text-background"
+              className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-white hover:bg-primary-dark"
             >
               Explore products
               <ArrowUpRight className="size-4" />
