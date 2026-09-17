@@ -12,6 +12,7 @@ Route::controller(PageController::class)->group(function () {
     Route::get('/products/{productId}', 'productDetail')->name('products.show');
     Route::get('/pricing', 'pricing')->name('pricing');
     Route::get('/faq', 'faq')->name('faq');
+    Route::get('/about', 'about')->name('about');
     Route::get('/contact', 'contact')->name('contact');
     Route::get('/privacy-policy', 'privacy')->name('privacy');
     Route::get('/terms-of-service', 'terms')->name('terms');

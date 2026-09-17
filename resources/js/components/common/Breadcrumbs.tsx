@@ -8,7 +8,7 @@ export interface Breadcrumb {
 
 export function Breadcrumbs({ items }: { items: Breadcrumb[] }) {
   return (
-    <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-1.5 text-sm text-white/70">
+    <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-1.5 text-sm text-ink-muted">
       {items.map((item, index) => (
         <span key={item.label} className="flex items-center gap-1.5">
           {index > 0 ? <ChevronRight className="size-3.5 shrink-0" aria-hidden="true" /> : null}
@@ -17,7 +17,7 @@ export function Breadcrumbs({ items }: { items: Breadcrumb[] }) {
               {item.label}
             </Link>
           ) : (
-            <span aria-current="page" className="text-white">
+            <span aria-current="page" className="text-ink">
               {item.label}
             </span>
           )}

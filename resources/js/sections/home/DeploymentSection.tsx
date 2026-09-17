@@ -10,31 +10,21 @@ export function DeploymentSection() {
     <section id="deployment" className="scroll-mt-20 bg-background py-24">
       <Container className="flex flex-col gap-12">
         <SectionHeading
-          title="Choose the infrastructure that fits your operational reality"
-          description="Cloud, desktop, hybrid, or mobile — deploy MileSoftware the way that fits your infrastructure and connectivity."
+          eyebrow="Deployment"
+          title="Choose How You Work."
+          description="Supported applications can run in the cloud, offline on the desktop, or on a local server — fit the model to your connectivity, not the other way around."
         />
 
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {deploymentOptions.map((option, index) => {
-            const bordered = index === 0 || index === 3
-            const content = (
-              <>
-                <FeatureIcon icon={option.icon} tone={index % 2 === 0 ? 'lime' : 'purple'} />
-                <h3 className="text-lg font-semibold text-white">{option.title}</h3>
+        <div className="grid gap-5 sm:grid-cols-3">
+          {deploymentOptions.map((option, index) => (
+            <Reveal key={option.id} delay={index * 0.05}>
+              <Card className="flex h-full flex-col gap-4 p-6">
+                <FeatureIcon icon={option.icon} tone={index === 1 ? 'lime' : 'purple'} />
+                <h3 className="text-lg font-semibold text-ink">{option.title}</h3>
                 <p className="text-sm text-ink-muted">{option.description}</p>
-              </>
-            )
-
-            return (
-              <Reveal key={option.id} delay={index * 0.05}>
-                {bordered ? (
-                  <Card className="flex h-full flex-col gap-4 p-6">{content}</Card>
-                ) : (
-                  <div className="flex h-full flex-col gap-4 p-6">{content}</div>
-                )}
-              </Reveal>
-            )
-          })}
+              </Card>
+            </Reveal>
+          ))}
         </div>
       </Container>
     </section>

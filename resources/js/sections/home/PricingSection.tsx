@@ -38,20 +38,41 @@ export function PricingSection() {
                   )}
                 >
                   <div className="flex items-center justify-between gap-2">
-                    <h3 className="text-xl font-bold text-white">{plan.name}</h3>
-                    {highlighted ? <Badge variant="accent">Most Popular</Badge> : null}
-                  </div>
-                  <div>
-                    <span className="text-3xl font-bold text-white">{plan.price}</span>
-                    {plan.period ? (
-                      <span className="ml-1 text-sm text-ink-muted">{plan.period}</span>
+                    <h3 className={cn('text-xl font-bold', highlighted ? 'text-white' : 'text-ink')}>
+                      {plan.name}
+                    </h3>
+                    {highlighted ? (
+                      <Badge className="bg-accent text-white dark:text-primary-darker">Most Popular</Badge>
                     ) : null}
                   </div>
-                  <p className="text-sm text-ink-muted">{plan.bestFor}</p>
+                  <div>
+                    <span className={cn('text-3xl font-bold', highlighted ? 'text-white' : 'text-ink')}>
+                      {plan.price}
+                    </span>
+                    {plan.period ? (
+                      <span className={cn('ml-1 text-sm', highlighted ? 'text-white/70' : 'text-ink-muted')}>
+                        {plan.period}
+                      </span>
+                    ) : null}
+                  </div>
+                  <p className={cn('text-sm', highlighted ? 'text-white/70' : 'text-ink-muted')}>
+                    {plan.bestFor}
+                  </p>
                   <ul className="flex flex-1 flex-col gap-3">
                     {plan.features.map((feature) => (
-                      <li key={feature} className="flex items-start gap-2.5 text-sm text-ink">
-                        <Check className="mt-0.5 size-4 shrink-0 text-accent" />
+                      <li
+                        key={feature}
+                        className={cn(
+                          'flex items-start gap-2.5 text-sm',
+                          highlighted ? 'text-white' : 'text-ink',
+                        )}
+                      >
+                        <Check
+                          className={cn(
+                            'mt-0.5 size-4 shrink-0',
+                            highlighted ? 'text-white' : 'text-accent',
+                          )}
+                        />
                         {feature}
                       </li>
                     ))}

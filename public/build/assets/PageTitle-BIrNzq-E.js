@@ -1,1 +1,0 @@
-import{n as e}from"./Container-CAEMIfHs.js";import{y as t}from"./app-DSeNGAnG.js";var n=e();function r({title:e}){return(0,n.jsx)(t,{title:e})}export{r as t};

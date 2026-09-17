@@ -2,36 +2,92 @@
 @import 'tailwindcss';
 @plugin 'tailwindcss-animate';
 
+/* Tailwind v4 class-based dark mode: toggling `.dark` on <html> (see ThemeProvider) flips every `dark:` variant. */
+@custom-variant dark (&:where(.dark, .dark *));
+
 /**
- * Dark navy / purple / lime brand tokens.
- * Semantic names (background, surface, ink, primary, accent) are preserved
- * so existing utilities keep working after the rebrand.
+ * MileSoftwares brand tokens: charcoal + purple + lime + white, derived from
+ * the real logo files (public/images/dark-logo.png, public/images/light-logo.png)
+ * and refined against the supplied reference palette (dark background/purple
+ * scale/lime/text values below are the exact hexes supplied for the dark theme).
+ *
+ * Brand colors (purple scale, lime) are constant across themes — only the
+ * neutrals (background/surface/foreground/border) flip. `--lime` is kept at
+ * its supplied value for use on purple/dark surfaces (badges, dots, icons,
+ * step numbers); `--accent`/`--accent-dark` are a theme-aware pair for TEXT
+ * use, because that lime still fails WCAG contrast as text on a white surface
+ * (~2.2:1) — on the light theme it resolves to a deepened, same-hue variant
+ * that clears AA; on the dark theme it resolves to the supplied lime itself.
  */
+:root {
+  --background: #ffffff;
+  --surface: #f7f7f8;
+  --surface-secondary: #efeff2;
+
+  --foreground: #111214;
+  --foreground-muted: #66666d;
+  --foreground-subtle: #97979c;
+
+  --border: rgba(17, 18, 20, 0.1);
+  --grid-line: rgba(17, 18, 20, 0.05);
+
+  --accent: #6b6d22;
+  --accent-dark: #52541a;
+}
+
+.dark {
+  --background: #18181c;
+  --surface: #18191b;
+  --surface-secondary: #1f2023;
+
+  --foreground: #f3f3f3;
+  --foreground-muted: #9b9aa3;
+  --foreground-subtle: #5a595e;
+
+  --border: rgba(255, 255, 255, 0.09);
+  --grid-line: rgba(255, 255, 255, 0.05);
+
+  --accent: #b3b639;
+  --accent-dark: #a3a451;
+}
+
 @theme {
   --font-sans: 'Manrope Variable', 'Manrope', system-ui, sans-serif;
 
-  --color-primary: #5038e5;
-  --color-primary-dark: #3326a8;
-  --color-primary-darker: #090b1f;
-  --color-primary-light: #b8a8ff;
+  /* Brand purple scale — theme-invariant. */
+  --color-primary: #5d54c3;
+  --color-primary-dark: #3b3495;
+  --color-primary-darker: #18181c;
+  --color-primary-light: #423a9c;
+  --color-primary-deep: #282268;
+  --color-primary-section: #534db1;
 
-  --color-purple: #3326a8;
+  --color-purple: #5d54c3;
 
-  --color-accent: #c8f51d;
-  --color-accent-dark: #d6ff3a;
+  /* Supplied brand lime — theme-invariant; safe on purple/dark surfaces, NOT on light ones (see --accent above). */
+  --color-lime: #b3b639;
+  --color-lime-dark: #a3a451;
 
-  --color-success: #75d52a;
+  /* Text-safe accent pair — flips with the theme via :root/.dark above. */
+  --color-accent: var(--accent);
+  --color-accent-dark: var(--accent-dark);
 
-  --color-background: #090b1f;
-  --color-surface: #10143a;
-  --color-ink: #ffffff;
-  --color-ink-muted: #b9bed3;
-  --color-border: #2a2f55;
+  --color-success: var(--accent);
 
-  --radius-card: 0.75rem;
+  /* Neutrals — flip with the theme via :root/.dark above. */
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-secondary: var(--surface-secondary);
+  --color-ink: var(--foreground);
+  --color-ink-muted: var(--foreground-muted);
+  --color-ink-subtle: var(--foreground-subtle);
+  --color-border: var(--border);
+
+  --radius-card: 0.875rem;
 
   --animate-accordion-down: accordion-down 0.2s ease-out;
   --animate-accordion-up: accordion-up 0.2s ease-out;
+  --animate-fade-in: fade-in 0.5s ease-out;
 }
 
 @keyframes accordion-down {
@@ -52,6 +108,17 @@
   }
 }
 
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @utility container {
   width: 100%;
   margin-inline: auto;
@@ -61,21 +128,18 @@
 
 @utility grid-pattern {
   background-image:
-    linear-gradient(rgb(255 255 255 / 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgb(255 255 255 / 0.03) 1px, transparent 1px);
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
   background-size: 48px 48px;
 }
 
-@utility glow-purple {
-  background: radial-gradient(circle, rgb(80 56 229 / 0.45) 0%, transparent 70%);
-}
-
+/* Named "purple" utilities — kept for call-site compatibility across sections. */
 @utility bg-navy-purple {
-  background-image: linear-gradient(135deg, #090b1f 0%, #3326a8 100%);
+  background-image: linear-gradient(135deg, #18181c 0%, #3b3495 100%);
 }
 
 @utility bg-purple-electric {
-  background-image: linear-gradient(135deg, #3326a8 0%, #5038e5 100%);
+  background-image: linear-gradient(135deg, #282268 0%, #534db1 100%);
 }
 
 @utility clip-hero-diagonal {
@@ -91,8 +155,8 @@
   left: 1rem;
   top: -3rem;
   z-index: 100;
-  background: var(--color-accent);
-  color: var(--color-background);
+  background: var(--color-lime);
+  color: var(--color-primary-darker);
   padding: 0.75rem 1.25rem;
   border-radius: 0.5rem;
   transition: top 0.2s ease;
@@ -107,6 +171,14 @@
     @apply m-0 min-h-svh bg-background font-sans text-ink antialiased;
     font-size: 1rem;
     line-height: 1.6;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  :root {
+    color-scheme: light;
+  }
+
+  .dark {
     color-scheme: dark;
   }
 
@@ -119,12 +191,16 @@
   }
 
   a {
-    @apply text-primary;
+    /* text-accent, not text-primary: the accent pair is tuned to clear AA
+       contrast as body text in both themes; the purple scale reads weak
+       (~3:1) as small text on the dark surfaces and is reserved for
+       buttons/section fills/icons instead. */
+    @apply text-accent;
   }
 
   ::selection {
-    background: rgb(200 245 29 / 0.28);
-    color: var(--color-background);
+    background: rgb(93 84 195 / 0.3);
+    color: var(--color-ink);
   }
 
   :focus-visible {

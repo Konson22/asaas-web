@@ -9,8 +9,8 @@ interface FeatureIconProps {
 
 const toneClasses = {
   lime: 'bg-accent text-background',
-  purple: 'bg-primary/25 text-primary-light',
-  green: 'bg-success/20 text-success',
+  purple: 'bg-primary/15 text-primary',
+  green: 'bg-success/15 text-success',
   white: 'bg-white/10 text-white',
 }
 

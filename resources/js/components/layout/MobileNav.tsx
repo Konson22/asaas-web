@@ -3,8 +3,10 @@ import { Mail, Phone } from 'lucide-react'
 import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog'
 import { Button } from '@/components/ui/button'
 import { Logo } from '@/components/common/Logo'
+import { ThemeToggle } from '@/components/common/ThemeToggle'
 import { navLinks } from '@/data/navigation'
 import { contactInfo, socialLinks } from '@/data/social'
+import { useProducts } from '@/hooks/useProducts'
 import { getPlatformUrl } from '@/lib/platform'
 import { cn } from '@/lib/utils'
 
@@ -16,13 +18,17 @@ interface MobileNavProps {
 export function MobileNav({ open, onOpenChange }: MobileNavProps) {
   const { url } = usePage()
   const pathname = url.split('?')[0].split('#')[0]
+  const { products } = useProducts()
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent side="right" className="flex flex-col gap-8 bg-background p-6">
-        <DialogTitle asChild>
-          <Logo />
-        </DialogTitle>
+      <DialogContent side="right" className="flex flex-col gap-6 overflow-y-auto bg-background p-6">
+        <div className="flex items-center justify-between">
+          <DialogTitle asChild>
+            <Logo />
+          </DialogTitle>
+          <ThemeToggle />
+        </div>
 
         <nav className="flex flex-col gap-1" aria-label="Mobile">
           {navLinks.map((link) => {
@@ -37,7 +43,7 @@ export function MobileNav({ open, onOpenChange }: MobileNavProps) {
                 onClick={() => onOpenChange(false)}
                 className={cn(
                   'rounded-lg px-3 py-3 text-base font-semibold transition-colors',
-                  isActive ? 'bg-primary/20 text-white' : 'text-ink hover:bg-surface',
+                  isActive ? 'bg-accent/10 text-accent' : 'text-ink hover:bg-surface',
                 )}
                 aria-current={isActive ? 'page' : undefined}
               >
@@ -45,6 +51,30 @@ export function MobileNav({ open, onOpenChange }: MobileNavProps) {
               </Comp>
             )
           })}
+
+          <div className="mt-2 flex flex-col gap-1 border-t border-border pt-3">
+            <p className="px-3 pb-1 text-xs font-semibold uppercase tracking-wide text-ink-muted">Apps</p>
+            {products.length > 0 ? (
+              products.map((product) => (
+                <Link
+                  key={product.slug}
+                  href={`/products/${product.slug}`}
+                  onClick={() => onOpenChange(false)}
+                  className="rounded-lg px-3 py-2.5 text-sm font-medium text-ink-muted transition-colors hover:bg-surface hover:text-ink"
+                >
+                  {product.name}
+                </Link>
+              ))
+            ) : (
+              <Link
+                href="/products"
+                onClick={() => onOpenChange(false)}
+                className="rounded-lg px-3 py-2.5 text-sm font-medium text-ink-muted transition-colors hover:bg-surface hover:text-ink"
+              >
+                View all apps
+              </Link>
+            )}
+          </div>
         </nav>
 
         <div className="mt-auto flex flex-col gap-5">

@@ -50,7 +50,7 @@ export function HomeProductCardsSection() {
                     )}
                   </div>
                   <div className="flex flex-1 flex-col gap-3 p-6">
-                    <h3 className="text-lg font-bold text-white">{product.name}</h3>
+                    <h3 className="text-lg font-bold text-ink">{product.name}</h3>
                     {product.tagline ? <p className="text-sm text-ink-muted">{product.tagline}</p> : null}
                     <Button variant="outline" asChild className="mt-auto">
                       <Link href={`/products/${product.slug}`}>

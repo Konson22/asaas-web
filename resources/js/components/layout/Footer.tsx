@@ -9,20 +9,22 @@ export function Footer() {
   const { products } = useProducts()
 
   const columns = footerColumns.map((column) =>
-    column.title === 'Products' && products.length > 0
+    column.title === 'Apps' && products.length > 0
       ? { ...column, links: products.map((p) => ({ label: p.name, href: `/products/${p.slug}` })) }
       : column,
   )
 
   return (
-    <footer className="bg-background text-white">
-      <Container className="grid gap-12 py-16 lg:grid-cols-[1.2fr_2fr]">
+    // Footer stays near-black in both themes (brief §23), so it always uses the
+    // dark-theme logo and fixed white/lime tones rather than the theme tokens.
+    <footer className="bg-primary-darker text-white">
+      <Container className="grid gap-12 py-16 lg:grid-cols-[1.2fr_2fr] lg:py-20">
         <div className="flex flex-col gap-4">
-          <Logo />
-          <p className="max-w-sm text-sm text-ink-muted">
-            MileSoftware is a modern ERP, POS, and business management platform connecting
-            sales, inventory, accounting, procurement, HR, and CRM in one system — cloud,
-            offline, or hybrid.
+          <Logo forceTheme="dark" />
+          <p className="max-w-sm text-sm text-white/60">
+            Ready business applications for pharmacies, schools, inventory operations,
+            restaurants and Monitoring &amp; Evaluation — configured and customized around the
+            way your organization works.
           </p>
           <div className="mt-2 flex items-center gap-4">
             {socialLinks.map((social) => {
@@ -34,7 +36,7 @@ export function Footer() {
                   target="_blank"
                   rel="noreferrer noopener"
                   aria-label={social.label}
-                  className="text-ink-muted transition-colors hover:text-accent"
+                  className="text-white/50 transition-colors hover:text-lime"
                 >
                   <Icon className="size-4" />
                 </a>
@@ -52,7 +54,7 @@ export function Footer() {
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      className="text-sm text-ink-muted transition-colors hover:text-accent"
+                      className="text-sm text-white/60 transition-colors hover:text-lime"
                     >
                       {link.label}
                     </Link>
@@ -64,17 +66,17 @@ export function Footer() {
         </div>
       </Container>
 
-      <div className="border-t border-border">
+      <div className="border-t border-white/10">
         <Container className="flex flex-col items-center justify-between gap-4 py-6 sm:flex-row">
-          <p className="text-xs text-ink-muted/70">
-            © {new Date().getFullYear()} MileSoftware. All rights reserved.
+          <p className="text-xs text-white/40">
+            © {new Date().getFullYear()} MileSoftwares — A product of Miles Global Technologies.
           </p>
           <div className="flex items-center gap-6">
-            <Link href="/privacy-policy" className="text-xs text-ink-muted/70 transition-colors hover:text-accent">
-              Privacy Policy
+            <Link href="/privacy-policy" className="text-xs text-white/40 transition-colors hover:text-lime">
+              Privacy
             </Link>
-            <Link href="/terms-of-service" className="text-xs text-ink-muted/70 transition-colors hover:text-accent">
-              Terms of Service
+            <Link href="/terms-of-service" className="text-xs text-white/40 transition-colors hover:text-lime">
+              Terms
             </Link>
           </div>
         </Container>

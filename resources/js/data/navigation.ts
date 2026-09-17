@@ -5,11 +5,11 @@ export interface NavLink {
 
 export const navLinks: NavLink[] = [
   { label: 'Home', href: '/' },
-  { label: 'Products', href: '/products' },
   { label: 'Industries', href: '/industries' },
-  { label: 'Offline', href: '/#offline' },
+  { label: 'How It Works', href: '/#how-it-works' },
+  { label: 'Deployment', href: '/#deployment' },
   { label: 'Pricing', href: '/pricing' },
-  { label: 'FAQ', href: '/faq' },
+  { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
 ]
 
@@ -20,10 +20,10 @@ export interface FooterColumn {
 
 export const footerColumns: FooterColumn[] = [
   {
-    // Static fallback only — Footer.tsx replaces this with the live catalogue once
-    // `useProducts()` resolves. Kept in sync with the real product slugs so a briefly
-    // unreachable API doesn't show broken links instead.
-    title: 'Products',
+    // Static fallback only — Footer.tsx and the navbar's Apps dropdown replace this
+    // with the live catalogue once `useProducts()` resolves. Kept in sync with the
+    // real product slugs so a briefly unreachable API doesn't show broken links.
+    title: 'Apps',
     links: [
       { label: 'Asas Retail POS', href: '/products/asas-retail-pos' },
       { label: 'Asas Pharmacy', href: '/products/asas-pharmacy' },
@@ -32,23 +32,21 @@ export const footerColumns: FooterColumn[] = [
     ],
   },
   {
-    title: 'Industries',
+    title: 'Platform',
     links: [
-      { label: 'Retail & Commerce', href: '/industries' },
-      { label: 'Wholesale & Distribution', href: '/industries' },
-      { label: 'Pharmacy', href: '/industries' },
-      { label: 'Restaurant & Hospitality', href: '/industries' },
-      { label: 'Professional Services', href: '/industries' },
+      { label: 'How It Works', href: '/#how-it-works' },
+      { label: 'Deployment', href: '/#deployment' },
+      { label: 'Pricing', href: '/pricing' },
+      { label: 'Request Demo', href: '/contact' },
     ],
   },
   {
     title: 'Company',
     links: [
-      { label: 'All products', href: '/products' },
-      { label: 'Pricing', href: '/pricing' },
-      { label: 'FAQ', href: '/faq' },
-      { label: 'Contact Sales', href: '/contact' },
-      { label: 'Get started', href: '/products' },
+      { label: 'About', href: '/about' },
+      { label: 'Contact', href: '/contact' },
+      { label: 'Privacy', href: '/privacy-policy' },
+      { label: 'Terms', href: '/terms-of-service' },
     ],
   },
 ]

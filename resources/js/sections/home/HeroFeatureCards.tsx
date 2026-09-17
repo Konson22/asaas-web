@@ -40,7 +40,7 @@ export function HeroFeatureCards() {
                 <a href={item.href} className="block h-full">
                   <Card className="flex h-full flex-col gap-4 p-6 transition-colors hover:border-accent/40">
                     <FeatureIcon icon={item.icon} />
-                    <h3 className="text-lg font-semibold text-white">{item.title}</h3>
+                    <h3 className="text-lg font-semibold text-ink">{item.title}</h3>
                     <p className="text-sm text-ink-muted">{item.description}</p>
                   </Card>
                 </a>
@@ -48,7 +48,7 @@ export function HeroFeatureCards() {
                 <Link href={item.href} className="block h-full">
                   <Card className="flex h-full flex-col gap-4 p-6 transition-colors hover:border-accent/40">
                     <FeatureIcon icon={item.icon} />
-                    <h3 className="text-lg font-semibold text-white">{item.title}</h3>
+                    <h3 className="text-lg font-semibold text-ink">{item.title}</h3>
                     <p className="text-sm text-ink-muted">{item.description}</p>
                   </Card>
                 </Link>

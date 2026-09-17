@@ -1,44 +1,28 @@
-import { Wifi, WifiOff, Monitor, RefreshCw } from 'lucide-react'
+import { Wifi, WifiOff, Monitor, RefreshCw, Cloud } from 'lucide-react'
 import { Container } from '@/components/common/Container'
 import { SectionHeading } from '@/components/common/SectionHeading'
 import { Reveal } from '@/components/common/Reveal'
 import { cn } from '@/lib/utils'
 
 const flowSteps = [
+  { id: 'online', label: 'Online', detail: 'Sales, stock, and records live in the cloud.', icon: Wifi, tone: 'lime' },
+  { id: 'lost', label: 'Connection Lost', detail: 'The line drops. The counter does not.', icon: WifiOff, tone: 'navy' },
   {
-    id: 'connected',
-    label: 'Connected',
-    detail: 'Sales, stock, and records live in the cloud.',
-    icon: Wifi,
-    tone: 'lime',
-  },
-  {
-    id: 'lost',
-    label: 'Internet Lost',
-    detail: 'The line drops. The counter does not.',
-    icon: WifiOff,
-    tone: 'navy',
-  },
-  {
-    id: 'working',
-    label: 'Keep Working',
-    detail: 'Checkout, inventory, and accounts continue locally.',
+    id: 'offline',
+    label: 'Continue Offline',
+    detail: 'Checkout, inventory, and records continue locally.',
     icon: Monitor,
     tone: 'lime',
   },
-  {
-    id: 'sync',
-    label: 'Sync',
-    detail: 'Desktop data reconciles with the cloud automatically.',
-    icon: RefreshCw,
-    tone: 'purple',
-  },
+  { id: 'returns', label: 'Internet Returns', detail: 'Connectivity comes back on its own.', icon: Wifi, tone: 'navy' },
+  { id: 'sync', label: 'Sync', detail: 'Local data reconciles with the cloud automatically.', icon: RefreshCw, tone: 'blue' },
+  { id: 'updated', label: 'Cloud Updated', detail: 'Every branch sees the same current state.', icon: Cloud, tone: 'lime' },
 ] as const
 
 const toneClasses = {
-  lime: 'border-accent bg-accent text-background',
-  navy: 'border-white/15 bg-background text-ink-muted',
-  purple: 'border-primary bg-primary text-white',
+  lime: 'border-accent bg-accent text-white dark:text-primary-darker',
+  navy: 'border-border bg-background text-ink-muted',
+  blue: 'border-primary bg-primary text-white',
 }
 
 export function OfflineCapabilitySection() {
@@ -48,17 +32,19 @@ export function OfflineCapabilitySection() {
 
       <Container className="relative flex flex-col gap-14">
         <SectionHeading
-          eyebrow="Works Offline"
+          eyebrow="Built for Real Connectivity"
           title={
             <>
-              No Internet? <span className="text-accent">Keep Working.</span>
+              No Internet?
+              <br />
+              <span className="text-accent">Keep Working.</span>
             </>
           }
-          description="Unstable connectivity is the operating environment. MileSoftware is built so a dropped connection never drops a sale."
+          description="Supported applications can continue operating locally when internet connectivity is unavailable, and synchronize with cloud services when connectivity returns."
         />
 
         <Reveal>
-          <ol className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+          <ol className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
             {flowSteps.map((step, index) => {
               const Icon = step.icon
 
@@ -66,26 +52,32 @@ export function OfflineCapabilitySection() {
                 <li key={step.id} className="relative flex flex-col items-center gap-4 text-center">
                   {index < flowSteps.length - 1 ? (
                     <span
-                      className="pointer-events-none absolute left-[calc(50%+2.5rem)] top-10 hidden h-px w-[calc(100%-5rem)] bg-gradient-to-r from-primary/50 to-accent/30 lg:block"
+                      className="pointer-events-none absolute left-[calc(50%+2.5rem)] top-10 hidden h-px w-[calc(100%-5rem)] bg-gradient-to-r from-primary/50 to-accent/30 xl:block"
                       aria-hidden="true"
                     />
                   ) : null}
                   <div
                     className={cn(
-                      'relative z-10 flex size-20 items-center justify-center rounded-full border-2',
+                      'relative z-10 flex size-16 items-center justify-center rounded-full border-2',
                       toneClasses[step.tone],
                     )}
                   >
-                    <Icon className="size-8" />
+                    <Icon className="size-6" />
                   </div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white">
+                  <p className="text-xs font-semibold uppercase tracking-[0.14em] text-ink">
                     {step.label}
                   </p>
-                  <p className="max-w-[16rem] text-sm text-ink-muted">{step.detail}</p>
+                  <p className="max-w-[14rem] text-sm text-ink-muted">{step.detail}</p>
                 </li>
               )
             })}
           </ol>
+        </Reveal>
+
+        <Reveal className="text-center">
+          <p className="text-xl font-bold text-ink sm:text-2xl">
+            Online when connected. <span className="text-accent">Operational when offline.</span>
+          </p>
         </Reveal>
       </Container>
     </section>

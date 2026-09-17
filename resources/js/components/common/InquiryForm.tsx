@@ -72,7 +72,7 @@ export function InquiryForm({
   }
 
   const fieldClass =
-    'h-11 w-full rounded-lg border border-border bg-background px-3.5 text-sm text-ink outline-none transition-colors placeholder:text-ink-muted/60 focus:border-accent focus:ring-2 focus:ring-accent/20'
+    'h-11 w-full rounded-lg border border-border bg-background px-3.5 text-sm text-ink outline-none transition-colors placeholder:text-ink-muted/60 focus:border-primary focus:ring-2 focus:ring-primary/20'
 
   if (successful) {
     return (
@@ -80,7 +80,7 @@ export function InquiryForm({
         <span className="flex size-11 items-center justify-center rounded-full bg-accent text-background">
           <Check className="size-5" />
         </span>
-        <p className="font-semibold text-white">Request received</p>
+        <p className="font-semibold text-ink">Request received</p>
         <p className="text-sm text-ink-muted">Our team will contact you shortly.</p>
       </div>
     )
@@ -90,7 +90,7 @@ export function InquiryForm({
     <form onSubmit={handleSubmit} className={cn('flex flex-col', compact ? 'gap-3' : 'gap-5', className)}>
       {heading ? (
         <div>
-          <h2 className={cn('font-bold text-white', compact ? 'text-base' : 'text-xl')}>{heading}</h2>
+          <h2 className={cn('font-bold text-ink', compact ? 'text-base' : 'text-xl')}>{heading}</h2>
           {description ? <p className="mt-1 text-sm text-ink-muted">{description}</p> : null}
         </div>
       ) : null}

@@ -11,13 +11,13 @@ interface PageHeroProps {
   size?: 'default' | 'compact'
 }
 
-/** Dark-navy hero used at the top of every subpage. */
+/** Hero banner used at the top of every subpage. Tracks the active theme. */
 export function PageHero({ eyebrow, title, description, children, size = 'default' }: PageHeroProps) {
   return (
     <section className="relative overflow-hidden bg-background">
       <div className="pointer-events-none absolute inset-0 grid-pattern" />
-      <div className="pointer-events-none absolute -top-40 right-0 h-[28rem] w-[28rem] rounded-full opacity-50 blur-3xl glow-purple" />
-      <div className="pointer-events-none absolute -bottom-24 -left-16 h-64 w-64 rounded-full border border-primary/30" />
+      <div className="pointer-events-none absolute -top-32 right-0 h-[26rem] w-[26rem] rounded-full bg-primary/10 blur-3xl" />
+      <div className="pointer-events-none absolute -bottom-24 -left-16 h-64 w-64 rounded-full border border-primary/20" />
       <Container
         className={cn(
           'relative flex flex-col items-start gap-5',
@@ -29,7 +29,7 @@ export function PageHero({ eyebrow, title, description, children, size = 'defaul
             {eyebrow}
           </span>
         ) : null}
-        <h1 className="max-w-3xl text-4xl font-bold leading-[1.1] text-white sm:text-5xl">
+        <h1 className="max-w-3xl text-4xl font-bold leading-[1.1] text-ink sm:text-5xl">
           {title}
         </h1>
         {description ? <p className="max-w-2xl text-lg text-ink-muted">{description}</p> : null}

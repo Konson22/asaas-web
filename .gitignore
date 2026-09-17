@@ -20,7 +20,6 @@ auth.json
 Homestead.json
 Homestead.yaml
 database/database.sqlite
-
 # Logs
 logs
 *.log

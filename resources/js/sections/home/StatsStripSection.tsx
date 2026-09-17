@@ -18,7 +18,7 @@ export function StatsStripSection() {
             <div key={stat.id} className="flex items-start gap-4">
               <FeatureIcon icon={stat.icon} />
               <div>
-                <p className="font-semibold text-white">{stat.label}</p>
+                <p className="font-semibold text-ink">{stat.label}</p>
                 <p className="mt-1 text-sm text-ink-muted">{stat.detail}</p>
               </div>
             </div>

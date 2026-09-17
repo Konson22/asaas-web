@@ -4,7 +4,7 @@ import { contactInfo, socialLinks } from '@/data/social'
 
 export function TopBar() {
   return (
-    <div className="hidden border-b border-white/5 bg-background text-ink-muted md:block">
+    <div className="hidden border-b border-border bg-background text-ink-muted md:block">
       <Container className="flex h-9 items-center justify-between text-xs">
         <div className="flex items-center gap-5">
           <a
