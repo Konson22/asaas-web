@@ -19,7 +19,7 @@ export function ProductCapabilities({ product }: { product: ProductDetail }) {
           {product.capabilities.map((capability, index) => (
             <Reveal key={capability.name} delay={index * 0.04}>
               <Card className="flex h-full flex-col items-center gap-3 p-6 text-center">
-                <span className="flex size-11 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                <span className="flex size-11 items-center justify-center rounded-full bg-accent text-background">
                   <Sparkles className="size-5" />
                 </span>
                 <h3 className="text-sm font-semibold text-ink">{capability.name}</h3>

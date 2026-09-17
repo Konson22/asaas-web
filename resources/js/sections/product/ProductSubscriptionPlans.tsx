@@ -34,7 +34,7 @@ export function ProductSubscriptionPlans({ product }: { product: ProductDetail }
             aria-checked={annual}
             aria-label="Toggle annual billing"
             onClick={() => setAnnual((v) => !v)}
-            className="relative h-7 w-12 rounded-full bg-border transition-colors data-[on=true]:bg-primary"
+            className="relative h-7 w-12 rounded-full bg-border transition-colors data-[on=true]:bg-accent"
             data-on={annual}
           >
             <span
@@ -45,7 +45,7 @@ export function ProductSubscriptionPlans({ product }: { product: ProductDetail }
             />
           </button>
           <span className={cn('text-sm font-medium', annual && 'text-ink', !annual && 'text-ink-muted')}>
-            Annual <span className="text-primary">— 2 months free</span>
+            Annual <span className="text-accent">— 2 months free</span>
           </span>
         </div>
 
@@ -59,12 +59,12 @@ export function ProductSubscriptionPlans({ product }: { product: ProductDetail }
                 <Card
                   className={cn(
                     'flex h-full flex-col gap-5 p-7',
-                    plan.is_recommended && 'border-primary shadow-lg ring-1 ring-primary',
+                    plan.is_recommended && 'border-accent/50 ring-1 ring-accent/40',
                   )}
                 >
                   <div className="flex items-center justify-between gap-2">
                     <h3 className="text-lg font-bold text-ink">{plan.name}</h3>
-                    {plan.is_recommended ? <Badge variant="primary">Recommended</Badge> : null}
+                    {plan.is_recommended ? <Badge variant="accent">Recommended</Badge> : null}
                   </div>
 
                   <div>
@@ -85,13 +85,13 @@ export function ProductSubscriptionPlans({ product }: { product: ProductDetail }
                   <ul className="flex flex-1 flex-col gap-2.5">
                     {mainLimits.map((limit) => (
                       <li key={limit.key} className="flex items-start gap-2 text-sm text-ink">
-                        <Check className="mt-0.5 size-4 shrink-0 text-primary" />
+                        <Check className="mt-0.5 size-4 shrink-0 text-accent" />
                         {limit.label}: {limit.is_unlimited ? 'Unlimited' : `${limit.value ?? '—'}${limit.unit ? ` ${limit.unit}` : ''}`}
                       </li>
                     ))}
                   </ul>
 
-                  <Button variant={plan.is_recommended ? 'primary' : 'outline'} asChild>
+                  <Button variant={plan.is_recommended ? 'cta' : 'outline'} asChild>
                     <Link href="/contact">
                       {plan.is_custom_price ? 'Contact Sales' : product.trial_days ? 'Start Free Trial' : 'Get Started'}
                     </Link>

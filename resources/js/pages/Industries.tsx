@@ -18,8 +18,12 @@ export default function IndustriesPage() {
       <PageTitle title="Industries" />
       <PageHero
         eyebrow="Industries"
-        title="Built for the way your industry works"
-        description="From retail counters to pharmacy compliance and restaurant floors — Asas Vantage adapts to your workflows, not the other way around."
+        title={
+          <>
+            Built for the way your industry <span className="text-accent">works</span>
+          </>
+        }
+        description="From retail counters to pharmacy compliance and restaurant floors — MileSoftware adapts to your workflows, not the other way around."
       />
       <Suspense fallback={<SectionFallback />}>
         <IndustrySolutionsSection />

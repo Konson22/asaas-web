@@ -4,6 +4,7 @@ import useEmblaCarousel from 'embla-carousel-react'
 import { ArrowLeft, ArrowRight, ArrowUpRight } from 'lucide-react'
 import { Container } from '@/components/common/Container'
 import { SectionHeading } from '@/components/common/SectionHeading'
+import { FeatureIcon } from '@/components/common/FeatureIcon'
 import { Card } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { industries } from '@/data/industries'
@@ -27,19 +28,21 @@ export function IndustrySolutionsSection() {
   }, [emblaApi, onSelect])
 
   return (
-    <section id="industries" className="scroll-mt-20 bg-surface py-24">
-      <Container className="flex flex-col gap-10">
+    <section id="industries" className="scroll-mt-20 relative overflow-hidden bg-navy-purple py-24">
+      <div className="pointer-events-none absolute -right-16 bottom-0 h-72 w-72 rounded-full border border-white/10" />
+      <Container className="relative flex flex-col gap-10">
         <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
           <SectionHeading
             align="left"
+            tone="dark"
             eyebrow="Industries"
             title="Built for how your industry actually operates"
-            description="From retail counters to pharmacy compliance, Asas Vantage adapts to your workflow — not the other way around."
+            description="From retail counters to pharmacy compliance, MileSoftware adapts to your workflow — not the other way around."
             className="items-start text-left"
           />
           <div className="flex shrink-0 gap-2">
             <Button
-              variant="outline"
+              variant="secondary"
               size="icon"
               aria-label="Previous industry"
               onClick={() => emblaApi?.scrollPrev()}
@@ -47,7 +50,7 @@ export function IndustrySolutionsSection() {
               <ArrowLeft className="size-4" />
             </Button>
             <Button
-              variant="outline"
+              variant="secondary"
               size="icon"
               aria-label="Next industry"
               onClick={() => emblaApi?.scrollNext()}
@@ -59,18 +62,15 @@ export function IndustrySolutionsSection() {
 
         <div className="overflow-hidden" ref={emblaRef}>
           <div className="-ml-6 flex">
-            {industries.map((industry) => {
-              const Icon = industry.icon
+            {industries.map((industry, index) => {
               return (
                 <div
                   key={industry.id}
                   className="min-w-0 shrink-0 grow-0 basis-full pl-6 sm:basis-1/2 lg:basis-1/3"
                 >
-                  <Card className="flex h-full flex-col gap-4 p-6">
-                    <div className="flex size-11 items-center justify-center rounded-lg bg-primary/10">
-                      <Icon className="size-5 text-primary" />
-                    </div>
-                    <h3 className="text-lg font-semibold text-ink">{industry.name}</h3>
+                  <Card className="flex h-full flex-col gap-4 border-white/10 bg-background/50 p-6">
+                    <FeatureIcon icon={industry.icon} tone={index % 2 === 0 ? 'lime' : 'purple'} />
+                    <h3 className="text-lg font-semibold text-white">{industry.name}</h3>
                     <p className="text-sm text-ink-muted">{industry.description}</p>
                     <ul className="flex flex-col gap-1.5 text-sm text-ink-muted">
                       {industry.features.map((feature) => (
@@ -79,7 +79,7 @@ export function IndustrySolutionsSection() {
                     </ul>
                     <Link
                       href="/contact"
-                      className="mt-auto inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline"
+                      className="mt-auto inline-flex items-center gap-1.5 text-sm font-semibold text-accent hover:underline"
                     >
                       {industry.ctaLabel}
                       <ArrowUpRight className="size-4" />
@@ -100,7 +100,7 @@ export function IndustrySolutionsSection() {
               onClick={() => emblaApi?.scrollTo(index)}
               className={cn(
                 'h-1.5 rounded-full transition-all',
-                index === selectedIndex ? 'w-6 bg-primary' : 'w-1.5 bg-border',
+                index === selectedIndex ? 'w-6 bg-accent' : 'w-1.5 bg-white/25',
               )}
             />
           ))}

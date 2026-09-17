@@ -1,4 +1,4 @@
-# Asas Vantage Marketing
+# MileSoftware Marketing
 
 Laravel 12 + Inertia React marketing site for `https://asaasvantage.com`.
 
@@ -49,6 +49,13 @@ php artisan db:seed --class=ApplicationClientSeeder
 ## Dev
 
 ```bash
+composer run dev
+```
+
+That starts `php artisan serve` and Vite together. To run them separately:
+
+```bash
+php artisan serve
 npm run dev
 ```
 

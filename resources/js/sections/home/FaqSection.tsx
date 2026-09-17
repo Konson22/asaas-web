@@ -10,7 +10,7 @@ export function FaqSection() {
       <Container className="flex flex-col gap-12">
         <SectionHeading
           title="Common questions"
-          description="Everything you need to know about deployment, permissions, and how Asas Vantage fits your business."
+          description="Everything you need to know about deployment, permissions, and how MileSoftware fits your business."
         />
 
         <Reveal className="mx-auto w-full max-w-3xl">

@@ -24,9 +24,9 @@ export function ProductComparisonSection() {
           <table className="w-full min-w-[720px] border-collapse text-sm">
             <thead>
               <tr className="border-b border-border">
-                <th className="p-4 text-left font-semibold text-ink">Capability</th>
+                <th className="p-4 text-left font-semibold text-white">Capability</th>
                 {products.map((product) => (
-                  <th key={product.code} className="p-4 text-center font-semibold text-ink">
+                  <th key={product.code} className="p-4 text-center font-semibold text-white">
                     {product.short_name ?? product.name}
                   </th>
                 ))}
@@ -39,7 +39,7 @@ export function ProductComparisonSection() {
                   {products.map((product) => (
                     <td key={product.code} className="p-4 text-center">
                       {product.capabilities.includes(capability) ? (
-                        <Check className="mx-auto size-4 text-primary" aria-label="Included" />
+                        <Check className="mx-auto size-4 text-accent" aria-label="Included" />
                       ) : (
                         <Minus className="mx-auto size-4 text-border" aria-label="Not included" />
                       )}

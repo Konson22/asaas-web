@@ -15,31 +15,34 @@ interface MobileNavProps {
 
 export function MobileNav({ open, onOpenChange }: MobileNavProps) {
   const { url } = usePage()
-  const pathname = url.split('?')[0]
+  const pathname = url.split('?')[0].split('#')[0]
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent side="right" className="flex flex-col gap-8 p-6">
+      <DialogContent side="right" className="flex flex-col gap-8 bg-background p-6">
         <DialogTitle asChild>
           <Logo />
         </DialogTitle>
 
         <nav className="flex flex-col gap-1" aria-label="Mobile">
           {navLinks.map((link) => {
-            const isActive = pathname === link.href
+            const isHash = link.href.includes('#')
+            const isActive = isHash ? false : pathname === link.href
+            const Comp = isHash ? 'a' : Link
+
             return (
-              <Link
+              <Comp
                 key={link.href}
                 href={link.href}
                 onClick={() => onOpenChange(false)}
                 className={cn(
                   'rounded-lg px-3 py-3 text-base font-semibold transition-colors',
-                  isActive ? 'bg-primary/10 text-primary' : 'text-ink hover:bg-background',
+                  isActive ? 'bg-primary/20 text-white' : 'text-ink hover:bg-surface',
                 )}
                 aria-current={isActive ? 'page' : undefined}
               >
                 {link.label}
-              </Link>
+              </Comp>
             )
           })}
         </nav>
@@ -48,14 +51,14 @@ export function MobileNav({ open, onOpenChange }: MobileNavProps) {
           <div className="flex flex-col gap-2 border-t border-border pt-5">
             <a
               href={`mailto:${contactInfo.email}`}
-              className="flex items-center gap-2 text-sm text-ink-muted hover:text-ink"
+              className="flex items-center gap-2 text-sm text-ink-muted hover:text-accent"
             >
               <Mail className="size-4" aria-hidden="true" />
               {contactInfo.email}
             </a>
             <a
               href={`tel:${contactInfo.phone.replace(/\s+/g, '')}`}
-              className="flex items-center gap-2 text-sm text-ink-muted hover:text-ink"
+              className="flex items-center gap-2 text-sm text-ink-muted hover:text-accent"
             >
               <Phone className="size-4" aria-hidden="true" />
               {contactInfo.phone}
@@ -71,7 +74,7 @@ export function MobileNav({ open, onOpenChange }: MobileNavProps) {
                     target="_blank"
                     rel="noreferrer noopener"
                     aria-label={social.label}
-                    className="text-ink-muted hover:text-ink"
+                    className="text-ink-muted hover:text-accent"
                   >
                     <Icon className="size-4" />
                   </a>
@@ -84,8 +87,8 @@ export function MobileNav({ open, onOpenChange }: MobileNavProps) {
             <Button variant="outline" asChild onClick={() => onOpenChange(false)}>
               <a href={getPlatformUrl('/login')}>Sign in</a>
             </Button>
-            <Button variant="primary" asChild onClick={() => onOpenChange(false)}>
-              <Link href="/products">Get started</Link>
+            <Button variant="cta" asChild onClick={() => onOpenChange(false)}>
+              <Link href="/contact">Request Demo</Link>
             </Button>
           </div>
         </div>

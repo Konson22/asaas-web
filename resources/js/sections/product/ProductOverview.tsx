@@ -28,7 +28,7 @@ export function ProductOverview({ product }: { product: ProductDetail }) {
             {blocks.map((block, index) => (
               <Reveal key={block.label} delay={index * 0.05}>
                 <Card className="h-full p-6">
-                  <h3 className="text-sm font-semibold uppercase tracking-wide text-primary">{block.label}</h3>
+                  <h3 className="text-sm font-semibold uppercase tracking-wide text-accent">{block.label}</h3>
                   <p className="mt-3 text-sm text-ink-muted">{block.body}</p>
                 </Card>
               </Reveal>

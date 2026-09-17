@@ -25,7 +25,7 @@ export function RelatedProducts({ product }: { product: ProductDetail }) {
             return (
               <Reveal key={related.slug} delay={index * 0.05}>
                 <Card className="flex h-full flex-col gap-4 p-6">
-                  <span className="flex size-11 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                  <span className="flex size-11 items-center justify-center rounded-full bg-accent text-background">
                     <Icon className="size-5" />
                   </span>
                   <div>

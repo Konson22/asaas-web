@@ -86,8 +86,11 @@ export default function ProductDetailPage({ product }: { product: ProductDetailT
         </div>
 
         {visual.image ? (
-          <div className="mt-4 w-full max-w-2xl overflow-hidden rounded-card bg-white/5 p-4">
-            <img src={visual.image} alt={`${product.name} preview`} className="aspect-[16/9] w-full object-contain" />
+          <div className="relative mt-4 w-full max-w-2xl">
+            <div className="pointer-events-none absolute inset-2 rounded-2xl bg-primary/40 blur-3xl" />
+            <div className="relative overflow-hidden rounded-card border border-white/10 bg-background p-4">
+              <img src={visual.image} alt={`${product.name} preview`} className="aspect-[16/9] w-full object-contain" />
+            </div>
           </div>
         ) : null}
       </PageHero>

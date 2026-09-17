@@ -13,7 +13,7 @@ export function Breadcrumbs({ items }: { items: Breadcrumb[] }) {
         <span key={item.label} className="flex items-center gap-1.5">
           {index > 0 ? <ChevronRight className="size-3.5 shrink-0" aria-hidden="true" /> : null}
           {item.href ? (
-            <Link href={item.href} className="hover:text-white">
+            <Link href={item.href} className="text-ink-muted hover:text-accent">
               {item.label}
             </Link>
           ) : (

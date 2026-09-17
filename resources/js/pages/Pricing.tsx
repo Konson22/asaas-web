@@ -18,7 +18,11 @@ export default function PricingPage() {
       <PageTitle title="Asas Pricing and Deployment Options" />
       <PageHero
         eyebrow="Pricing"
-        title="Flexible pricing for every business"
+        title={
+          <>
+            Flexible pricing for every <span className="text-accent">business</span>
+          </>
+        }
         description="Choose cloud subscriptions, offline desktop licences, local-server deployment, or desktop applications with cloud synchronization. Asas pricing is designed for businesses of different sizes, industries, and connectivity environments."
       />
       <CatalogPricingSection />

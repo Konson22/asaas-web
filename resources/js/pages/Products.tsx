@@ -29,8 +29,12 @@ export default function ProductsPage() {
       <PageTitle title="Products" />
       <PageHero
         eyebrow="Products"
-        title="Choose the product built for your business"
-        description="Each Asas Vantage product is purpose-built for a specific industry. Pick one to start a free trial — or learn more before you decide."
+        title={
+          <>
+            Choose the product built for your <span className="text-accent">business</span>
+          </>
+        }
+        description="Each MileSoftware product is purpose-built for a specific industry. Pick one to start a free trial — or learn more before you decide."
         size="compact"
       />
 
@@ -58,10 +62,10 @@ export default function ProductsPage() {
 
                 return (
                   <Reveal key={product.slug}>
-                    <Card className="flex h-full flex-col overflow-hidden border-0 bg-white shadow-none">
+                    <Card className="flex h-full flex-col overflow-hidden bg-surface">
                       <Link
                         href={`/products/${product.slug}`}
-                        className="relative flex aspect-[16/10] items-center justify-center overflow-hidden bg-white outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-inset"
+                        className="relative flex aspect-[16/10] items-center justify-center overflow-hidden bg-background outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-inset"
                         aria-label={`Learn more about ${product.name}`}
                       >
                         {visual.image ? (
@@ -72,7 +76,7 @@ export default function ProductsPage() {
                             loading="lazy"
                           />
                         ) : (
-                          <span className="flex size-20 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+                          <span className="flex size-20 items-center justify-center rounded-2xl bg-accent text-background">
                             <Icon className="size-9" />
                           </span>
                         )}
@@ -101,7 +105,7 @@ export default function ProductsPage() {
                             </Link>
                           </Button>
                           {isCloud && canRegister ? (
-                            <Button variant="primary" asChild className="flex-1">
+                            <Button variant="cta" asChild className="flex-1">
                               <a href={getProductRegisterUrl(product.code)}>
                                 <Cloud className="size-4" />
                                 Get started
@@ -126,7 +130,7 @@ export default function ProductsPage() {
 
       <CtaSection
         title="Not sure which product fits?"
-        description="Tell us how you run your business and we’ll recommend the right Asas Vantage product — or walk you through a live demo."
+        description="Tell us how you run your business and we’ll recommend the right MileSoftware product — or walk you through a live demo."
         actions={
           <>
             <Button variant="cta" size="lg" asChild>

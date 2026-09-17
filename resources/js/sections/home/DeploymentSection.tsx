@@ -1,6 +1,7 @@
 import { Container } from '@/components/common/Container'
 import { SectionHeading } from '@/components/common/SectionHeading'
 import { Reveal } from '@/components/common/Reveal'
+import { FeatureIcon } from '@/components/common/FeatureIcon'
 import { Card } from '@/components/ui/card'
 import { deploymentOptions } from '@/data/deployment'
 
@@ -10,21 +11,27 @@ export function DeploymentSection() {
       <Container className="flex flex-col gap-12">
         <SectionHeading
           title="Choose the infrastructure that fits your operational reality"
-          description="Cloud, desktop, hybrid, or mobile — deploy Asas Vantage the way that fits your infrastructure and connectivity."
+          description="Cloud, desktop, hybrid, or mobile — deploy MileSoftware the way that fits your infrastructure and connectivity."
         />
 
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {deploymentOptions.map((option, index) => {
-            const Icon = option.icon
+            const bordered = index === 0 || index === 3
+            const content = (
+              <>
+                <FeatureIcon icon={option.icon} tone={index % 2 === 0 ? 'lime' : 'purple'} />
+                <h3 className="text-lg font-semibold text-white">{option.title}</h3>
+                <p className="text-sm text-ink-muted">{option.description}</p>
+              </>
+            )
+
             return (
               <Reveal key={option.id} delay={index * 0.05}>
-                <Card className="flex h-full flex-col gap-4 p-6">
-                  <div className="flex size-11 items-center justify-center rounded-lg bg-primary/10">
-                    <Icon className="size-5 text-primary" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-ink">{option.title}</h3>
-                  <p className="text-sm text-ink-muted">{option.description}</p>
-                </Card>
+                {bordered ? (
+                  <Card className="flex h-full flex-col gap-4 p-6">{content}</Card>
+                ) : (
+                  <div className="flex h-full flex-col gap-4 p-6">{content}</div>
+                )}
               </Reveal>
             )
           })}

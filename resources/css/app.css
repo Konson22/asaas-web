@@ -3,26 +3,30 @@
 @plugin 'tailwindcss-animate';
 
 /**
- * Design tokens sourced from the Asas Vantage logo (see DESIGN.md).
- * --color-ink / --color-ink-muted correspond to DESIGN.md's --text / --text-secondary;
- * renamed to avoid the awkward `text-text` utility class.
+ * Dark navy / purple / lime brand tokens.
+ * Semantic names (background, surface, ink, primary, accent) are preserved
+ * so existing utilities keep working after the rebrand.
  */
 @theme {
   --font-sans: 'Manrope Variable', 'Manrope', system-ui, sans-serif;
 
-  --color-primary: #005eeb;
-  --color-primary-dark: #082a78;
-  --color-primary-darker: #061e5c;
-  --color-primary-light: #3a8fff;
+  --color-primary: #5038e5;
+  --color-primary-dark: #3326a8;
+  --color-primary-darker: #090b1f;
+  --color-primary-light: #b8a8ff;
 
-  --color-accent: #f7b500;
-  --color-accent-dark: #d99800;
+  --color-purple: #3326a8;
 
-  --color-background: #f7f9fc;
-  --color-surface: #ffffff;
-  --color-ink: #0f1f44;
-  --color-ink-muted: #5e6b85;
-  --color-border: #dce4f2;
+  --color-accent: #c8f51d;
+  --color-accent-dark: #d6ff3a;
+
+  --color-success: #75d52a;
+
+  --color-background: #090b1f;
+  --color-surface: #10143a;
+  --color-ink: #ffffff;
+  --color-ink-muted: #b9bed3;
+  --color-border: #2a2f55;
 
   --radius-card: 0.75rem;
 
@@ -57,9 +61,29 @@
 
 @utility grid-pattern {
   background-image:
-    linear-gradient(rgb(255 255 255 / 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgb(255 255 255 / 0.05) 1px, transparent 1px);
+    linear-gradient(rgb(255 255 255 / 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(255 255 255 / 0.03) 1px, transparent 1px);
   background-size: 48px 48px;
+}
+
+@utility glow-purple {
+  background: radial-gradient(circle, rgb(80 56 229 / 0.45) 0%, transparent 70%);
+}
+
+@utility bg-navy-purple {
+  background-image: linear-gradient(135deg, #090b1f 0%, #3326a8 100%);
+}
+
+@utility bg-purple-electric {
+  background-image: linear-gradient(135deg, #3326a8 0%, #5038e5 100%);
+}
+
+@utility clip-hero-diagonal {
+  clip-path: polygon(16% 0, 100% 0, 100% 100%, 0 100%);
+}
+
+@utility clip-cta-diagonal {
+  clip-path: polygon(0 0, 100% 0, 100% 78%, 0 100%);
 }
 
 @utility skip-link {
@@ -67,8 +91,8 @@
   left: 1rem;
   top: -3rem;
   z-index: 100;
-  background: var(--color-primary-dark);
-  color: white;
+  background: var(--color-accent);
+  color: var(--color-background);
   padding: 0.75rem 1.25rem;
   border-radius: 0.5rem;
   transition: top 0.2s ease;
@@ -83,6 +107,7 @@
     @apply m-0 min-h-svh bg-background font-sans text-ink antialiased;
     font-size: 1rem;
     line-height: 1.6;
+    color-scheme: dark;
   }
 
   h1,
@@ -98,12 +123,12 @@
   }
 
   ::selection {
-    background: rgb(0 94 235 / 0.18);
-    color: var(--color-primary-darker);
+    background: rgb(200 245 29 / 0.28);
+    color: var(--color-background);
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-primary);
+    outline: 2px solid var(--color-accent);
     outline-offset: 2px;
     border-radius: 0.25rem;
   }

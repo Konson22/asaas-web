@@ -15,7 +15,7 @@ function DialogOverlay({
   return (
     <DialogPrimitive.Overlay
       className={cn(
-        'fixed inset-0 z-50 bg-primary-darker/50 backdrop-blur-[2px] data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0',
+        'fixed inset-0 z-50 bg-background/70 backdrop-blur-[2px] data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0',
         className,
       )}
       {...props}
@@ -33,7 +33,7 @@ function DialogContent({ className, children, side = 'center', ...props }: Dialo
       <DialogOverlay />
       <DialogPrimitive.Content
         className={cn(
-          'fixed z-50 bg-surface shadow-xl focus-visible:outline-none',
+          'fixed z-50 border-border bg-surface focus-visible:outline-none',
           side === 'center' &&
             'left-1/2 top-1/2 w-full max-w-lg -translate-x-1/2 -translate-y-1/2 rounded-card border border-border p-6 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95',
           side === 'right' &&

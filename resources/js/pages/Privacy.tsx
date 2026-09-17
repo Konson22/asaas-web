@@ -36,7 +36,7 @@ export default function PrivacyPage() {
       <PageHero
         eyebrow="Legal"
         title="Privacy Policy"
-        description="How Asas Vantage collects, uses, and protects your information."
+        description="How MileSoftware collects, uses, and protects your information."
       />
       <section className="bg-background py-20">
         <Container className="max-w-3xl">

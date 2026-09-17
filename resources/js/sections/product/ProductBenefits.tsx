@@ -19,7 +19,7 @@ export function ProductBenefits({ product }: { product: ProductDetail }) {
           {product.benefits.map((benefit, index) => (
             <Reveal key={benefit.title} delay={index * 0.05}>
               <Card className="flex h-full flex-col gap-3 p-6">
-                <CheckCircle2 className="size-6 text-primary" />
+                <CheckCircle2 className="size-6 text-accent" />
                 <h3 className="font-semibold text-ink">{benefit.title}</h3>
                 {benefit.description ? <p className="text-sm text-ink-muted">{benefit.description}</p> : null}
               </Card>

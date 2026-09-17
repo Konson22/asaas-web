@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Asas Vantage'),
+    'name' => env('APP_NAME', 'MileSoftware'),
 
     /*
     |--------------------------------------------------------------------------

@@ -1,23 +1,15 @@
 import { cn } from '@/lib/utils'
 
 interface LogoProps {
-  /** Use "dark" when placed on a dark-navy background (footer, CTA, hero). */
+  /** Kept for call-site compatibility; the dark site always uses a white wordmark. */
   variant?: 'light' | 'dark'
   className?: string
 }
 
-export function Logo({ variant = 'light', className }: LogoProps) {
+export function Logo({ className }: LogoProps) {
   return (
-    <span className={cn('inline-flex items-center gap-2.5', className)}>
-      <img src="/images/logo-icon.png" alt="" className="h-8 w-auto" />
-      <span
-        className={cn(
-          'text-xl font-bold tracking-tight',
-          variant === 'dark' ? 'text-white' : 'text-ink',
-        )}
-      >
-        Asas Vantage
-      </span>
+    <span className="inline-flex items-center">
+      <img src="/images/logo-icon.png" alt="MileSoftware" className={cn('h-8 w-auto', className)} />
     </span>
   )
 }

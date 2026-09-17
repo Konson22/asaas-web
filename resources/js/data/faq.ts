@@ -49,15 +49,15 @@ export const faqItems: FaqItem[] = [
   },
   {
     id: 'accounting-integration',
-    question: 'Can I integrate Asas Vantage with my current accounting software?',
+    question: 'Can I integrate MileSoftware with my current accounting software?',
     answer:
-      'Yes. Asas Vantage connects to external accounting systems alongside payment gateways, SMS, email, and WhatsApp, so financial data stays consistent across the tools you already use.',
+      'Yes. MileSoftware connects to external accounting systems alongside payment gateways, SMS, email, and WhatsApp, so financial data stays consistent across the tools you already use.',
   },
   {
     id: 'rest-api',
     question: 'Is there a REST API available for my developers?',
     answer:
-      'Yes. We provide a developer-friendly REST API and webhooks so your team can build custom integrations and automate workflows around Asas Vantage.',
+      'Yes. We provide a developer-friendly REST API and webhooks so your team can build custom integrations and automate workflows around MileSoftware.',
   },
   {
     id: 'white-label',

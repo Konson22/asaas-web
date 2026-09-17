@@ -48,7 +48,7 @@ export const featureGroups: FeatureGroup[] = [
   {
     id: 'integrations',
     title: 'Seamless Integrations',
-    description: 'Asas Vantage plays nicely with the tools you already use.',
+    description: 'MileSoftware plays nicely with the tools you already use.',
     icon: Plug,
     items: [
       'Payment Gateways, SMS Providers, Email, WhatsApp',

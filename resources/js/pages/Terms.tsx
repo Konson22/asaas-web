@@ -5,7 +5,7 @@ import { Container } from '@/components/common/Container'
 const sections = [
   {
     title: 'Acceptance of terms',
-    body: 'By accessing or using Asas Vantage, you agree to be bound by these Terms of Service. If you use the platform on behalf of a business, you confirm you have the authority to bind that business to these terms.',
+    body: 'By accessing or using MileSoftware, you agree to be bound by these Terms of Service. If you use the platform on behalf of a business, you confirm you have the authority to bind that business to these terms.',
   },
   {
     title: 'Accounts and subscriptions',
@@ -25,7 +25,7 @@ const sections = [
   },
   {
     title: 'Limitation of liability',
-    body: 'To the maximum extent permitted by law, Asas Vantage is not liable for indirect, incidental, or consequential damages arising from use of the platform. Our total liability is limited to the amounts paid in the twelve months preceding the claim.',
+    body: 'To the maximum extent permitted by law, MileSoftware is not liable for indirect, incidental, or consequential damages arising from use of the platform. Our total liability is limited to the amounts paid in the twelve months preceding the claim.',
   },
   {
     title: 'Changes to these terms',
@@ -44,7 +44,7 @@ export default function TermsPage() {
       <PageHero
         eyebrow="Legal"
         title="Terms of Service"
-        description="The agreement between you and Asas Vantage when you use the platform."
+        description="The agreement between you and MileSoftware when you use the platform."
       />
       <section className="bg-background py-20">
         <Container className="max-w-3xl">
