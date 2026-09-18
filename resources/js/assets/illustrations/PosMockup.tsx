@@ -8,7 +8,7 @@ export function PosMockup({ className }: PosMockupProps) {
   return (
     <div
       className={cn(
-        'w-full overflow-hidden rounded-card border border-white/10 bg-white shadow-2xl',
+        'w-full overflow-hidden rounded-card border border-border bg-white shadow-[0_1px_2px_rgb(31_41_55_/_0.04)]',
         className,
       )}
     >
@@ -25,9 +25,9 @@ export function PosMockup({ className }: PosMockupProps) {
             <div className="h-2 w-8 rounded-full bg-border" />
           </div>
         ))}
-        <div className="mt-2 flex items-center justify-between rounded-lg bg-primary-darker px-4 py-3">
+        <div className="mt-2 flex items-center justify-between rounded-lg bg-brand-gradient px-4 py-3">
           <span className="h-2 w-14 rounded-full bg-white/30" />
-          <span className="h-3 w-16 rounded-full bg-accent" />
+          <span className="h-3 w-16 rounded-full bg-lime" />
         </div>
       </div>
     </div>

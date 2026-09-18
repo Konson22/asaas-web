@@ -19,7 +19,7 @@ export function ProductAudiences({ product }: { product: ProductDetail }) {
           {product.audiences.map((audience, index) => (
             <Reveal key={audience.name} delay={index * 0.05}>
               <Card className="flex h-full items-start gap-3 p-5">
-                <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-accent text-background">
+                <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-surface-purple text-primary">
                   <Users className="size-4" />
                 </span>
                 <div>

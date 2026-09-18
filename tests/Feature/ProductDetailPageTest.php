@@ -15,31 +15,48 @@ class ProductDetailPageTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_renders_product_detail_page_with_data_from_central_platform(): void
+    /**
+     * @return array<string, mixed>
+     */
+    private function pharmacyDetail(): array
+    {
+        return [
+            'slug' => 'asas-pharmacy',
+            'code' => 'pharmacy',
+            'name' => 'Asas Pharmacy',
+            'tagline' => 'Complete pharmacy management, online and offline.',
+            'seo' => ['title' => 'Asas Pharmacy — Complete pharmacy management', 'description' => 'A pharmacy platform.'],
+            'status' => 'published',
+            'trial_days' => 30,
+            'capability_badges' => ['cloud', 'offline'],
+            'starting_price' => ['amount' => 25, 'currency' => 'USD', 'formatted' => 'USD 25.00', 'is_custom' => false],
+            'audiences' => [],
+            'benefits' => [],
+            'capabilities' => [],
+            'highlighted_features' => [],
+            'feature_groups' => [],
+            'deployment_options' => [],
+            'requirements' => [],
+            'implementation_items' => [],
+            'addons' => [],
+            'related_products' => [],
+        ];
+    }
+
+    private function fakeCatalogueEndpoints(array $extra = []): void
     {
         Http::fake([
+            ...$extra,
+            '*/api/v1/marketing/products' => Http::response(['products' => []], 200),
+            '*/api/v1/marketing/registerable-applications' => Http::response(['applications' => ['pharmacy']], 200),
+        ]);
+    }
+
+    public function test_renders_product_detail_page_with_data_from_central_platform(): void
+    {
+        $this->fakeCatalogueEndpoints([
             '*/api/v1/marketing/products/asas-pharmacy' => Http::response([
-                'product' => [
-                    'slug' => 'asas-pharmacy',
-                    'code' => 'pharmacy',
-                    'name' => 'Asas Pharmacy',
-                    'tagline' => 'Complete pharmacy management, online and offline.',
-                    'seo' => ['title' => 'Asas Pharmacy — Complete pharmacy management', 'description' => 'A pharmacy platform.'],
-                    'status' => 'published',
-                    'trial_days' => 30,
-                    'capability_badges' => ['cloud', 'offline'],
-                    'starting_price' => ['amount' => 25, 'currency' => 'USD', 'formatted' => 'USD 25.00', 'is_custom' => false],
-                    'audiences' => [],
-                    'benefits' => [],
-                    'capabilities' => [],
-                    'highlighted_features' => [],
-                    'feature_groups' => [],
-                    'deployment_options' => [],
-                    'requirements' => [],
-                    'implementation_items' => [],
-                    'addons' => [],
-                    'related_products' => [],
-                ],
+                'product' => $this->pharmacyDetail(),
             ], 200),
         ]);
 
@@ -54,7 +71,7 @@ class ProductDetailPageTest extends TestCase
 
     public function test_returns_404_when_central_platform_does_not_have_the_product(): void
     {
-        Http::fake([
+        $this->fakeCatalogueEndpoints([
             '*/api/v1/marketing/products/does-not-exist' => Http::response(null, 404),
         ]);
 
@@ -63,7 +80,7 @@ class ProductDetailPageTest extends TestCase
 
     public function test_returns_503_when_central_platform_is_unreachable(): void
     {
-        Http::fake([
+        $this->fakeCatalogueEndpoints([
             '*/api/v1/marketing/products/asas-pharmacy' => Http::response(null, 500),
         ]);
 

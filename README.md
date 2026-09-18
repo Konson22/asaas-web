@@ -52,7 +52,7 @@ php artisan db:seed --class=ApplicationClientSeeder
 composer run dev
 ```
 
-That starts `php artisan serve` and Vite together. To run them separately:
+That starts `php artisan serve` (`http://asaas.local:8001`) and Vite (`:5173`) together. Open the site **with the port**. To run them separately:
 
 ```bash
 php artisan serve
@@ -64,4 +64,4 @@ npm run dev
 - Sign in → `${PLATFORM_URL}/login`
 - Get started → `${PLATFORM_URL}/get-started/{applicationCode}`
 - Contact form → `POST ${PLATFORM_URL}/api/v1/marketing/contact`
-- Registerable apps → `GET ${PLATFORM_URL}/api/v1/marketing/registerable-applications`
+- Products / pricing / nav → website server fetches `GET ${PLATFORM_URL}/api/v1/marketing/products` (cached) and shares it to Inertia. Product switching on Pricing uses same-origin `GET /api/catalog/products/{slug}`.

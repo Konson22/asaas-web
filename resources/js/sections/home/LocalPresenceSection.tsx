@@ -23,9 +23,9 @@ export function LocalPresenceSection() {
               <div className="flex h-full flex-col gap-4">
                 <FeatureIcon
                   icon={feature.icon}
-                  tone={feature.id === 'ssp-native' ? 'lime' : feature.id === 'local-support' ? 'green' : 'purple'}
+                  tone={feature.id === 'ssp-native' ? 'blue' : feature.id === 'local-support' ? 'green' : 'blue'}
                 />
-                <h3 className="text-lg font-semibold text-white">{feature.title}</h3>
+                <h3 className="text-lg font-semibold text-ink">{feature.title}</h3>
                 <p className="text-sm text-ink-muted">{feature.description}</p>
               </div>
             </Reveal>

@@ -46,7 +46,10 @@ export default function AboutPage() {
       <section className="bg-surface py-20 lg:py-24">
         <Container className="flex flex-col gap-10">
           <div className="max-w-2xl">
-            <p className="text-sm font-semibold uppercase tracking-wide text-primary">How we work</p>
+            <p className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-primary">
+              <span className="size-1.5 rounded-full bg-lime" aria-hidden="true" />
+              How we work
+            </p>
             <h2 className="mt-3 text-3xl font-bold text-ink sm:text-4xl">What MileSoftwares believes</h2>
           </div>
           <div className="grid gap-6 md:grid-cols-3">

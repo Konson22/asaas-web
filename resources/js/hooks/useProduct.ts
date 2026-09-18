@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react'
-import { getPlatformApiUrl } from '@/lib/platform'
 import type { ProductDetail } from '@/types/catalog'
 
 /**
- * Full product detail from the central platform, refetched whenever `slug` changes.
- * Used for client-driven product switching (e.g. the Pricing page selector) — the
- * Product Detail page itself fetches server-side in PageController for 404/SEO.
+ * Full product detail from the website's same-origin catalogue proxy (which
+ * reads central-app, with cache). Used for client-driven product switching
+ * on the Pricing page — Product Detail itself is fetched in PageController.
  */
 export function useProduct(slug: string | null) {
   const [product, setProduct] = useState<ProductDetail | null>(null)
@@ -25,10 +24,10 @@ export function useProduct(slug: string | null) {
     setLoading(true)
     setError(false)
 
-    fetch(getPlatformApiUrl(`/products/${slug}`), {
+    fetch(`/api/catalog/products/${slug}`, {
       method: 'GET',
       headers: { Accept: 'application/json' },
-      credentials: 'omit',
+      credentials: 'same-origin',
       signal: controller.signal,
     })
       .then(async (response) => {

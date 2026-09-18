@@ -31,14 +31,14 @@ export default function ProductsPage() {
         eyebrow="Products"
         title={
           <>
-            Choose the product built for your <span className="text-primary">business</span>
+            Choose the product built for your <span className="text-brand-gradient">business</span>
           </>
         }
         description="Each MileSoftware product is purpose-built for a specific industry. Pick one to start a free trial — or learn more before you decide."
         size="compact"
       />
 
-      <section id="products" className="scroll-mt-20 bg-background py-24">
+      <section id="products" className="scroll-mt-20 bg-surface py-24">
         <Container>
           {loading ? (
             <div className="grid gap-8 sm:grid-cols-2 xl:grid-cols-3" aria-hidden="true">
@@ -62,10 +62,10 @@ export default function ProductsPage() {
 
                 return (
                   <Reveal key={product.slug}>
-                    <Card className="flex h-full flex-col overflow-hidden bg-surface">
+                    <Card className="flex h-full flex-col overflow-hidden">
                       <Link
                         href={`/products/${product.slug}`}
-                        className="relative flex aspect-[16/10] items-center justify-center overflow-hidden bg-background outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-inset"
+                        className="relative flex aspect-[16/10] items-center justify-center overflow-hidden bg-background outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-inset"
                         aria-label={`Learn more about ${product.name}`}
                       >
                         {visual.image ? (
@@ -76,7 +76,7 @@ export default function ProductsPage() {
                             loading="lazy"
                           />
                         ) : (
-                          <span className="flex size-20 items-center justify-center rounded-2xl bg-accent text-background">
+                          <span className="flex size-20 items-center justify-center rounded-2xl bg-surface-purple text-primary">
                             <Icon className="size-9" />
                           </span>
                         )}
@@ -133,10 +133,10 @@ export default function ProductsPage() {
         description="Tell us how you run your business and we’ll recommend the right MileSoftware product — or walk you through a live demo."
         actions={
           <>
-            <Button variant="cta" size="lg" asChild>
+            <Button variant="onGradient" size="lg" asChild>
               <Link href="/contact">Request a demo</Link>
             </Button>
-            <Button variant="secondary" size="lg" asChild>
+            <Button variant="onGradientOutline" size="lg" asChild>
               <Link href="/contact">Contact sales</Link>
             </Button>
           </>

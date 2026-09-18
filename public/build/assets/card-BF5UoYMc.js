@@ -1,0 +1,1 @@
+import{n as e,o as t,r as n}from"./Container-CAEMIfHs.js";t();var r=e();function i({className:e,...t}){return(0,r.jsx)(`div`,{className:n(`rounded-card border border-border bg-background shadow-[0_1px_2px_rgb(31_41_55_/_0.04)]`,e),...t})}export{i as t};

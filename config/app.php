@@ -67,10 +67,22 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Public catalogue cache
+    |--------------------------------------------------------------------------
+    |
+    | Seconds to keep central-app product payloads. Marketing pages read this
+    | cache first so a brief Central outage does not empty the site.
+    |
+    */
+
+    'catalogue_cache_seconds' => (int) env('CATALOGUE_CACHE_SECONDS', 600),
+
+    /*
+    |--------------------------------------------------------------------------
     | Application Timezone
     |--------------------------------------------------------------------------
     |
-   
+
     | Here you may specify the default timezone for your application, which
     | will be used by the PHP date and date-time functions. The timezone
     | is set to "UTC" by default as it is suitable for most use cases.

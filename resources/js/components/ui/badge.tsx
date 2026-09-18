@@ -7,11 +7,11 @@ const badgeVariants = cva(
   {
     variants: {
       variant: {
-        primary: 'bg-primary/10 text-primary',
-        accent: 'bg-accent/10 text-accent',
-        success: 'bg-lime text-primary-darker',
+        primary: 'bg-surface-purple text-primary',
+        accent: 'bg-surface-green text-ink',
+        success: 'bg-lime text-ink',
         outline: 'border border-border text-ink-muted',
-        inverted: 'bg-white/10 text-white',
+        inverted: 'bg-white/15 text-white',
       },
     },
     defaultVariants: { variant: 'primary' },

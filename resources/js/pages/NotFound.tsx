@@ -13,10 +13,10 @@ export default function NotFoundPage() {
           <span className="text-sm font-semibold uppercase tracking-wide text-primary">
             404
           </span>
-          <h1 className="max-w-xl text-4xl font-bold text-white sm:text-5xl">
+          <h1 className="max-w-xl text-4xl font-bold text-ink sm:text-5xl">
             This page doesn't exist
           </h1>
-          <p className="max-w-md text-lg text-white/70">
+          <p className="max-w-md text-lg text-ink-muted">
             The page you're looking for may have been moved or removed. Let's get you back on
             track.
           </p>

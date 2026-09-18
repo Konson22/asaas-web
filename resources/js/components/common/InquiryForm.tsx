@@ -77,7 +77,7 @@ export function InquiryForm({
   if (successful) {
     return (
       <div className={cn('flex flex-col items-center gap-3 py-6 text-center', compact && 'py-4', className)}>
-        <span className="flex size-11 items-center justify-center rounded-full bg-accent text-background">
+        <span className="flex size-11 items-center justify-center rounded-full bg-lime text-ink">
           <Check className="size-5" />
         </span>
         <p className="font-semibold text-ink">Request received</p>
@@ -95,7 +95,7 @@ export function InquiryForm({
         </div>
       ) : null}
 
-      {errors.form ? <p className="text-sm text-red-400">{errors.form}</p> : null}
+      {errors.form ? <p className="text-sm text-destructive">{errors.form}</p> : null}
 
       <div className="flex flex-col gap-1.5">
         <label htmlFor={`${uid}-name`} className="text-sm font-semibold text-ink">
@@ -112,7 +112,7 @@ export function InquiryForm({
           className={fieldClass}
           placeholder="Jane Smith"
         />
-        {errors.name ? <p className="text-sm text-red-400">{errors.name}</p> : null}
+        {errors.name ? <p className="text-sm text-destructive">{errors.name}</p> : null}
       </div>
 
       <div className="flex flex-col gap-1.5">
@@ -130,7 +130,7 @@ export function InquiryForm({
           className={fieldClass}
           placeholder="jane@company.com"
         />
-        {errors.email ? <p className="text-sm text-red-400">{errors.email}</p> : null}
+        {errors.email ? <p className="text-sm text-destructive">{errors.email}</p> : null}
       </div>
 
       <div className="flex flex-col gap-1.5">
@@ -148,7 +148,7 @@ export function InquiryForm({
           className={fieldClass}
           placeholder="Company Ltd."
         />
-        {errors.company ? <p className="text-sm text-red-400">{errors.company}</p> : null}
+        {errors.company ? <p className="text-sm text-destructive">{errors.company}</p> : null}
       </div>
 
       <Button type="submit" variant="cta" size={compact ? 'default' : 'lg'} disabled={processing} className="w-full">

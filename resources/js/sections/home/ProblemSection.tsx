@@ -21,7 +21,7 @@ export function ProblemSection() {
             losing a sale, a stock count, or a day&apos;s records because the connection dropped isn&apos;t
             a minor inconvenience. It&apos;s money walking out the door.
           </p>
-          <p className="font-semibold text-white">
+          <p className="font-semibold text-ink">
             MileSoftware was built around that reality from day one, not patched in as an
             afterthought.
           </p>

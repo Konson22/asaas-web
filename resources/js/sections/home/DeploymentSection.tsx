@@ -19,7 +19,7 @@ export function DeploymentSection() {
           {deploymentOptions.map((option, index) => (
             <Reveal key={option.id} delay={index * 0.05}>
               <Card className="flex h-full flex-col gap-4 p-6">
-                <FeatureIcon icon={option.icon} tone={index === 1 ? 'lime' : 'purple'} />
+                <FeatureIcon icon={option.icon} tone={index === 1 ? 'green' : 'blue'} />
                 <h3 className="text-lg font-semibold text-ink">{option.title}</h3>
                 <p className="text-sm text-ink-muted">{option.description}</p>
               </Card>

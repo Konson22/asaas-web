@@ -18,9 +18,9 @@ export function PowerfulFeaturesSection() {
           {featureGroups.map((group, index) => (
             <Reveal key={group.id} delay={index * 0.05}>
               <Card className="flex h-full flex-col gap-4 border-border/80 p-6">
-                <FeatureIcon icon={group.icon} tone={index === 0 ? 'lime' : index === 1 ? 'purple' : 'green'} />
+                <FeatureIcon icon={group.icon} tone={index === 0 ? 'blue' : index === 1 ? 'blue' : 'green'} />
                 <div>
-                  <h3 className="text-lg font-semibold text-white">{group.title}</h3>
+                  <h3 className="text-lg font-semibold text-ink">{group.title}</h3>
                   <p className="mt-1 text-sm text-ink-muted">{group.description}</p>
                 </div>
                 <ul className="flex flex-col gap-2.5">

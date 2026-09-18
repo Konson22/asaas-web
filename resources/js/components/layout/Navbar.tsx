@@ -22,13 +22,18 @@ export function Navbar() {
 
   useEffect(() => {
     function onScroll() {
-      setScrolled(window.scrollY > 12)
+      setScrolled(window.scrollY > 8)
     }
 
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
+
+  useEffect(() => {
+    setAppsOpen(false)
+    setMobileOpen(false)
+  }, [pathname])
 
   useEffect(() => {
     if (!appsOpen) return
@@ -51,44 +56,79 @@ export function Navbar() {
     }
   }, [appsOpen])
 
+  const appsActive = pathname.startsWith('/products')
+
   return (
-    <div className="sticky top-0 z-40">
+    <>
       <TopBar />
       <header
         className={cn(
-          'border-b bg-background transition-shadow duration-300',
-          scrolled ? 'border-border shadow-sm shadow-black/[0.04]' : 'border-border/70',
+          'sticky top-0 z-40 border-b bg-background transition-[box-shadow,border-color] duration-200',
+          scrolled ? 'border-border shadow-sm shadow-ink/[0.04]' : 'border-border/80',
         )}
       >
-        <Container className="flex items-center justify-between py-3">
+        <Container
+          className={cn(
+            'flex items-center justify-between transition-[padding] duration-200',
+            scrolled ? 'py-2' : 'py-3',
+          )}
+        >
           <Link href="/" className="shrink-0" aria-label="MileSoftwares home">
-            <Logo className="h-14" />
+            <Logo className={cn('w-auto transition-[height] duration-200', scrolled ? 'h-9' : 'h-11')} />
           </Link>
 
-          <nav className="hidden items-center gap-1 lg:flex" aria-label="Primary">
+          <nav className="hidden items-center gap-0.5 lg:flex" aria-label="Primary">
+            <Link
+              href="/"
+              className={cn(
+                'relative rounded-lg px-3 py-2 text-sm font-medium transition-colors',
+                pathname === '/'
+                  ? 'bg-surface-purple text-primary'
+                  : 'text-ink-muted hover:bg-surface hover:text-ink',
+              )}
+              aria-current={pathname === '/' ? 'page' : undefined}
+            >
+              Home
+              {pathname === '/' ? (
+                <span className="absolute inset-x-3 -bottom-px h-0.5 rounded-full bg-brand-gradient" />
+              ) : null}
+            </Link>
+
             <div className="relative" ref={appsRef}>
               <button
                 type="button"
                 onClick={() => setAppsOpen((prev) => !prev)}
                 aria-expanded={appsOpen}
+                aria-haspopup="menu"
                 className={cn(
-                  'flex items-center gap-1 rounded-lg px-4 py-2 text-sm font-semibold transition-colors',
-                  appsOpen ? 'text-primary' : 'text-ink-muted hover:text-ink',
+                  'flex items-center gap-1 rounded-lg px-3 py-2 text-sm font-medium transition-colors',
+                  appsOpen || appsActive
+                    ? 'bg-surface-purple text-primary'
+                    : 'text-ink-muted hover:bg-surface hover:text-ink',
                 )}
               >
                 Apps
-                <ChevronDown className={cn('size-3.5 transition-transform', appsOpen && 'rotate-180')} />
+                <ChevronDown className={cn('size-3.5 transition-transform duration-200', appsOpen && 'rotate-180')} />
               </button>
 
               {appsOpen ? (
-                <div className="absolute left-0 top-full z-50 mt-2 w-72 overflow-hidden rounded-xl border border-border bg-surface py-2">
+                <div
+                  role="menu"
+                  className="absolute left-0 top-full z-50 mt-2 w-72 overflow-hidden rounded-xl border border-border bg-background py-1.5 shadow-[0_8px_24px_rgb(31_41_55_/_0.08)]"
+                >
                   {products.length > 0 ? (
                     products.map((product) => (
                       <Link
                         key={product.slug}
                         href={`/products/${product.slug}`}
                         onClick={() => setAppsOpen(false)}
-                        className="block px-4 py-2.5 text-sm font-medium text-ink transition-colors hover:bg-surface-secondary hover:text-primary"
+                        role="menuitem"
+                        className={cn(
+                          'block px-4 py-2.5 text-sm font-medium transition-colors',
+                          pathname === `/products/${product.slug}`
+                            ? 'bg-surface-purple text-primary'
+                            : 'text-ink hover:bg-surface hover:text-primary',
+                        )}
                       >
                         {product.name}
                       </Link>
@@ -97,7 +137,8 @@ export function Navbar() {
                     <Link
                       href="/products"
                       onClick={() => setAppsOpen(false)}
-                      className="block px-4 py-2.5 text-sm font-medium text-ink transition-colors hover:bg-surface-secondary hover:text-primary"
+                      role="menuitem"
+                      className="block px-4 py-2.5 text-sm font-medium text-ink transition-colors hover:bg-surface hover:text-primary"
                     >
                       View all apps
                     </Link>
@@ -106,7 +147,8 @@ export function Navbar() {
                     <Link
                       href="/products"
                       onClick={() => setAppsOpen(false)}
-                      className="block px-4 py-2.5 text-sm font-semibold text-primary"
+                      role="menuitem"
+                      className="block px-4 py-2.5 text-sm font-semibold text-primary hover:bg-surface-purple"
                     >
                       View all apps →
                     </Link>
@@ -127,19 +169,24 @@ export function Navbar() {
                     key={link.href}
                     href={link.href}
                     className={cn(
-                      'relative rounded-lg px-4 py-2 text-sm font-semibold transition-colors',
-                      isActive ? 'text-primary' : 'text-ink-muted hover:text-ink',
+                      'relative rounded-lg px-3 py-2 text-sm font-medium transition-colors',
+                      isActive
+                        ? 'bg-surface-purple text-primary'
+                        : 'text-ink-muted hover:bg-surface hover:text-ink',
                     )}
                     aria-current={isActive ? 'page' : undefined}
                   >
                     {link.label}
+                    {isActive ? (
+                      <span className="absolute inset-x-3 -bottom-px h-0.5 rounded-full bg-brand-gradient" />
+                    ) : null}
                   </Comp>
                 )
               })}
           </nav>
 
-          <div className="hidden items-center gap-3 lg:flex">
-            <Button variant="ghost" size="sm" className="text-ink-muted hover:text-ink" asChild>
+          <div className="hidden items-center gap-2 lg:flex">
+            <Button variant="ghost" size="sm" asChild>
               <a href={getPlatformUrl('/login')}>Sign in</a>
             </Button>
             <Button variant="cta" size="sm" asChild>
@@ -150,7 +197,7 @@ export function Navbar() {
           <div className="flex items-center gap-2 lg:hidden">
             <button
               type="button"
-              className="inline-flex items-center justify-center rounded-lg p-2 text-ink"
+              className="inline-flex items-center justify-center rounded-lg p-2 text-ink transition-colors hover:bg-surface"
               onClick={() => setMobileOpen(true)}
               aria-label="Open menu"
             >
@@ -161,6 +208,6 @@ export function Navbar() {
 
         <MobileNav open={mobileOpen} onOpenChange={setMobileOpen} />
       </header>
-    </div>
+    </>
   )
 }

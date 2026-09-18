@@ -5,9 +5,9 @@ import { ReportChart } from '@/assets/illustrations/ReportChart'
 
 const stats = [
   { label: 'Revenue', value: '$482K', color: 'text-primary' },
-  { label: 'Profit', value: '$118K', color: 'text-accent-dark' },
+  { label: 'Profit', value: '$118K', color: 'text-primary' },
   { label: 'Expenses', value: '$364K', color: 'text-ink-muted' },
-  { label: 'Inventory Value', value: '$210K', color: 'text-primary-darker' },
+  { label: 'Inventory Value', value: '$210K', color: 'text-ink' },
 ]
 
 export function ReportingSection() {

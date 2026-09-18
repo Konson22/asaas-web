@@ -29,12 +29,12 @@ const flowSteps = [
 const toneClasses = {
   blue: 'border-primary bg-primary text-white',
   navy: 'border-border bg-background text-ink-muted',
-  success: 'border-lime bg-lime text-primary-darker',
+  success: 'border-lime bg-lime text-ink',
 }
 
 export function OfflineCapabilitySection() {
   return (
-    <section id="offline" className="scroll-mt-24 relative overflow-hidden bg-surface-secondary py-24">
+    <section id="offline" className="scroll-mt-24 relative overflow-hidden bg-surface-purple py-24">
       <div className="pointer-events-none absolute -right-24 top-16 h-72 w-72 rounded-full border border-primary/20" />
 
       <Container className="relative flex flex-col gap-14">
@@ -44,7 +44,7 @@ export function OfflineCapabilitySection() {
             <>
               No Internet?
               <br />
-              <span className="text-primary">Keep Working.</span>
+              <span className="text-brand-gradient">Keep Working.</span>
             </>
           }
           description="Supported applications can continue operating locally when internet connectivity is unavailable, and synchronize with cloud services when connectivity returns."

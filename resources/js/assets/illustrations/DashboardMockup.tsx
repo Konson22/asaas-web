@@ -12,7 +12,7 @@ export function DashboardMockup({ className }: DashboardMockupProps) {
   return (
     <div
       className={cn(
-        'w-full overflow-hidden rounded-card border border-white/10 bg-white shadow-2xl',
+        'w-full overflow-hidden rounded-card border border-border bg-white shadow-[0_1px_2px_rgb(31_41_55_/_0.04)]',
         className,
       )}
     >
@@ -39,7 +39,7 @@ export function DashboardMockup({ className }: DashboardMockupProps) {
               { label: 'Revenue', color: 'bg-primary' },
               { label: 'Profit', color: 'bg-accent' },
               { label: 'Expenses', color: 'bg-ink-muted' },
-              { label: 'Inventory', color: 'bg-primary-darker' },
+              { label: 'Inventory', color: 'bg-brand-gradient' },
             ].map((stat) => (
               <div key={stat.label} className="rounded-lg border border-border p-3">
                 <span className={cn('block h-1.5 w-8 rounded-full', stat.color)} />

@@ -17,7 +17,7 @@ export function PricingSection() {
     .filter((plan): plan is NonNullable<typeof plan> => Boolean(plan))
 
   return (
-    <section id="pricing" className="scroll-mt-20 bg-background py-24">
+    <section id="pricing" className="scroll-mt-20 bg-surface py-24">
       <Container className="flex flex-col gap-14">
         <SectionHeading
           title="Choose the plan that fits how you deploy"
@@ -34,16 +34,14 @@ export function PricingSection() {
                   className={cn(
                     'flex h-full flex-col gap-6 p-8',
                     highlighted &&
-                      'border-accent/40 bg-primary-dark lg:min-h-[32rem] lg:-translate-y-4 lg:py-10',
+                      'border-transparent bg-brand-gradient lg:min-h-[32rem] lg:-translate-y-4 lg:py-10',
                   )}
                 >
                   <div className="flex items-center justify-between gap-2">
                     <h3 className={cn('text-xl font-bold', highlighted ? 'text-white' : 'text-ink')}>
                       {plan.name}
                     </h3>
-                    {highlighted ? (
-                      <Badge className="bg-accent text-primary-darker">Most Popular</Badge>
-                    ) : null}
+                    {highlighted ? <Badge variant="success">Most Popular</Badge> : null}
                   </div>
                   <div>
                     <span className={cn('text-3xl font-bold', highlighted ? 'text-white' : 'text-ink')}>
@@ -70,14 +68,14 @@ export function PricingSection() {
                         <Check
                           className={cn(
                             'mt-0.5 size-4 shrink-0',
-                            highlighted ? 'text-white' : 'text-accent',
+                            highlighted ? 'text-lime' : 'text-primary',
                           )}
                         />
                         {feature}
                       </li>
                     ))}
                   </ul>
-                  <Button variant={highlighted ? 'cta' : 'outline'} asChild>
+                  <Button variant={highlighted ? 'onGradient' : 'outline'} asChild>
                     <Link href="/contact">{plan.ctaLabel}</Link>
                   </Button>
                 </Card>
@@ -88,7 +86,7 @@ export function PricingSection() {
 
         <p className="text-center text-sm text-ink-muted">
           Need enterprise scale?{' '}
-          <Link href="/contact" className="font-semibold text-accent hover:underline">
+          <Link href="/contact" className="font-semibold text-primary hover:underline">
             Contact sales
           </Link>
         </p>

@@ -52,14 +52,14 @@ export default function ProductDetailPage({ product }: { product: ProductDetailT
 
         <div className="flex flex-wrap items-center gap-2">
           {product.capability_badges.map((c) => (
-            <Badge key={c} variant="inverted">
+            <Badge key={c} variant="primary">
               {capabilityLabels[c] ?? c}
             </Badge>
           ))}
-          {product.status === 'coming_soon' ? <Badge variant="inverted">Coming soon</Badge> : null}
+          {product.status === 'coming_soon' ? <Badge variant="accent">Coming soon</Badge> : null}
         </div>
 
-        <p className="text-lg font-semibold text-white">
+        <p className="text-lg font-semibold text-ink">
           {product.starting_price.is_custom
             ? 'Custom pricing'
             : product.starting_price.amount !== null
@@ -88,7 +88,7 @@ export default function ProductDetailPage({ product }: { product: ProductDetailT
         {visual.image ? (
           <div className="relative mt-4 w-full max-w-2xl">
             <div className="pointer-events-none absolute inset-2 rounded-2xl bg-primary/40 blur-3xl" />
-            <div className="relative overflow-hidden rounded-card border border-white/10 bg-background p-4">
+            <div className="relative overflow-hidden rounded-card border border-border bg-background p-4">
               <img src={visual.image} alt={`${product.name} preview`} className="aspect-[16/9] w-full object-contain" />
             </div>
           </div>

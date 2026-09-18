@@ -15,13 +15,12 @@ export function Footer() {
   )
 
   return (
-    // Footer stays near-black in both themes (brief §23), so it always uses the
-    // dark-theme logo and fixed white/lime tones rather than the theme tokens.
-    <footer className="bg-primary-darker text-white">
+    <footer className="border-t border-border bg-surface">
+      <div className="h-1 bg-brand-gradient" />
       <Container className="grid gap-12 py-16 lg:grid-cols-[1.2fr_2fr] lg:py-20">
         <div className="flex flex-col gap-4">
-          <Logo variant="dark" />
-          <p className="max-w-sm text-sm text-white/60">
+          <Logo />
+          <p className="max-w-sm text-sm text-ink-muted">
             Ready business applications for pharmacies, schools, inventory operations,
             restaurants and Monitoring &amp; Evaluation — configured and customized around the
             way your organization works.
@@ -36,7 +35,7 @@ export function Footer() {
                   target="_blank"
                   rel="noreferrer noopener"
                   aria-label={social.label}
-                  className="text-white/50 transition-colors hover:text-lime"
+                  className="text-ink-muted transition-colors hover:text-primary"
                 >
                   <Icon className="size-4" />
                 </a>
@@ -48,13 +47,13 @@ export function Footer() {
         <div className="grid grid-cols-2 gap-8 sm:grid-cols-3">
           {columns.map((column) => (
             <div key={column.title} className="flex flex-col gap-3">
-              <h3 className="text-sm font-semibold text-white">{column.title}</h3>
+              <h3 className="text-sm font-semibold text-ink">{column.title}</h3>
               <ul className="flex flex-col gap-2.5">
                 {column.links.map((link) => (
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      className="text-sm text-white/60 transition-colors hover:text-lime"
+                      className="text-sm text-ink-muted transition-colors hover:text-primary"
                     >
                       {link.label}
                     </Link>
@@ -66,16 +65,16 @@ export function Footer() {
         </div>
       </Container>
 
-      <div className="border-t border-white/10">
+      <div className="border-t border-border">
         <Container className="flex flex-col items-center justify-between gap-4 py-6 sm:flex-row">
-          <p className="text-xs text-white/40">
+          <p className="text-xs text-ink-subtle">
             © {new Date().getFullYear()} MileSoftwares — A product of Miles Global Technologies.
           </p>
           <div className="flex items-center gap-6">
-            <Link href="/privacy-policy" className="text-xs text-white/40 transition-colors hover:text-lime">
+            <Link href="/privacy-policy" className="text-xs text-ink-subtle transition-colors hover:text-primary">
               Privacy
             </Link>
-            <Link href="/terms-of-service" className="text-xs text-white/40 transition-colors hover:text-lime">
+            <Link href="/terms-of-service" className="text-xs text-ink-subtle transition-colors hover:text-primary">
               Terms
             </Link>
           </div>

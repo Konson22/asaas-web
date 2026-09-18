@@ -17,7 +17,7 @@ const comparisonRows: Array<{ label: string; key: keyof CatalogDeploymentOption 
 ]
 
 function BoolCell({ value }: { value: unknown }) {
-  if (value === true) return <Check className="mx-auto size-4 text-accent" aria-label="Yes" />
+  if (value === true) return <Check className="mx-auto size-4 text-primary" aria-label="Yes" />
   if (value === false) return <X className="mx-auto size-4 text-ink-muted/50" aria-label="No" />
   return <Minus className="mx-auto size-4 text-ink-muted/50" aria-label="Not applicable" />
 }
@@ -56,7 +56,7 @@ export function ProductDeploymentOptions({ product }: { product: ProductDetail }
                 <Reveal key={option.slug} delay={index * 0.05}>
                   <Card className="flex h-full flex-col gap-4 p-6">
                     <h3 className="text-lg font-bold text-ink">{option.name}</h3>
-                    {price ? <p className="text-xl font-bold text-accent">{price}</p> : null}
+                    {price ? <p className="text-xl font-bold text-primary">{price}</p> : null}
                     {option.short_description ? <p className="text-sm text-ink-muted">{option.short_description}</p> : null}
 
                     {option.included_items.length > 0 ? (
@@ -65,7 +65,7 @@ export function ProductDeploymentOptions({ product }: { product: ProductDetail }
                         <ul className="mt-2 flex flex-col gap-1.5">
                           {option.included_items.slice(0, 5).map((item) => (
                             <li key={item} className="flex items-start gap-2 text-sm text-ink">
-                              <Check className="mt-0.5 size-3.5 shrink-0 text-accent" />
+                              <Check className="mt-0.5 size-3.5 shrink-0 text-primary" />
                               {item}
                             </li>
                           ))}
@@ -123,7 +123,7 @@ export function ProductDeploymentOptions({ product }: { product: ProductDetail }
 
         {hasPerpetualPricing ? (
           <Reveal>
-            <Card className="border-primary/30 bg-primary/15 p-6">
+            <Card className="border-primary/20 bg-surface-purple p-6">
               <p className="text-sm text-ink">
                 The first year includes standard software updates and support. Annual maintenance after the first year is
                 calculated at 20% of the original licence value unless otherwise stated. Maintenance covers software

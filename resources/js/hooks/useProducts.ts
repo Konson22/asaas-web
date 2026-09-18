@@ -1,55 +1,21 @@
-import { useEffect, useState } from 'react'
-import { getPlatformApiUrl } from '@/lib/platform'
+import { usePage } from '@inertiajs/react'
 import type { ProductSummary } from '@/types/catalog'
 
+type SharedCatalogueProps = {
+  products?: ProductSummary[]
+  catalogueError?: boolean
+}
+
 /**
- * Public product catalogue from the central platform. Empty list + `loading: false`
- * means the API is unreachable or no products are active — callers should show an
- * empty state rather than treat it as "still loading".
+ * Public product catalogue from central-app, loaded server-side and shared on
+ * every page. `loading` stays false because the payload is already in the page.
  */
 export function useProducts() {
-  const [products, setProducts] = useState<ProductSummary[]>([])
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(false)
+  const { products = [], catalogueError = false } = usePage<SharedCatalogueProps>().props
 
-  useEffect(() => {
-    let cancelled = false
-    const controller = new AbortController()
-
-    fetch(getPlatformApiUrl('/products'), {
-      method: 'GET',
-      headers: { Accept: 'application/json' },
-      credentials: 'omit',
-      signal: controller.signal,
-    })
-      .then(async (response) => {
-        if (!response.ok) {
-          throw new Error('Failed to load products')
-        }
-
-        return response.json() as Promise<{ products?: ProductSummary[] }>
-      })
-      .then((payload) => {
-        if (!cancelled) {
-          setProducts(payload.products ?? [])
-          setLoading(false)
-        }
-      })
-      .catch((err: unknown) => {
-        if (cancelled || (err instanceof DOMException && err.name === 'AbortError')) {
-          return
-        }
-
-        setProducts([])
-        setError(true)
-        setLoading(false)
-      })
-
-    return () => {
-      cancelled = true
-      controller.abort()
-    }
-  }, [])
-
-  return { products, loading, error }
+  return {
+    products,
+    loading: false,
+    error: catalogueError,
+  }
 }

@@ -39,7 +39,7 @@ export function MobileNav({ open, onOpenChange }: MobileNavProps) {
                 onClick={() => onOpenChange(false)}
                 className={cn(
                   'rounded-lg px-3 py-3 text-base font-semibold transition-colors',
-                  isActive ? 'bg-primary/10 text-primary' : 'text-ink hover:bg-surface',
+                  isActive ? 'bg-surface-purple text-primary' : 'text-ink hover:bg-surface',
                 )}
                 aria-current={isActive ? 'page' : undefined}
               >

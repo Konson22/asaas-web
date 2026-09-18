@@ -41,7 +41,7 @@ export function ProductImplementation({ product }: { product: ProductDetail }) {
                 <ul className="mt-3 flex flex-col gap-2">
                   {items.map((item) => (
                     <li key={item.title} className="flex items-start gap-2 text-sm text-ink-muted">
-                      <Check className="mt-0.5 size-4 shrink-0 text-accent" />
+                      <Check className="mt-0.5 size-4 shrink-0 text-primary" />
                       {item.title}
                     </li>
                   ))}

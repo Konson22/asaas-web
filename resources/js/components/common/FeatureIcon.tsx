@@ -3,20 +3,20 @@ import { cn } from '@/lib/utils'
 
 interface FeatureIconProps {
   icon: LucideIcon
-  tone?: 'lime' | 'purple' | 'green' | 'white'
+  /** Purple for most icons; green only for selected highlights; white on gradient bands. */
+  tone?: 'blue' | 'green' | 'white'
   className?: string
 }
 
 const toneClasses = {
-  lime: 'bg-accent text-background',
-  purple: 'bg-primary/15 text-primary',
-  green: 'bg-success/15 text-success',
-  white: 'bg-white/10 text-white',
+  blue: 'bg-surface-purple text-primary',
+  green: 'bg-surface-green text-ink',
+  white: 'bg-white/15 text-white',
 }
 
-export function FeatureIcon({ icon: Icon, tone = 'lime', className }: FeatureIconProps) {
+export function FeatureIcon({ icon: Icon, tone = 'blue', className }: FeatureIconProps) {
   return (
-    <div className={cn('flex size-11 shrink-0 items-center justify-center rounded-full', toneClasses[tone], className)}>
+    <div className={cn('flex size-11 shrink-0 items-center justify-center rounded-xl', toneClasses[tone], className)}>
       <Icon className="size-5" />
     </div>
   )

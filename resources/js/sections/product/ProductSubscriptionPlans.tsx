@@ -34,7 +34,7 @@ export function ProductSubscriptionPlans({ product }: { product: ProductDetail }
             aria-checked={annual}
             aria-label="Toggle annual billing"
             onClick={() => setAnnual((v) => !v)}
-            className="relative h-7 w-12 rounded-full bg-border transition-colors data-[on=true]:bg-accent"
+            className="relative h-7 w-12 rounded-full bg-border transition-colors data-[on=true]:bg-primary"
             data-on={annual}
           >
             <span
@@ -45,7 +45,7 @@ export function ProductSubscriptionPlans({ product }: { product: ProductDetail }
             />
           </button>
           <span className={cn('text-sm font-medium', annual && 'text-ink', !annual && 'text-ink-muted')}>
-            Annual <span className="text-accent">— 2 months free</span>
+            Annual <span className="font-semibold text-primary">— 2 months free</span>
           </span>
         </div>
 
@@ -59,12 +59,12 @@ export function ProductSubscriptionPlans({ product }: { product: ProductDetail }
                 <Card
                   className={cn(
                     'flex h-full flex-col gap-5 p-7',
-                    plan.is_recommended && 'border-accent/50 ring-1 ring-accent/40',
+                    plan.is_recommended && 'border-primary/30 ring-1 ring-primary/20',
                   )}
                 >
                   <div className="flex items-center justify-between gap-2">
                     <h3 className="text-lg font-bold text-ink">{plan.name}</h3>
-                    {plan.is_recommended ? <Badge variant="accent">Recommended</Badge> : null}
+                    {plan.is_recommended ? <Badge variant="success">Recommended</Badge> : null}
                   </div>
 
                   <div>
@@ -85,7 +85,7 @@ export function ProductSubscriptionPlans({ product }: { product: ProductDetail }
                   <ul className="flex flex-1 flex-col gap-2.5">
                     {mainLimits.map((limit) => (
                       <li key={limit.key} className="flex items-start gap-2 text-sm text-ink">
-                        <Check className="mt-0.5 size-4 shrink-0 text-accent" />
+                        <Check className="mt-0.5 size-4 shrink-0 text-primary" />
                         {limit.label}: {limit.is_unlimited ? 'Unlimited' : `${limit.value ?? '—'}${limit.unit ? ` ${limit.unit}` : ''}`}
                       </li>
                     ))}

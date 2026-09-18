@@ -51,7 +51,7 @@ export function CatalogPricingSection() {
                   onClick={() => selectProduct(p.slug)}
                   aria-pressed={p.slug === selectedSlug}
                   className={`rounded-full px-4 py-2 text-sm font-semibold transition-colors ${
-                    p.slug === selectedSlug ? 'bg-primary text-white' : 'border border-border text-ink-muted hover:text-ink'
+                    p.slug === selectedSlug ? 'bg-brand-gradient text-white' : 'border border-border text-ink-muted hover:text-ink'
                   }`}
                 >
                   {p.short_name || p.name}

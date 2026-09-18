@@ -23,8 +23,8 @@ export function PermissionsSection() {
             return (
               <Reveal key={feature.id} delay={index * 0.05}>
                 <div className="flex h-full flex-col gap-4 rounded-card border border-border bg-surface p-6">
-                  <div className="flex size-11 items-center justify-center rounded-lg bg-accent/15">
-                    <Icon className="size-5 text-accent-dark" />
+                  <div className="flex size-11 items-center justify-center rounded-xl bg-surface-purple">
+                    <Icon className="size-5 text-primary" />
                   </div>
                   <h3 className="text-lg font-semibold text-ink">{feature.title}</h3>
                   <p className="text-sm text-ink-muted">{feature.description}</p>

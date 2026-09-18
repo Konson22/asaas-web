@@ -11,12 +11,12 @@ const stats = [
 
 export function StatsStripSection() {
   return (
-    <section className="border-y border-border bg-background py-14">
+    <section className="border-y border-border bg-surface-green py-14">
       <Container>
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {stats.map((stat) => (
             <div key={stat.id} className="flex items-start gap-4">
-              <FeatureIcon icon={stat.icon} />
+              <FeatureIcon icon={stat.icon} tone={stat.id === 'offline' ? 'green' : 'blue'} />
               <div>
                 <p className="font-semibold text-ink">{stat.label}</p>
                 <p className="mt-1 text-sm text-ink-muted">{stat.detail}</p>

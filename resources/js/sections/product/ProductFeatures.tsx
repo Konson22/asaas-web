@@ -22,7 +22,7 @@ export function ProductFeatures({ product }: { product: ProductDetail }) {
                   key={feature.name}
                   className="flex items-start gap-2.5 rounded-lg border border-border bg-surface px-4 py-3 text-sm text-ink"
                 >
-                  <Check className="mt-0.5 size-4 shrink-0 text-accent" />
+                  <Check className="mt-0.5 size-4 shrink-0 text-primary" />
                   <div>
                     <p className="font-medium">{feature.name}</p>
                     {feature.description ? <p className="mt-0.5 text-xs text-ink-muted">{feature.description}</p> : null}
@@ -47,7 +47,7 @@ export function ProductFeatures({ product }: { product: ProductDetail }) {
                     <ul className="grid gap-2 sm:grid-cols-2">
                       {group.features.map((feature) => (
                         <li key={feature.name} className="flex items-start gap-2 text-sm text-ink-muted">
-                          <Check className="mt-0.5 size-3.5 shrink-0 text-accent" />
+                          <Check className="mt-0.5 size-3.5 shrink-0 text-primary" />
                           {feature.name}
                         </li>
                       ))}

@@ -20,7 +20,7 @@ export default function PricingPage() {
         eyebrow="Pricing"
         title={
           <>
-            Flexible pricing for every <span className="text-primary">business</span>
+            Flexible pricing for every <span className="text-brand-gradient">business</span>
           </>
         }
         description="Choose cloud subscriptions, offline desktop licences, local-server deployment, or desktop applications with cloud synchronization. Asas pricing is designed for businesses of different sizes, industries, and connectivity environments."

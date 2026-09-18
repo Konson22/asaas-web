@@ -31,11 +31,11 @@ export function FoundationSection() {
                   )}
                 >
                   {bordered ? (
-                    <FeatureIcon icon={feature.icon} tone={feature.id === 'offline-desktop' ? 'lime' : 'purple'} />
+                    <FeatureIcon icon={feature.icon} tone={feature.id === 'offline-desktop' ? 'blue' : 'blue'} />
                   ) : (
-                    <FeatureIcon icon={feature.icon} tone={feature.id === 'multi-branch' ? 'lime' : 'green'} />
+                    <FeatureIcon icon={feature.icon} tone={feature.id === 'multi-branch' ? 'blue' : 'green'} />
                   )}
-                  <h3 className="text-lg font-semibold text-white">{feature.title}</h3>
+                  <h3 className="text-lg font-semibold text-ink">{feature.title}</h3>
                   <p className="text-sm text-ink-muted">{feature.description}</p>
                 </div>
               </Reveal>

@@ -40,7 +40,7 @@ export default function ContactPage() {
         description="Start a free trial or talk to our team about cloud, offline, and multi-branch deployments."
       />
 
-      <section className="bg-background py-24">
+      <section className="bg-surface py-24">
         <Container className="grid gap-10 lg:grid-cols-[1.1fr_1fr] lg:items-start">
           <div className="flex flex-col gap-4">
             {contactChannels.map((channel) => (

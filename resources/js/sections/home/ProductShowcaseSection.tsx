@@ -14,15 +14,13 @@ export function ProductShowcaseSection() {
   }
 
   return (
-    <section className="scroll-mt-20 relative overflow-hidden bg-navy-deep py-24">
-      <div className="pointer-events-none absolute -left-20 top-10 h-80 w-80 rounded-full border border-white/10" />
+    <section className="scroll-mt-20 relative overflow-hidden bg-surface-purple py-24">
       <Container className="relative flex flex-col gap-12">
         <SectionHeading
-          tone="dark"
           title={
             <>
               Choose the solution built for your{' '}
-              <span className="text-primary">exact</span> operational reality
+              <span className="text-brand-gradient">exact</span> operational reality
             </>
           }
           description="Stop paying for generic modules you don’t need. Every Asas product is engineered for a specific way of doing business."
@@ -30,7 +28,7 @@ export function ProductShowcaseSection() {
 
         <Reveal>
           <Tabs defaultValue={products[0].code}>
-            <TabsList className="mx-auto flex w-fit flex-wrap border-white/10 bg-background/40">
+            <TabsList className="mx-auto flex w-fit flex-wrap">
               {products.map((product) => {
                 const Icon = getProductVisual(product.code).icon
                 return (
@@ -46,15 +44,15 @@ export function ProductShowcaseSection() {
               <TabsContent key={product.code} value={product.code}>
                 <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
                   <div className="flex flex-col gap-4">
-                    <h3 className="text-2xl font-bold text-white sm:text-3xl">{product.name}</h3>
+                    <h3 className="text-2xl font-bold text-ink sm:text-3xl">{product.name}</h3>
                     {product.tagline ? <p className="text-base font-semibold text-primary">{product.tagline}</p> : null}
                     {product.short_description ? (
                       <p className="text-base text-ink-muted">{product.short_description}</p>
                     ) : null}
                   </div>
                   <div className="relative mx-auto w-full">
-                    <div className="pointer-events-none absolute inset-4 rounded-2xl bg-primary/40 blur-3xl" />
-                    <div className="relative overflow-hidden rounded-card border border-white/10 bg-background">
+                    <div className="pointer-events-none absolute inset-4 rounded-2xl bg-primary/15 blur-3xl" />
+                    <div className="relative overflow-hidden rounded-card border border-border bg-background">
                       {getProductVisual(product.code).image ? (
                         <img
                           src={getProductVisual(product.code).image}
@@ -63,7 +61,7 @@ export function ProductShowcaseSection() {
                           loading="lazy"
                         />
                       ) : (
-                        <div className="flex aspect-[4/3] w-full items-center justify-center bg-primary/10 text-primary">
+                        <div className="flex aspect-[4/3] w-full items-center justify-center bg-surface-purple text-primary">
                           {(() => {
                             const Icon = getProductVisual(product.code).icon
                             return <Icon className="size-16" />

@@ -20,7 +20,7 @@ export function HomeProductCardsSection() {
     .slice(0, 3)
 
   return (
-    <section className="bg-background py-24">
+    <section className="bg-surface py-24">
       <Container className="flex flex-col gap-12">
         <SectionHeading
           title="Choose the product built for your business"
@@ -44,7 +44,7 @@ export function HomeProductCardsSection() {
                         loading="lazy"
                       />
                     ) : (
-                      <span className="flex size-16 items-center justify-center rounded-full bg-accent text-background">
+                      <span className="flex size-16 items-center justify-center rounded-full bg-primary/10 text-primary">
                         <Icon className="size-7" />
                       </span>
                     )}

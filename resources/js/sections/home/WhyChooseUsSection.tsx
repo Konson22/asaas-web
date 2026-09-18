@@ -33,9 +33,9 @@ export function WhyChooseUsSection() {
             return (
               <Reveal key={feature.id} delay={index * 0.05}>
                 <div className="flex gap-5">
-                  <FeatureIcon icon={feature.icon} tone={isOffline ? 'lime' : 'purple'} />
+                  <FeatureIcon icon={feature.icon} tone={isOffline ? 'blue' : 'blue'} />
                   <div className="flex flex-col gap-2">
-                    <h3 className="text-xl font-semibold text-white">{feature.title}</h3>
+                    <h3 className="text-xl font-semibold text-ink">{feature.title}</h3>
                     <p className="text-sm text-ink-muted">{feature.description}</p>
                   </div>
                 </div>
@@ -48,8 +48,8 @@ export function WhyChooseUsSection() {
           {rest.map((feature, index) => (
             <Reveal key={feature.id} delay={index * 0.05}>
               <div className={cn('flex h-full flex-col gap-4 p-6', index === 1 && 'rounded-card border border-border bg-surface')}>
-                <FeatureIcon icon={feature.icon} tone={feature.id === 'scales' ? 'lime' : 'purple'} />
-                <h3 className="text-lg font-semibold text-white">{feature.title}</h3>
+                <FeatureIcon icon={feature.icon} tone={feature.id === 'scales' ? 'blue' : 'blue'} />
+                <h3 className="text-lg font-semibold text-ink">{feature.title}</h3>
                 <p className="text-sm text-ink-muted">{feature.description}</p>
               </div>
             </Reveal>
