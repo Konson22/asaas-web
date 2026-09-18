@@ -61,12 +61,7 @@ export function Navbar() {
   return (
     <>
       <TopBar />
-      <header
-        className={cn(
-          'sticky top-0 z-40 border-b bg-background transition-[box-shadow,border-color] duration-200',
-          scrolled ? 'border-border shadow-sm shadow-ink/[0.04]' : 'border-border/80',
-        )}
-      >
+      <header className="sticky top-0 z-40 border-b border-border bg-background">
         <Container
           className={cn(
             'flex items-center justify-between transition-[padding] duration-200',
@@ -84,7 +79,7 @@ export function Navbar() {
                 'relative rounded-lg px-3 py-2 text-sm font-medium transition-colors',
                 pathname === '/'
                   ? 'bg-surface-purple text-primary'
-                  : 'text-ink-muted hover:bg-surface hover:text-ink',
+                  : 'text-ink-muted hover:bg-primary/5 hover:text-ink',
               )}
               aria-current={pathname === '/' ? 'page' : undefined}
             >
@@ -104,7 +99,7 @@ export function Navbar() {
                   'flex items-center gap-1 rounded-lg px-3 py-2 text-sm font-medium transition-colors',
                   appsOpen || appsActive
                     ? 'bg-surface-purple text-primary'
-                    : 'text-ink-muted hover:bg-surface hover:text-ink',
+                    : 'text-ink-muted hover:bg-primary/5 hover:text-ink',
                 )}
               >
                 Apps
@@ -114,7 +109,7 @@ export function Navbar() {
               {appsOpen ? (
                 <div
                   role="menu"
-                  className="absolute left-0 top-full z-50 mt-2 w-72 overflow-hidden rounded-xl border border-border bg-background py-1.5 shadow-[0_8px_24px_rgb(31_41_55_/_0.08)]"
+                  className="absolute left-0 top-full z-50 mt-2 w-72 overflow-hidden rounded-xl border border-border bg-background py-1.5"
                 >
                   {products.length > 0 ? (
                     products.map((product) => (
@@ -127,7 +122,7 @@ export function Navbar() {
                           'block px-4 py-2.5 text-sm font-medium transition-colors',
                           pathname === `/products/${product.slug}`
                             ? 'bg-surface-purple text-primary'
-                            : 'text-ink hover:bg-surface hover:text-primary',
+                            : 'text-ink hover:bg-primary/5 hover:text-primary',
                         )}
                       >
                         {product.name}
@@ -138,7 +133,7 @@ export function Navbar() {
                       href="/products"
                       onClick={() => setAppsOpen(false)}
                       role="menuitem"
-                      className="block px-4 py-2.5 text-sm font-medium text-ink transition-colors hover:bg-surface hover:text-primary"
+                      className="block px-4 py-2.5 text-sm font-medium text-ink transition-colors hover:bg-primary/5 hover:text-primary"
                     >
                       View all apps
                     </Link>
@@ -148,7 +143,7 @@ export function Navbar() {
                       href="/products"
                       onClick={() => setAppsOpen(false)}
                       role="menuitem"
-                      className="block px-4 py-2.5 text-sm font-semibold text-primary hover:bg-surface-purple"
+                      className="block px-4 py-2.5 text-sm font-semibold text-primary hover:bg-primary/5-purple"
                     >
                       View all apps →
                     </Link>
@@ -172,7 +167,7 @@ export function Navbar() {
                       'relative rounded-lg px-3 py-2 text-sm font-medium transition-colors',
                       isActive
                         ? 'bg-surface-purple text-primary'
-                        : 'text-ink-muted hover:bg-surface hover:text-ink',
+                        : 'text-ink-muted hover:bg-primary/5 hover:text-ink',
                     )}
                     aria-current={isActive ? 'page' : undefined}
                   >
@@ -197,7 +192,7 @@ export function Navbar() {
           <div className="flex items-center gap-2 lg:hidden">
             <button
               type="button"
-              className="inline-flex items-center justify-center rounded-lg p-2 text-ink transition-colors hover:bg-surface"
+              className="inline-flex items-center justify-center rounded-lg p-2 text-ink transition-colors hover:bg-primary/5"
               onClick={() => setMobileOpen(true)}
               aria-label="Open menu"
             >

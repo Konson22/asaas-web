@@ -3,14 +3,14 @@ import { cn } from '@/lib/utils'
 
 interface FeatureIconProps {
   icon: LucideIcon
-  /** Purple for most icons; green only for selected highlights; white on gradient bands. */
+  /** Navy for most icons; teal only for selected highlights; white on gradient bands. */
   tone?: 'blue' | 'green' | 'white'
   className?: string
 }
 
 const toneClasses = {
   blue: 'bg-surface-purple text-primary',
-  green: 'bg-surface-green text-ink',
+  green: 'bg-surface-green text-primary',
   white: 'bg-white/15 text-white',
 }
 

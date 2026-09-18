@@ -15,7 +15,7 @@ export function Footer() {
   )
 
   return (
-    <footer className="border-t border-border bg-surface">
+    <footer className="border-t border-border bg-background">
       <div className="h-1 bg-brand-gradient" />
       <Container className="grid gap-12 py-16 lg:grid-cols-[1.2fr_2fr] lg:py-20">
         <div className="flex flex-col gap-4">

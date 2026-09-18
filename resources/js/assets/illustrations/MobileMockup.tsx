@@ -8,7 +8,7 @@ export function MobileMockup({ className }: MobileMockupProps) {
   return (
     <div
       className={cn(
-        'aspect-[9/18] w-full max-w-[220px] overflow-hidden rounded-[28px] border-4 border-primary bg-white shadow-[0_8px_24px_rgb(65_57_160_/_0.12)]',
+        'aspect-[9/18] w-full max-w-[220px] overflow-hidden rounded-[28px] border-4 border-primary bg-white',
         className,
       )}
     >

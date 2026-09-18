@@ -16,7 +16,7 @@ const steps = [
 
 export function HowItWorksSection() {
   return (
-    <section id="how-it-works" className="scroll-mt-20 relative overflow-hidden bg-surface py-24">
+    <section id="how-it-works" className="scroll-mt-20 relative overflow-hidden bg-background py-24">
       <Container className="relative flex flex-col gap-14">
         <Reveal className="flex flex-col items-center gap-4 text-center">
           <p className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.14em] text-primary">
@@ -35,7 +35,7 @@ export function HowItWorksSection() {
                 <span
                   className={
                     index === steps.length - 1
-                      ? 'flex size-9 items-center justify-center rounded-full bg-lime text-sm font-bold text-ink'
+                      ? 'flex size-9 items-center justify-center rounded-full bg-lime text-sm font-bold text-primary'
                       : 'flex size-9 items-center justify-center rounded-full bg-brand-gradient text-sm font-bold text-white'
                   }
                 >

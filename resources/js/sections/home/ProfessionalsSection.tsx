@@ -24,18 +24,15 @@ const numberedItems = [
 
 export function ProfessionalsSection() {
   return (
-    <section className="bg-surface py-24">
+    <section className="bg-background py-24">
       <Container className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
         <Reveal>
-          <div className="relative">
-            <div className="pointer-events-none absolute inset-6 rounded-2xl bg-primary/30 blur-3xl" />
-            <div className="relative overflow-hidden rounded-card border border-border bg-background p-6">
-              <img
-                src="/images/hero/desktop-transparent-bg.png"
-                alt="MileSoftware dashboard"
-                className="w-full object-contain"
-              />
-            </div>
+          <div className="overflow-hidden rounded-card border border-border bg-background p-6">
+            <img
+              src="/images/hero/desktop-transparent-bg.png"
+              alt="MileSoftware dashboard"
+              className="w-full object-contain"
+            />
           </div>
         </Reveal>
 

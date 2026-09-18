@@ -3,7 +3,7 @@ import { cn } from '@/lib/utils'
 interface LogoProps {
   className?: string
   /** 'light' (default) for white surfaces — dark lockup.
-   *  'dark' for purple-gradient bands if a reversed lockup is needed. */
+   *  'dark' for navy-gradient bands if a reversed lockup is needed. */
   variant?: 'light' | 'dark'
 }
 

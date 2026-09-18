@@ -34,7 +34,7 @@ const highlights = [
 
 export function HeroFeatureCards() {
   return (
-    <section className="relative z-20 -mt-4 pb-8 lg:-mt-10 lg:pb-4">
+    <section className="relative z-20 bg-background pb-8 pt-10 lg:pb-4 lg:pt-14">
       <Container>
         <div className="grid gap-5 md:grid-cols-3">
           {highlights.map((item, index) => {

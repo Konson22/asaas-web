@@ -7,7 +7,7 @@ interface SectionHeadingProps {
   title: ReactNode
   description?: ReactNode
   align?: 'center' | 'left'
-  /** Use "dark" on purple-gradient CTA bands. */
+  /** Use "dark" on navy-gradient CTA bands. */
   tone?: 'light' | 'dark'
   className?: string
 }

@@ -23,7 +23,7 @@ const promises = [
 
 export function HomeContactSection() {
   return (
-    <section className="bg-surface py-24">
+    <section className="bg-background py-24">
       <Container className="grid items-start gap-12 lg:grid-cols-2">
         <Reveal>
           <Card className="p-8">

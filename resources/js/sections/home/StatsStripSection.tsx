@@ -11,7 +11,7 @@ const stats = [
 
 export function StatsStripSection() {
   return (
-    <section className="border-y border-border bg-surface-green py-14">
+    <section className="border-y border-border bg-background py-14">
       <Container>
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {stats.map((stat) => (

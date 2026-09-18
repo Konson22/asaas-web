@@ -39,7 +39,7 @@ export function MobileNav({ open, onOpenChange }: MobileNavProps) {
                 onClick={() => onOpenChange(false)}
                 className={cn(
                   'rounded-lg px-3 py-3 text-base font-semibold transition-colors',
-                  isActive ? 'bg-surface-purple text-primary' : 'text-ink hover:bg-surface',
+                  isActive ? 'bg-surface-purple text-primary' : 'text-ink hover:bg-primary/5',
                 )}
                 aria-current={isActive ? 'page' : undefined}
               >
@@ -56,7 +56,7 @@ export function MobileNav({ open, onOpenChange }: MobileNavProps) {
                   key={product.slug}
                   href={`/products/${product.slug}`}
                   onClick={() => onOpenChange(false)}
-                  className="rounded-lg px-3 py-2.5 text-sm font-medium text-ink-muted transition-colors hover:bg-surface hover:text-ink"
+                  className="rounded-lg px-3 py-2.5 text-sm font-medium text-ink-muted transition-colors hover:bg-primary/5 hover:text-ink"
                 >
                   {product.name}
                 </Link>
@@ -65,7 +65,7 @@ export function MobileNav({ open, onOpenChange }: MobileNavProps) {
               <Link
                 href="/products"
                 onClick={() => onOpenChange(false)}
-                className="rounded-lg px-3 py-2.5 text-sm font-medium text-ink-muted transition-colors hover:bg-surface hover:text-ink"
+                className="rounded-lg px-3 py-2.5 text-sm font-medium text-ink-muted transition-colors hover:bg-primary/5 hover:text-ink"
               >
                 View all apps
               </Link>

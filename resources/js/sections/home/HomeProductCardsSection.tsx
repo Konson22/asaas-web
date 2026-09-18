@@ -20,7 +20,7 @@ export function HomeProductCardsSection() {
     .slice(0, 3)
 
   return (
-    <section className="bg-surface py-24">
+    <section className="bg-background py-24">
       <Container className="flex flex-col gap-12">
         <SectionHeading
           title="Choose the product built for your business"
@@ -35,7 +35,7 @@ export function HomeProductCardsSection() {
             return (
               <Reveal key={product.slug} delay={index * 0.05}>
                 <Card className="flex h-full flex-col overflow-hidden">
-                  <div className="flex aspect-[16/10] items-center justify-center bg-background p-4">
+                  <div className="flex aspect-[16/10] items-center justify-center border-b border-border bg-background p-4">
                     {visual.image ? (
                       <img
                         src={visual.image}

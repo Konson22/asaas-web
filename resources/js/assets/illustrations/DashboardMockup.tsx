@@ -12,7 +12,7 @@ export function DashboardMockup({ className }: DashboardMockupProps) {
   return (
     <div
       className={cn(
-        'w-full overflow-hidden rounded-card border border-border bg-white shadow-[0_1px_2px_rgb(31_41_55_/_0.04)]',
+        'w-full overflow-hidden rounded-card border border-border bg-white',
         className,
       )}
     >

@@ -4,7 +4,7 @@ import { Container } from '@/components/common/Container'
 
 export function MediaBannerSection() {
   return (
-    <section className="relative overflow-hidden bg-surface py-16">
+    <section className="relative overflow-hidden bg-background py-16">
       <Container>
         <div className="relative overflow-hidden rounded-card border border-border">
           <div className="pointer-events-none absolute inset-0 bg-primary/20 blur-3xl" />

@@ -2,11 +2,11 @@ import { cn } from '@/lib/utils'
 
 interface BrandBackdropProps {
   className?: string
-  /** Extra green orb — keep this rare so the accent stays selective. */
+  /** Extra teal orb — keep this rare so the accent stays selective. */
   withAccent?: boolean
 }
 
-/** Soft purple (and optional green) orbs used behind light heroes and featured bands. */
+/** Soft navy (and optional teal) orbs used behind light heroes and featured bands. */
 export function BrandBackdrop({ className, withAccent = false }: BrandBackdropProps) {
   return (
     <div className={cn('pointer-events-none absolute inset-0 overflow-hidden', className)} aria-hidden="true">

@@ -77,7 +77,7 @@ export function InquiryForm({
   if (successful) {
     return (
       <div className={cn('flex flex-col items-center gap-3 py-6 text-center', compact && 'py-4', className)}>
-        <span className="flex size-11 items-center justify-center rounded-full bg-lime text-ink">
+        <span className="flex size-11 items-center justify-center rounded-full bg-lime text-primary">
           <Check className="size-5" />
         </span>
         <p className="font-semibold text-ink">Request received</p>

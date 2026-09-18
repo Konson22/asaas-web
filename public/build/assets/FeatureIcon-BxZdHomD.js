@@ -1,1 +1,0 @@
-import{n as e,r as t}from"./Container-CAEMIfHs.js";var n=e(),r={blue:`bg-surface-purple text-primary`,green:`bg-surface-green text-ink`,white:`bg-white/15 text-white`};function i({icon:e,tone:i=`blue`,className:a}){return(0,n.jsx)(`div`,{className:t(`flex size-11 shrink-0 items-center justify-center rounded-xl`,r[i],a),children:(0,n.jsx)(e,{className:`size-5`})})}export{i as t};

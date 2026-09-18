@@ -17,14 +17,14 @@ export function PricingSection() {
     .filter((plan): plan is NonNullable<typeof plan> => Boolean(plan))
 
   return (
-    <section id="pricing" className="scroll-mt-20 bg-surface py-24">
+    <section id="pricing" className="scroll-mt-20 bg-background py-24">
       <Container className="flex flex-col gap-14">
         <SectionHeading
           title="Choose the plan that fits how you deploy"
           description="Start free, upgrade as you grow, or move to an offline license when you need it."
         />
 
-        <div className="grid items-stretch gap-6 lg:grid-cols-3 lg:items-end">
+        <div className="grid items-stretch gap-6 lg:grid-cols-3">
           {plans.map((plan, index) => {
             const highlighted = plan.id === 'cloud'
 
@@ -33,8 +33,7 @@ export function PricingSection() {
                 <Card
                   className={cn(
                     'flex h-full flex-col gap-6 p-8',
-                    highlighted &&
-                      'border-transparent bg-brand-gradient lg:min-h-[32rem] lg:-translate-y-4 lg:py-10',
+                    highlighted && 'border-transparent bg-brand-gradient',
                   )}
                 >
                   <div className="flex items-center justify-between gap-2">
