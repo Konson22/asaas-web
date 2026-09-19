@@ -85,7 +85,7 @@ export function ProductSubscriptionPlans({ product }: { product: ProductDetail }
                   <ul className="flex flex-1 flex-col gap-2.5">
                     {mainLimits.map((limit) => (
                       <li key={limit.key} className="flex items-start gap-2 text-sm text-ink">
-                        <Check className="mt-0.5 size-4 shrink-0 text-primary" />
+                        <Check className="mt-0.5 size-4 shrink-0 text-lime" />
                         {limit.label}: {limit.is_unlimited ? 'Unlimited' : `${limit.value ?? '—'}${limit.unit ? ` ${limit.unit}` : ''}`}
                       </li>
                     ))}

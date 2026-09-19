@@ -14,7 +14,7 @@ export function FaqSection() {
         />
 
         <Reveal className="mx-auto w-full max-w-3xl">
-          <Accordion type="single" collapsible className="rounded-card border border-border bg-background px-6">
+          <Accordion type="single" collapsible className="rounded-card border border-border bg-card px-6">
             {faqItems.map((item) => (
               <AccordionItem key={item.id} value={item.id}>
                 <AccordionTrigger>{item.question}</AccordionTrigger>

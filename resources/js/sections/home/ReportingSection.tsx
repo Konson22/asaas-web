@@ -5,9 +5,9 @@ import { ReportChart } from '@/assets/illustrations/ReportChart'
 
 const stats = [
   { label: 'Revenue', value: '$482K', color: 'text-primary' },
-  { label: 'Profit', value: '$118K', color: 'text-primary' },
+  { label: 'Profit', value: '$118K', color: 'text-lime' },
   { label: 'Expenses', value: '$364K', color: 'text-ink-muted' },
-  { label: 'Inventory Value', value: '$210K', color: 'text-ink' },
+  { label: 'Inventory Value', value: '$210K', color: 'text-accent' },
 ]
 
 export function ReportingSection() {
@@ -23,7 +23,7 @@ export function ReportingSection() {
         <Reveal>
           <div className="grid gap-5 sm:grid-cols-4">
             {stats.map((stat) => (
-              <div key={stat.label} className="rounded-card border border-border bg-surface p-5">
+              <div key={stat.label} className="rounded-card border border-border bg-card p-5">
                 <p className="text-sm text-ink-muted">{stat.label}</p>
                 <p className={`mt-2 text-2xl font-bold ${stat.color}`}>{stat.value}</p>
               </div>

@@ -29,7 +29,7 @@ export default function AboutPage() {
       <PageHero
         eyebrow="About MileSoftwares"
         title="Software designed around real operations."
-        description="MileSoftwares provides configurable business applications for pharmacies, schools, inventory operations, restaurants, and Monitoring & Evaluation."
+        description="Configurable applications for pharmacies, schools, inventory, restaurants, and M&E."
       />
 
       <section className="bg-background py-20 lg:py-24">
@@ -46,11 +46,11 @@ export default function AboutPage() {
       <section className="bg-surface py-20 lg:py-24">
         <Container className="flex flex-col gap-10">
           <div className="max-w-2xl">
-            <p className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-primary">
+            <p className="inline-flex items-center gap-2 rounded-full border border-border bg-white px-3 py-1 text-sm font-semibold uppercase tracking-[0.14em] text-lime">
               <span className="size-1.5 rounded-full bg-lime" aria-hidden="true" />
               How we work
             </p>
-            <h2 className="mt-3 text-3xl font-bold text-ink sm:text-4xl">What MileSoftwares believes</h2>
+            <h2 className="mt-4 text-3xl font-bold tracking-tight text-ink sm:text-4xl">What MileSoftwares believes</h2>
           </div>
           <div className="grid gap-6 md:grid-cols-3">
             {principles.map((principle) => (

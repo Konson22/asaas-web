@@ -4,6 +4,7 @@ import { Reveal } from '@/components/common/Reveal'
 import { FeatureIcon } from '@/components/common/FeatureIcon'
 import { Card } from '@/components/ui/card'
 import { featureGroups } from '@/data/features'
+import { cycleBrandTone } from '@/lib/productVisuals'
 
 export function PowerfulFeaturesSection() {
   return (
@@ -18,7 +19,7 @@ export function PowerfulFeaturesSection() {
           {featureGroups.map((group, index) => (
             <Reveal key={group.id} delay={index * 0.05}>
               <Card className="flex h-full flex-col gap-4 border-border/80 p-6">
-                <FeatureIcon icon={group.icon} tone={index === 0 ? 'blue' : index === 1 ? 'blue' : 'green'} />
+                <FeatureIcon icon={group.icon} tone={cycleBrandTone(index)} />
                 <div>
                   <h3 className="text-lg font-semibold text-ink">{group.title}</h3>
                   <p className="mt-1 text-sm text-ink-muted">{group.description}</p>

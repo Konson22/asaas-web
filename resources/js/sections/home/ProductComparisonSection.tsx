@@ -20,7 +20,7 @@ export function ProductComparisonSection() {
           description="How each product can be deployed and run."
         />
 
-        <Reveal className="overflow-x-auto rounded-card border border-border bg-background">
+        <Reveal className="overflow-x-auto rounded-card border border-border bg-card">
           <table className="w-full min-w-[720px] border-collapse text-sm">
             <thead>
               <tr className="border-b border-border">
@@ -39,7 +39,7 @@ export function ProductComparisonSection() {
                   {products.map((product) => (
                     <td key={product.code} className="p-4 text-center">
                       {product.capabilities.includes(capability) ? (
-                        <Check className="mx-auto size-4 text-primary" aria-label="Included" />
+                        <Check className="mx-auto size-4 text-lime" aria-label="Included" />
                       ) : (
                         <Minus className="mx-auto size-4 text-border" aria-label="Not included" />
                       )}

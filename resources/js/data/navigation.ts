@@ -5,12 +5,13 @@ export interface NavLink {
 
 export const navLinks: NavLink[] = [
   { label: 'Home', href: '/' },
-  { label: 'Industries', href: '/industries' },
-  { label: 'How It Works', href: '/#how-it-works' },
-  { label: 'Deployment', href: '/#deployment' },
+  // "Products" isn't listed here — Navbar renders it as a special live-catalogue dropdown
+  // (see appsOpen/appsRef in Navbar.tsx) right after Home, matching the reference's
+  // Home / Products / Solutions / Pricing / Resources / About order.
+  { label: 'Solutions', href: '/industries' },
   { label: 'Pricing', href: '/pricing' },
+  { label: 'Resources', href: '/faq' },
   { label: 'About', href: '/about' },
-  { label: 'Contact', href: '/contact' },
 ]
 
 export interface FooterColumn {

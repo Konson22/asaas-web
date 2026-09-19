@@ -23,7 +23,7 @@ const promises = [
 
 export function HomeContactSection() {
   return (
-    <section className="bg-background py-24">
+    <section className="bg-surface py-24 lg:py-28">
       <Container className="grid items-start gap-12 lg:grid-cols-2">
         <Reveal>
           <Card className="p-8">
@@ -36,15 +36,18 @@ export function HomeContactSection() {
 
         <div className="flex flex-col gap-8 lg:pt-4">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-wide text-primary">Get started</p>
-            <h2 className="mt-3 text-3xl font-bold text-ink sm:text-4xl">
-              From checkout to a running <span className="text-brand-gradient">business</span>
+            <p className="inline-flex items-center gap-2 rounded-full border border-border bg-white px-3 py-1 text-sm font-semibold uppercase tracking-[0.14em] text-lime">
+              <span className="size-1.5 rounded-full bg-lime" aria-hidden="true" />
+              Get started
+            </p>
+            <h2 className="mt-4 text-[clamp(2rem,4vw,2.75rem)] font-bold tracking-tight text-ink">
+              From checkout to a running business
             </h2>
           </div>
           <ol className="flex flex-col gap-6">
             {promises.map((item) => (
               <li key={item.id} className="flex gap-4">
-                <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-brand-gradient text-sm font-bold text-white">
+                <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-primary/15 text-sm font-bold text-primary ring-1 ring-primary/25">
                   {item.id}
                 </span>
                 <div>

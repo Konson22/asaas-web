@@ -7,7 +7,7 @@ interface SectionHeadingProps {
   title: ReactNode
   description?: ReactNode
   align?: 'center' | 'left'
-  /** Use "dark" on navy-gradient CTA bands. */
+  /** Use "dark" on high-contrast CTA bands. */
   tone?: 'light' | 'dark'
   className?: string
 }
@@ -31,17 +31,17 @@ export function SectionHeading({
       {eyebrow ? (
         <span
           className={cn(
-            'inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wide',
-            tone === 'dark' ? 'text-white/90' : 'text-primary',
+            'inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em]',
+            tone === 'dark' ? 'text-purple-bright' : 'text-primary',
           )}
         >
-          <span className="size-1.5 rounded-full bg-lime" aria-hidden="true" />
+          <span className={cn('h-px w-4', tone === 'dark' ? 'bg-purple-bright/60' : 'bg-primary/50')} aria-hidden="true" />
           {eyebrow}
         </span>
       ) : null}
       <h2
         className={cn(
-          'max-w-2xl text-3xl font-bold sm:text-4xl',
+          'max-w-2xl text-[clamp(2rem,4vw,2.75rem)] font-bold leading-tight tracking-tight',
           tone === 'dark' ? 'text-white' : 'text-ink',
         )}
       >

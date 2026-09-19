@@ -21,32 +21,26 @@ const flowSteps = [
     label: 'Cloud Updated',
     detail: 'Every branch sees the same current state.',
     icon: Cloud,
-    // Green reserved for the one moment that represents successful sync (brief §12).
     tone: 'success',
   },
 ] as const
 
 const toneClasses = {
   blue: 'border-primary bg-primary text-white',
-  navy: 'border-border bg-background text-ink-muted',
-  success: 'border-lime bg-lime text-primary',
+  navy: 'border-border bg-elevated text-ink-muted',
+  success: 'border-lime bg-lime text-white',
 }
 
 export function OfflineCapabilitySection() {
   return (
-    <section id="offline" className="scroll-mt-24 relative overflow-hidden border-y border-border bg-background py-24">
-      <div className="pointer-events-none absolute -right-24 top-16 h-72 w-72 rounded-full border border-primary/20" />
+    <section id="offline" className="scroll-mt-24 relative overflow-hidden bg-background py-24 lg:py-28">
+      <div className="pointer-events-none absolute -right-24 top-16 h-72 w-72 rounded-full bg-primary/8 blur-3xl" />
+      <div className="pointer-events-none absolute -left-16 bottom-10 h-48 w-48 rounded-full bg-primary/10 blur-3xl" />
 
       <Container className="relative flex flex-col gap-14">
         <SectionHeading
           eyebrow="Built for Real Connectivity"
-          title={
-            <>
-              No Internet?
-              <br />
-              <span className="text-brand-gradient">Keep Working.</span>
-            </>
-          }
+          title="No Internet? Keep Working."
           description="Supported applications can continue operating locally when internet connectivity is unavailable, and synchronize with cloud services when connectivity returns."
         />
 
@@ -83,7 +77,7 @@ export function OfflineCapabilitySection() {
 
         <Reveal className="text-center">
           <p className="text-xl font-bold text-ink sm:text-2xl">
-            Online when connected. <span className="text-primary">Operational when offline.</span>
+            Online when connected. Operational when offline.
           </p>
         </Reveal>
       </Container>

@@ -1,0 +1,1 @@
+import{n as e,o as t,r as n}from"./Container-CAEMIfHs.js";t();var r=e();function i({className:e,...t}){return(0,r.jsx)(`div`,{className:n(`rounded-card border border-border bg-card shadow-[0_1px_2px_rgb(17_25_54_/0.04)] transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/25 hover:shadow-[0_16px_32px_-20px_rgb(109_40_232_/0.3)]`,e),...t})}export{i as t};

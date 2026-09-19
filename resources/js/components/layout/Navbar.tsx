@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link, usePage } from '@inertiajs/react'
-import { ChevronDown, Menu } from 'lucide-react'
+import { ChevronDown, Menu, Search } from 'lucide-react'
 import { Container } from '@/components/common/Container'
 import { Logo } from '@/components/common/Logo'
 import { Button } from '@/components/ui/button'
@@ -61,7 +61,7 @@ export function Navbar() {
   return (
     <>
       <TopBar />
-      <header className="sticky top-0 z-40 border-b border-border bg-background">
+      <header className="sticky top-0 z-40 border-b border-white/10 bg-nav">
         <Container
           className={cn(
             'flex items-center justify-between transition-[padding] duration-200',
@@ -69,7 +69,7 @@ export function Navbar() {
           )}
         >
           <Link href="/" className="shrink-0" aria-label="MileSoftwares home">
-            <Logo className={cn('w-auto transition-[height] duration-200', scrolled ? 'h-9' : 'h-11')} />
+            <Logo variant="light" className={cn('w-auto transition-[height] duration-200', scrolled ? 'h-9' : 'h-11')} />
           </Link>
 
           <nav className="hidden items-center gap-0.5 lg:flex" aria-label="Primary">
@@ -78,14 +78,14 @@ export function Navbar() {
               className={cn(
                 'relative rounded-lg px-3 py-2 text-sm font-medium transition-colors',
                 pathname === '/'
-                  ? 'bg-surface-purple text-primary'
-                  : 'text-ink-muted hover:bg-primary/5 hover:text-ink',
+                  ? 'text-white'
+                  : 'text-white/70 hover:text-white',
               )}
               aria-current={pathname === '/' ? 'page' : undefined}
             >
               Home
               {pathname === '/' ? (
-                <span className="absolute inset-x-3 -bottom-px h-0.5 rounded-full bg-brand-gradient" />
+                <span className="absolute inset-x-3 -bottom-px h-0.5 rounded-full bg-primary" />
               ) : null}
             </Link>
 
@@ -98,18 +98,21 @@ export function Navbar() {
                 className={cn(
                   'flex items-center gap-1 rounded-lg px-3 py-2 text-sm font-medium transition-colors',
                   appsOpen || appsActive
-                    ? 'bg-surface-purple text-primary'
-                    : 'text-ink-muted hover:bg-primary/5 hover:text-ink',
+                    ? 'text-white'
+                    : 'text-white/70 hover:text-white',
                 )}
               >
-                Apps
+                Products
                 <ChevronDown className={cn('size-3.5 transition-transform duration-200', appsOpen && 'rotate-180')} />
+                {appsActive ? (
+                  <span className="absolute inset-x-3 -bottom-px h-0.5 rounded-full bg-primary" />
+                ) : null}
               </button>
 
               {appsOpen ? (
                 <div
                   role="menu"
-                  className="absolute left-0 top-full z-50 mt-2 w-72 overflow-hidden rounded-xl border border-border bg-background py-1.5"
+                  className="absolute left-0 top-full z-50 mt-2 w-72 overflow-hidden rounded-xl border border-border bg-white py-1.5 shadow-xl shadow-navy-deep/20"
                 >
                   {products.length > 0 ? (
                     products.map((product) => (
@@ -121,8 +124,8 @@ export function Navbar() {
                         className={cn(
                           'block px-4 py-2.5 text-sm font-medium transition-colors',
                           pathname === `/products/${product.slug}`
-                            ? 'bg-surface-purple text-primary'
-                            : 'text-ink hover:bg-primary/5 hover:text-primary',
+                            ? 'bg-primary/5 text-ink'
+                            : 'text-ink-muted hover:bg-primary/5 hover:text-ink',
                         )}
                       >
                         {product.name}
@@ -133,9 +136,9 @@ export function Navbar() {
                       href="/products"
                       onClick={() => setAppsOpen(false)}
                       role="menuitem"
-                      className="block px-4 py-2.5 text-sm font-medium text-ink transition-colors hover:bg-primary/5 hover:text-primary"
+                      className="block px-4 py-2.5 text-sm font-medium text-ink-muted transition-colors hover:bg-primary/5 hover:text-ink"
                     >
-                      View all apps
+                      View all products
                     </Link>
                   )}
                   <div className="mt-1 border-t border-border pt-1">
@@ -143,9 +146,9 @@ export function Navbar() {
                       href="/products"
                       onClick={() => setAppsOpen(false)}
                       role="menuitem"
-                      className="block px-4 py-2.5 text-sm font-semibold text-primary hover:bg-primary/5-purple"
+                      className="block px-4 py-2.5 text-sm font-semibold text-primary hover:bg-primary/5"
                     >
-                      View all apps →
+                      View all products →
                     </Link>
                   </div>
                 </div>
@@ -166,33 +169,42 @@ export function Navbar() {
                     className={cn(
                       'relative rounded-lg px-3 py-2 text-sm font-medium transition-colors',
                       isActive
-                        ? 'bg-surface-purple text-primary'
-                        : 'text-ink-muted hover:bg-primary/5 hover:text-ink',
+                        ? 'text-white'
+                        : 'text-white/70 hover:text-white',
                     )}
                     aria-current={isActive ? 'page' : undefined}
                   >
                     {link.label}
                     {isActive ? (
-                      <span className="absolute inset-x-3 -bottom-px h-0.5 rounded-full bg-brand-gradient" />
+                      <span className="absolute inset-x-3 -bottom-px h-0.5 rounded-full bg-primary" />
                     ) : null}
                   </Comp>
                 )
               })}
           </nav>
 
-          <div className="hidden items-center gap-2 lg:flex">
-            <Button variant="ghost" size="sm" asChild>
+          <div className="hidden items-center gap-1 lg:flex">
+            {/* No site search exists yet — this is a real destination (FAQ), not a dead
+                button: closest thing to "search for an answer" this site currently has. */}
+            <Link
+              href="/faq"
+              aria-label="Search help & FAQs"
+              className="inline-flex size-9 items-center justify-center rounded-lg text-white/70 transition-colors hover:bg-white/10 hover:text-white"
+            >
+              <Search className="size-4" />
+            </Link>
+            <Button variant="ghost" size="sm" className="text-white/80 hover:bg-white/10 hover:text-white" asChild>
               <a href={getPlatformUrl('/login')}>Sign in</a>
             </Button>
-            <Button variant="cta" size="sm" asChild>
-              <Link href="/contact">Request Demo</Link>
+            <Button variant="cta" size="sm" asChild className="ml-1">
+              <Link href="/contact">Get Started</Link>
             </Button>
           </div>
 
           <div className="flex items-center gap-2 lg:hidden">
             <button
               type="button"
-              className="inline-flex items-center justify-center rounded-lg p-2 text-ink transition-colors hover:bg-primary/5"
+              className="inline-flex items-center justify-center rounded-lg p-2 text-white transition-colors hover:bg-white/10"
               onClick={() => setMobileOpen(true)}
               aria-label="Open menu"
             >

@@ -1,29 +1,37 @@
 import { Link } from '@inertiajs/react'
+import { Mail, Phone, MapPin } from 'lucide-react'
 import { Container } from '@/components/common/Container'
 import { Logo } from '@/components/common/Logo'
-import { footerColumns } from '@/data/navigation'
-import { socialLinks } from '@/data/social'
-import { useProducts } from '@/hooks/useProducts'
+import { socialLinks, contactInfo } from '@/data/social'
+
+const quickLinks = [
+  { label: 'Home', href: '/' },
+  { label: 'Products', href: '/products' },
+  { label: 'Solutions', href: '/industries' },
+  { label: 'Pricing', href: '/pricing' },
+  { label: 'About', href: '/about' },
+]
+
+// Mirrors WhatWeDoSection's real 4 capabilities — not the reference's IT-agency service menu
+// (Web/Mobile/Desktop Applications, IT Infrastructure, Microsoft 365), which describes a
+// business line MileSoftwares doesn't actually offer (it's a vertical SaaS product company,
+// not an IT services/MSP shop).
+const serviceLinks = [
+  { label: 'Business Management Systems', href: '/products' },
+  { label: 'Web & Mobile Applications', href: '/products' },
+  { label: 'Cloud & On-Premise Options', href: '/industries' },
+  { label: 'Custom Software Development', href: '/contact' },
+]
 
 export function Footer() {
-  const { products } = useProducts()
-
-  const columns = footerColumns.map((column) =>
-    column.title === 'Apps' && products.length > 0
-      ? { ...column, links: products.map((p) => ({ label: p.name, href: `/products/${p.slug}` })) }
-      : column,
-  )
-
   return (
-    <footer className="border-t border-border bg-background">
-      <div className="h-1 bg-brand-gradient" />
-      <Container className="grid gap-12 py-16 lg:grid-cols-[1.2fr_2fr] lg:py-20">
+    <footer className="border-t border-border bg-footer">
+      <div className="h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+      <Container className="grid gap-12 py-16 sm:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1.1fr] lg:py-20">
         <div className="flex flex-col gap-4">
           <Logo />
-          <p className="max-w-sm text-sm text-ink-muted">
-            Ready business applications for pharmacies, schools, inventory operations,
-            restaurants and Monitoring &amp; Evaluation — configured and customized around the
-            way your organization works.
+          <p className="text-sm font-semibold uppercase tracking-[0.14em] text-ink-muted">
+            Innovate &bull; Build &bull; Grow
           </p>
           <div className="mt-2 flex items-center gap-4">
             {socialLinks.map((social) => {
@@ -44,39 +52,74 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-8 sm:grid-cols-3">
-          {columns.map((column) => (
-            <div key={column.title} className="flex flex-col gap-3">
-              <h3 className="text-sm font-semibold text-ink">{column.title}</h3>
-              <ul className="flex flex-col gap-2.5">
-                {column.links.map((link) => (
-                  <li key={link.label}>
-                    <Link
-                      href={link.href}
-                      className="text-sm text-ink-muted transition-colors hover:text-primary"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+        <div className="flex flex-col gap-3">
+          <h3 className="text-sm font-semibold text-ink">Quick Links</h3>
+          <ul className="flex flex-col gap-2.5">
+            {quickLinks.map((link) => (
+              <li key={link.label}>
+                <Link href={link.href} className="text-sm text-ink-muted transition-colors hover:text-primary">
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="flex flex-col gap-3">
+          <h3 className="text-sm font-semibold text-ink">Our Services</h3>
+          <ul className="flex flex-col gap-2.5">
+            {serviceLinks.map((link) => (
+              <li key={link.label}>
+                <Link href={link.href} className="text-sm text-ink-muted transition-colors hover:text-primary">
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="flex flex-col gap-3">
+          <h3 className="text-sm font-semibold text-ink">Contact</h3>
+          <ul className="flex flex-col gap-2.5">
+            <li>
+              <a
+                href={`mailto:${contactInfo.email}`}
+                className="flex items-center gap-2 text-sm text-ink-muted transition-colors hover:text-primary"
+              >
+                <Mail className="size-4 shrink-0 text-primary" aria-hidden="true" />
+                {contactInfo.email}
+              </a>
+            </li>
+            <li>
+              <a
+                href={`tel:${contactInfo.phone.replace(/\s+/g, '')}`}
+                className="flex items-center gap-2 text-sm text-ink-muted transition-colors hover:text-primary"
+              >
+                <Phone className="size-4 shrink-0 text-primary" aria-hidden="true" />
+                {contactInfo.phone}
+              </a>
+            </li>
+            <li className="flex items-center gap-2 text-sm text-ink-muted">
+              <MapPin className="size-4 shrink-0 text-primary" aria-hidden="true" />
+              Juba, South Sudan
+            </li>
+          </ul>
         </div>
       </Container>
 
       <div className="border-t border-border">
-        <Container className="flex flex-col items-center justify-between gap-4 py-6 sm:flex-row">
+        <Container className="flex flex-col items-center justify-between gap-3 py-6 sm:flex-row">
           <p className="text-xs text-ink-subtle">
-            © {new Date().getFullYear()} MileSoftwares — A product of Miles Global Technologies.
+            © {new Date().getFullYear()} MileSoftwares. All rights reserved.
           </p>
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-5">
             <Link href="/privacy-policy" className="text-xs text-ink-subtle transition-colors hover:text-primary">
-              Privacy
+              Privacy Policy
             </Link>
             <Link href="/terms-of-service" className="text-xs text-ink-subtle transition-colors hover:text-primary">
-              Terms
+              Terms of Service
             </Link>
+            <span className="text-xs font-medium text-ink-subtle">Built for a Smarter Tomorrow.</span>
           </div>
         </Container>
       </div>

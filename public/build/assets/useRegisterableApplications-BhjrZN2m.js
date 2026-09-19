@@ -1,1 +1,0 @@
-import{S as e}from"./app-XUUtO-5Z.js";function t(){let{registerableApplications:t=[]}=e().props;return t}export{t};

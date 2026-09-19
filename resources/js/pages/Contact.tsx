@@ -13,6 +13,7 @@ const contactChannels = [
     description: 'For general questions and support.',
     detail: 'hello@asaasvantage.com',
     href: 'mailto:hello@asaasvantage.com',
+    tone: 'purple' as const,
   },
   {
     icon: MessageSquare,
@@ -20,6 +21,7 @@ const contactChannels = [
     description: 'Get a walkthrough tailored to your business.',
     detail: 'sales@asaasvantage.com',
     href: 'mailto:sales@asaasvantage.com',
+    tone: 'green' as const,
   },
   {
     icon: Building2,
@@ -27,6 +29,7 @@ const contactChannels = [
     description: 'Resellers, integrators, and industry partners.',
     detail: 'partners@asaasvantage.com',
     href: 'mailto:partners@asaasvantage.com',
+    tone: 'orange' as const,
   },
 ]
 
@@ -37,7 +40,7 @@ export default function ContactPage() {
       <PageHero
         eyebrow="Contact"
         title="Let's get your business running on one platform"
-        description="Start a free trial or talk to our team about cloud, offline, and multi-branch deployments."
+        description="Start a trial or talk to us about cloud, offline, and multi-branch setups."
       />
 
       <section className="bg-surface py-24">
@@ -45,7 +48,7 @@ export default function ContactPage() {
           <div className="flex flex-col gap-4">
             {contactChannels.map((channel) => (
               <Card key={channel.title} className="flex items-start gap-4 p-6">
-                <FeatureIcon icon={channel.icon} />
+                <FeatureIcon icon={channel.icon} tone={channel.tone} />
                 <div>
                   <h2 className="text-base font-bold text-ink">{channel.title}</h2>
                   <p className="mt-0.5 text-sm text-ink-muted">{channel.description}</p>

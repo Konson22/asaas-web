@@ -5,7 +5,7 @@ import { SectionHeading } from '@/components/common/SectionHeading'
 import { Reveal } from '@/components/common/Reveal'
 import { Card } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { getProductVisual } from '@/lib/productVisuals'
+import { getProductVisual, moduleToneClasses } from '@/lib/productVisuals'
 import type { ProductDetail } from '@/types/catalog'
 
 export function RelatedProducts({ product }: { product: ProductDetail }) {
@@ -25,7 +25,7 @@ export function RelatedProducts({ product }: { product: ProductDetail }) {
             return (
               <Reveal key={related.slug} delay={index * 0.05}>
                 <Card className="flex h-full flex-col gap-4 p-6">
-                  <span className="flex size-11 items-center justify-center rounded-full bg-surface-purple text-primary">
+                  <span className={`flex size-11 items-center justify-center rounded-xl ${moduleToneClasses[visual.tone]}`}>
                     <Icon className="size-5" />
                   </span>
                   <div>

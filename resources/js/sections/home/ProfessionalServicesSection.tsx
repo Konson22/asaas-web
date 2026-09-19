@@ -3,6 +3,7 @@ import { SectionHeading } from '@/components/common/SectionHeading'
 import { Reveal } from '@/components/common/Reveal'
 import { FeatureIcon } from '@/components/common/FeatureIcon'
 import { professionalServices } from '@/data/professionalServices'
+import { cycleBrandTone } from '@/lib/productVisuals'
 
 export function ProfessionalServicesSection() {
   return (
@@ -17,7 +18,7 @@ export function ProfessionalServicesSection() {
           {professionalServices.map((service, index) => (
             <Reveal key={service.id} delay={index * 0.05}>
               <div className="flex h-full flex-col gap-4">
-                <FeatureIcon icon={service.icon} tone={index === 0 ? 'blue' : index === 1 ? 'blue' : 'green'} />
+                <FeatureIcon icon={service.icon} tone={cycleBrandTone(index)} />
                 <h3 className="text-lg font-semibold text-ink">{service.title}</h3>
                 <p className="text-sm text-ink-muted">{service.description}</p>
               </div>

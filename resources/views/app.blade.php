@@ -9,7 +9,7 @@
 
         <title inertia>{{ config('app.name') }}</title>
         <meta name="description" content="MileSoftware is a modern ERP, POS, and business management platform connecting sales, inventory, accounting, procurement, HR, and CRM for retail, wholesale, pharmacy, restaurant, and service businesses — cloud, offline, or hybrid.">
-        <meta name="theme-color" content="#012674">
+        <meta name="theme-color" content="#FBFAFE">
 
         @routes
         @viteReactRefresh

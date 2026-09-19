@@ -3,6 +3,7 @@ import { Container } from '@/components/common/Container'
 import { SectionHeading } from '@/components/common/SectionHeading'
 import { Reveal } from '@/components/common/Reveal'
 import { Card } from '@/components/ui/card'
+import { cycleBrandTone, moduleToneClasses } from '@/lib/productVisuals'
 import type { ProductDetail } from '@/types/catalog'
 
 export function ProductCapabilities({ product }: { product: ProductDetail }) {
@@ -19,7 +20,7 @@ export function ProductCapabilities({ product }: { product: ProductDetail }) {
           {product.capabilities.map((capability, index) => (
             <Reveal key={capability.name} delay={index * 0.04}>
               <Card className="flex h-full flex-col items-center gap-3 p-6 text-center">
-                <span className="flex size-11 items-center justify-center rounded-full bg-surface-purple text-primary">
+                <span className={`flex size-11 items-center justify-center rounded-xl ${moduleToneClasses[cycleBrandTone(index)]}`}>
                   <Sparkles className="size-5" />
                 </span>
                 <h3 className="text-sm font-semibold text-ink">{capability.name}</h3>

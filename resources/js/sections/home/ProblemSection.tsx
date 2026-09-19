@@ -7,12 +7,7 @@ export function ProblemSection() {
       <div className="pointer-events-none absolute right-0 top-12 h-56 w-56 rounded-full border border-primary/20" />
       <Container className="relative flex flex-col items-center gap-6 text-center">
         <SectionHeading
-          title={
-            <>
-              Software built elsewhere assumes a world that doesn&apos;t look like{' '}
-              <span className="text-primary">Juba</span>.
-            </>
-          }
+          title="Software built elsewhere assumes a world that doesn't look like Juba."
         />
         <div className="mx-auto flex max-w-2xl flex-col gap-4 text-base text-ink-muted sm:text-lg">
           <p>

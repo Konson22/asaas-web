@@ -1,35 +1,54 @@
+import { Link } from '@inertiajs/react'
+import { ArrowRight, MessageCircle } from 'lucide-react'
 import { PageTitle } from '@/components/common/PageTitle'
+import { Button } from '@/components/ui/button'
 import { HeroSection } from '@/sections/home/HeroSection'
-import { HeroFeatureCards } from '@/sections/home/HeroFeatureCards'
+import { WhatWeDoSection } from '@/sections/home/WhatWeDoSection'
 import { ProfessionalsSection } from '@/sections/home/ProfessionalsSection'
-import { BrandStatementSection } from '@/sections/home/BrandStatementSection'
-import { HomeProductCardsSection } from '@/sections/home/HomeProductCardsSection'
 import { StatsStripSection } from '@/sections/home/StatsStripSection'
-import { MediaBannerSection } from '@/sections/home/MediaBannerSection'
-import { OfflineCapabilitySection } from '@/sections/home/OfflineCapabilitySection'
-import { DeploymentSection } from '@/sections/home/DeploymentSection'
-import { HowItWorksSection } from '@/sections/home/HowItWorksSection'
-import { PricingSection } from '@/sections/home/PricingSection'
-import { HomeContactSection } from '@/sections/home/HomeContactSection'
+import { HomeProductCardsSection } from '@/sections/home/HomeProductCardsSection'
+import { WhyChooseUsSection } from '@/sections/home/WhyChooseUsSection'
 import { CtaSection } from '@/sections/home/CtaSection'
 
+// Homepage redesign (2026-09-19) — restructured to match the reference's exact section set:
+// Hero / What We Do / Built Here.Supported Here. / More Than Software / Products /
+// Why Choose MileSoftwares / Final CTA. The previous homepage additionally included
+// HeroFeatureCards, BrandStatementSection, MediaBannerSection, OfflineCapabilitySection,
+// DeploymentSection, HowItWorksSection, PricingSection and HomeContactSection — none deleted,
+// just no longer part of the tightened homepage flow (Pricing already has its own full /pricing
+// page; the others' real content can still be reused on other pages if needed).
 export default function HomePage() {
   return (
     <>
       <PageTitle title="Home" />
       <HeroSection />
-      <HeroFeatureCards />
+      <WhatWeDoSection />
       <ProfessionalsSection />
-      <BrandStatementSection />
-      <HomeProductCardsSection />
       <StatsStripSection />
-      <MediaBannerSection />
-      <OfflineCapabilitySection />
-      <DeploymentSection />
-      <HowItWorksSection />
-      <PricingSection />
-      <HomeContactSection />
-      <CtaSection />
+      <HomeProductCardsSection />
+      <WhyChooseUsSection />
+      <CtaSection
+        layout="banner"
+        eyebrow="Ready To Transform Your Business?"
+        title="Let's Build Something Amazing Together"
+        description="Get in touch today and let's discuss how we can help you achieve your goals."
+        actions={
+          <>
+            <Button variant="cta" size="lg" asChild>
+              <Link href="/contact">
+                Get a Quote
+                <ArrowRight className="size-4" />
+              </Link>
+            </Button>
+            <Button variant="onGradientOutline" size="lg" asChild>
+              <Link href="/contact">
+                <MessageCircle className="size-4" />
+                Contact Us
+              </Link>
+            </Button>
+          </>
+        }
+      />
     </>
   )
 }

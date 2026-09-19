@@ -17,7 +17,7 @@ export function PricingSection() {
     .filter((plan): plan is NonNullable<typeof plan> => Boolean(plan))
 
   return (
-    <section id="pricing" className="scroll-mt-20 bg-background py-24">
+    <section id="pricing" className="scroll-mt-20 bg-background py-24 lg:py-28">
       <Container className="flex flex-col gap-14">
         <SectionHeading
           title="Choose the plan that fits how you deploy"
@@ -33,48 +33,29 @@ export function PricingSection() {
                 <Card
                   className={cn(
                     'flex h-full flex-col gap-6 p-8',
-                    highlighted && 'border-transparent bg-brand-gradient',
+                    highlighted && 'border-primary/35 bg-white ring-1 ring-primary/20 shadow-[0_24px_48px_-28px_rgb(123_79_232_/0.45)]',
                   )}
                 >
                   <div className="flex items-center justify-between gap-2">
-                    <h3 className={cn('text-xl font-bold', highlighted ? 'text-white' : 'text-ink')}>
-                      {plan.name}
-                    </h3>
+                    <h3 className="text-xl font-bold text-ink">{plan.name}</h3>
                     {highlighted ? <Badge variant="success">Most Popular</Badge> : null}
                   </div>
                   <div>
-                    <span className={cn('text-3xl font-bold', highlighted ? 'text-white' : 'text-ink')}>
-                      {plan.price}
-                    </span>
+                    <span className="text-3xl font-bold text-ink">{plan.price}</span>
                     {plan.period ? (
-                      <span className={cn('ml-1 text-sm', highlighted ? 'text-white/70' : 'text-ink-muted')}>
-                        {plan.period}
-                      </span>
+                      <span className="ml-1 text-sm text-ink-muted">{plan.period}</span>
                     ) : null}
                   </div>
-                  <p className={cn('text-sm', highlighted ? 'text-white/70' : 'text-ink-muted')}>
-                    {plan.bestFor}
-                  </p>
+                  <p className="text-sm text-ink-muted">{plan.bestFor}</p>
                   <ul className="flex flex-1 flex-col gap-3">
                     {plan.features.map((feature) => (
-                      <li
-                        key={feature}
-                        className={cn(
-                          'flex items-start gap-2.5 text-sm',
-                          highlighted ? 'text-white' : 'text-ink',
-                        )}
-                      >
-                        <Check
-                          className={cn(
-                            'mt-0.5 size-4 shrink-0',
-                            highlighted ? 'text-lime' : 'text-primary',
-                          )}
-                        />
+                      <li key={feature} className="flex items-start gap-2.5 text-sm text-ink">
+                        <Check className="mt-0.5 size-4 shrink-0 text-lime" />
                         {feature}
                       </li>
                     ))}
                   </ul>
-                  <Button variant={highlighted ? 'onGradient' : 'outline'} asChild>
+                  <Button variant={highlighted ? 'primary' : 'outline'} asChild>
                     <Link href="/contact">{plan.ctaLabel}</Link>
                   </Button>
                 </Card>

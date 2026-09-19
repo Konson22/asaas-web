@@ -12,11 +12,11 @@ export function DashboardMockup({ className }: DashboardMockupProps) {
   return (
     <div
       className={cn(
-        'w-full overflow-hidden rounded-card border border-border bg-white',
+        'w-full overflow-hidden rounded-card border border-border bg-card',
         className,
       )}
     >
-      <div className="flex items-center gap-1.5 border-b border-border bg-background px-4 py-3">
+      <div className="flex items-center gap-1.5 border-b border-border bg-elevated px-4 py-3">
         <span className="size-2.5 rounded-full bg-border" />
         <span className="size-2.5 rounded-full bg-border" />
         <span className="size-2.5 rounded-full bg-border" />
@@ -24,11 +24,11 @@ export function DashboardMockup({ className }: DashboardMockupProps) {
       </div>
 
       <div className="grid grid-cols-[64px_1fr]">
-        <div className="flex flex-col gap-3 border-r border-border bg-background px-3 py-4">
+        <div className="flex flex-col gap-3 border-r border-border bg-elevated px-3 py-4">
           {Array.from({ length: 6 }).map((_, i) => (
             <div
               key={i}
-              className={cn('h-8 rounded-lg', i === 1 ? 'bg-primary/15' : 'bg-white')}
+              className={cn('h-8 rounded-lg', i === 1 ? 'bg-primary/20' : 'bg-card')}
             />
           ))}
         </div>
@@ -37,11 +37,11 @@ export function DashboardMockup({ className }: DashboardMockupProps) {
           <div className="grid grid-cols-4 gap-3">
             {[
               { label: 'Revenue', color: 'bg-primary' },
-              { label: 'Profit', color: 'bg-accent' },
+              { label: 'Profit', color: 'bg-lime' },
               { label: 'Expenses', color: 'bg-ink-muted' },
-              { label: 'Inventory', color: 'bg-brand-gradient' },
+              { label: 'Inventory', color: 'bg-accent' },
             ].map((stat) => (
-              <div key={stat.label} className="rounded-lg border border-border p-3">
+              <div key={stat.label} className="rounded-lg border border-border bg-elevated p-3">
                 <span className={cn('block h-1.5 w-8 rounded-full', stat.color)} />
                 <div className="mt-3 h-2 w-12 rounded-full bg-border" />
                 <div className="mt-2 h-3 w-16 rounded-full bg-ink/10" />
@@ -49,11 +49,11 @@ export function DashboardMockup({ className }: DashboardMockupProps) {
             ))}
           </div>
 
-          <div className="flex h-28 items-end gap-2 rounded-lg border border-border p-4">
+          <div className="flex h-28 items-end gap-2 rounded-lg border border-border bg-elevated p-4">
             {[40, 65, 50, 80, 60, 90, 70].map((h, i) => (
               <div
                 key={i}
-                className="flex-1 rounded-t-sm bg-primary/70"
+                className={cn('flex-1 rounded-t-sm', i === 3 ? 'bg-lime/80' : 'bg-primary/70')}
                 style={{ height: `${h}%` }}
               />
             ))}
@@ -61,13 +61,13 @@ export function DashboardMockup({ className }: DashboardMockupProps) {
 
           <div className="flex flex-col gap-2">
             {Array.from({ length: 3 }).map((_, i) => (
-              <div key={i} className="flex items-center gap-3 rounded-lg border border-border p-3">
-                <div className="size-8 shrink-0 rounded-full bg-primary/10" />
+              <div key={i} className="flex items-center gap-3 rounded-lg border border-border bg-elevated p-3">
+                <div className="size-8 shrink-0 rounded-full bg-primary/15" />
                 <div className="flex-1">
                   <div className="h-2 w-24 rounded-full bg-ink/10" />
                   <div className="mt-1.5 h-2 w-16 rounded-full bg-border" />
                 </div>
-                <div className="h-2 w-10 rounded-full bg-accent/60" />
+                <div className="h-2 w-10 rounded-full bg-lime/70" />
               </div>
             ))}
           </div>

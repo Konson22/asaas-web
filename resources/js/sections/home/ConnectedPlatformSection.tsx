@@ -29,7 +29,7 @@ export function ConnectedPlatformSection() {
                   whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
                   viewport={viewportOnce}
                   transition={{ duration: 0.4, delay: index * 0.08 }}
-                  className="flex w-40 flex-col items-center gap-3 rounded-card border border-border bg-background p-5 text-center"
+                  className="flex w-40 flex-col items-center gap-3 rounded-card border border-border bg-card p-5 text-center"
                 >
                   <div className="flex size-11 items-center justify-center rounded-full bg-primary/10">
                     <Icon className="size-5 text-primary" />

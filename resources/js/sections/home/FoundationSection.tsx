@@ -3,6 +3,7 @@ import { SectionHeading } from '@/components/common/SectionHeading'
 import { Reveal } from '@/components/common/Reveal'
 import { FeatureIcon } from '@/components/common/FeatureIcon'
 import { foundationFeatures } from '@/data/foundation'
+import { cycleBrandTone } from '@/lib/productVisuals'
 import { cn } from '@/lib/utils'
 
 export function FoundationSection() {
@@ -10,12 +11,7 @@ export function FoundationSection() {
     <section className="bg-background py-24">
       <Container className="flex flex-col gap-12">
         <SectionHeading
-          title={
-            <>
-              Every Asas product runs on the same{' '}
-              <span className="text-primary">resilient</span> stack
-            </>
-          }
+          title="Every Asas product runs on the same resilient stack"
           description="Cloud, desktop, mobile, and multi-branch — the same modern technology underneath every purpose-built solution."
         />
 
@@ -30,11 +26,7 @@ export function FoundationSection() {
                     bordered && 'rounded-card border border-border bg-surface',
                   )}
                 >
-                  {bordered ? (
-                    <FeatureIcon icon={feature.icon} tone={feature.id === 'offline-desktop' ? 'blue' : 'blue'} />
-                  ) : (
-                    <FeatureIcon icon={feature.icon} tone={feature.id === 'multi-branch' ? 'blue' : 'green'} />
-                  )}
+                  <FeatureIcon icon={feature.icon} tone={cycleBrandTone(index)} />
                   <h3 className="text-lg font-semibold text-ink">{feature.title}</h3>
                   <p className="text-sm text-ink-muted">{feature.description}</p>
                 </div>

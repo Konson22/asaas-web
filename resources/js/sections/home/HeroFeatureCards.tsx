@@ -12,7 +12,7 @@ const highlights = [
     description: 'Keep serving customers when the internet drops. Data syncs the moment you reconnect.',
     icon: CloudOff,
     href: '/#offline',
-    tone: 'blue' as const,
+    tone: 'purple' as const,
   },
   {
     id: 'south-sudan',
@@ -20,7 +20,7 @@ const highlights = [
     description: 'SSP-native accounting and a support team that works where you work.',
     icon: MapPin,
     href: '/contact',
-    tone: 'blue' as const,
+    tone: 'orange' as const,
   },
   {
     id: 'pricing',
@@ -34,13 +34,13 @@ const highlights = [
 
 export function HeroFeatureCards() {
   return (
-    <section className="relative z-20 bg-background pb-8 pt-10 lg:pb-4 lg:pt-14">
+    <section className="relative z-20 bg-background pb-10 pt-4 lg:-mt-10 lg:pb-8 lg:pt-0">
       <Container>
         <div className="grid gap-5 md:grid-cols-3">
           {highlights.map((item, index) => {
             const card = (
-              <Card className="flex h-full flex-col gap-4 p-6 transition-colors hover:border-primary/40">
-                <FeatureIcon icon={item.icon} tone={item.tone} />
+              <Card className="flex h-full flex-col items-center gap-4 p-8 text-center">
+                <FeatureIcon icon={item.icon} tone={item.tone} className="size-14" />
                 <h3 className="text-lg font-semibold text-ink">{item.title}</h3>
                 <p className="text-sm text-ink-muted">{item.description}</p>
               </Card>

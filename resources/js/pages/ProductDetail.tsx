@@ -2,7 +2,6 @@ import { Cloud } from 'lucide-react'
 import { PageTitle } from '@/components/common/PageTitle'
 import { PageHero } from '@/components/common/PageHero'
 import { Breadcrumbs } from '@/components/common/Breadcrumbs'
-import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { CtaSection } from '@/sections/home/CtaSection'
 import { ProductOverview } from '@/sections/product/ProductOverview'
@@ -18,21 +17,11 @@ import { ProductAddons } from '@/sections/product/ProductAddons'
 import { RelatedProducts } from '@/sections/product/RelatedProducts'
 import { useRegisterableApplications } from '@/hooks/useRegisterableApplications'
 import { getProductRegisterUrl } from '@/lib/platform'
-import { getProductVisual } from '@/lib/productVisuals'
 import type { ProductDetail as ProductDetailType } from '@/types/catalog'
-
-const capabilityLabels: Record<string, string> = {
-  cloud: 'Cloud',
-  desktop: 'Desktop',
-  offline: 'Offline',
-  cloud_sync: 'Cloud Sync',
-  local_server: 'Local Server',
-}
 
 export default function ProductDetailPage({ product }: { product: ProductDetailType }) {
   const registerableApplications = useRegisterableApplications()
   const canRegister = registerableApplications.includes(product.code)
-  const visual = getProductVisual(product.code)
 
   const showTrialCta =
     Boolean(product.trial_days) &&
@@ -45,54 +34,33 @@ export default function ProductDetailPage({ product }: { product: ProductDetailT
   return (
     <>
       <PageTitle title={product.seo.title} />
-      <PageHero eyebrow={product.category?.name ?? 'Products'} title={product.name} description={product.tagline ?? undefined}>
-        <Breadcrumbs
-          items={[{ label: 'Home', href: '/' }, { label: 'Products', href: '/products' }, { label: product.name }]}
-        />
-
-        <div className="flex flex-wrap items-center gap-2">
-          {product.capability_badges.map((c) => (
-            <Badge key={c} variant="primary">
-              {capabilityLabels[c] ?? c}
-            </Badge>
-          ))}
-          {product.status === 'coming_soon' ? <Badge variant="accent">Coming soon</Badge> : null}
-        </div>
-
-        <p className="text-lg font-semibold text-ink">
-          {product.starting_price.is_custom
-            ? 'Custom pricing'
-            : product.starting_price.amount !== null
-              ? `Starting from ${product.starting_price.formatted}/month`
-              : null}
-        </p>
-
-        <div className="flex flex-col gap-3 sm:flex-row">
+      <PageHero
+        lead={
+          <Breadcrumbs
+            items={[{ label: 'Home', href: '/' }, { label: 'Products', href: '/products' }, { label: product.name }]}
+          />
+        }
+        eyebrow={product.category?.name ?? 'Products'}
+        title={product.name}
+        description={product.tagline ?? undefined}
+      >
+        <div className="mt-1 flex flex-col gap-2 sm:flex-row">
           {showTrialCta && product.capability_badges.includes('cloud') && canRegister ? (
-            <Button variant="cta" asChild>
+            <Button variant="cta" size="sm" asChild>
               <a href={getProductRegisterUrl(product.code)}>
                 <Cloud className="size-4" />
                 {primaryLabel}
               </a>
             </Button>
           ) : (
-            <Button variant="cta" asChild>
+            <Button variant="cta" size="sm" asChild>
               <a href="/contact">{primaryLabel}</a>
             </Button>
           )}
-          <Button variant="secondary" asChild>
+          <Button variant="secondary" size="sm" asChild>
             <a href="/contact">{secondaryLabel}</a>
           </Button>
         </div>
-
-        {visual.image ? (
-          <div className="relative mt-4 w-full max-w-2xl">
-            <div className="pointer-events-none absolute inset-2 rounded-2xl bg-primary/40 blur-3xl" />
-            <div className="relative overflow-hidden rounded-card border border-border bg-background p-4">
-              <img src={visual.image} alt={`${product.name} preview`} className="aspect-[16/9] w-full object-contain" />
-            </div>
-          </div>
-        ) : null}
       </PageHero>
 
       <ProductOverview product={product} />

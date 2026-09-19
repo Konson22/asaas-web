@@ -18,7 +18,7 @@ export default function FaqPage() {
       <PageHero
         eyebrow="FAQ"
         title="Frequently asked questions"
-        description="Answers about offline mode, multi-branch, desktop and mobile apps, permissions, currencies, and more."
+        description="Offline mode, multi-branch, desktop and mobile, permissions, and more."
       />
       <Suspense fallback={<SectionFallback />}>
         <FaqSection />

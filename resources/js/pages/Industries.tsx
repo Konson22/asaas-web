@@ -18,12 +18,8 @@ export default function IndustriesPage() {
       <PageTitle title="Industries" />
       <PageHero
         eyebrow="Industries"
-        title={
-          <>
-            Built for the way your industry <span className="text-brand-gradient">works</span>
-          </>
-        }
-        description="From retail counters to pharmacy compliance and restaurant floors — MileSoftware adapts to your workflows, not the other way around."
+        title="Built for the way your industry works"
+        description="Retail, pharmacy, restaurants, and more — software that matches your workflow."
       />
       <Suspense fallback={<SectionFallback />}>
         <IndustrySolutionsSection />

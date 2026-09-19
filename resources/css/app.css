@@ -3,55 +3,109 @@
 @plugin 'tailwindcss-animate';
 
 /**
- * MileSoftwares brand tokens — sampled from the logo lockup.
+ * MileSoftwares brand tokens — light theme
  *
- * Primary (Mile navy): #012674
- * Electric (M mark):   #0177F5
- * Accent (Softwares):  #03A6A5
- * Gradient: navy → electric → teal
+ * Redesign (2026-09-19) — Navy + Purple + Lime Green + Orange identity.
+ *
+ * Deep Navy (foundation): #080B2C / Navy #10134A
+ * Purple (brand accent):  #6D28E8 / bright #8B3DFF / dark #35118A
+ * Lime Green (CTA/action): #16E85C / bright #39F06E
+ * Orange (small accent only, 3–5% of the page): #FF7A18
+ * Light surfaces: #F8FAFE → #FFFFFF, section wash #F0F5FC
  */
+
 :root {
-  --raw-navy: #012674;
-  --raw-electric: #0177f5;
-  --raw-teal: #03a6a5;
+  --brand-navy-deep: #080b2c;
+  --brand-navy: #10134a;
+  --brand-purple-dark: #35118a;
+  --brand-purple: #6d28e8;
+  --brand-purple-bright: #8b3dff;
+  --brand-lime: #16e85c;
+  --brand-lime-bright: #39f06e;
+  --brand-orange-accent: #ff7a18;
+  /* Minor 4th icon tone for card/product variety only (What We Do, product grid) — never a
+     section background or CTA color, so it doesn't compete with purple as the brand accent. */
+  --brand-blue-accent: #2f6fed;
 
-  --raw-purple: var(--raw-navy);
-  --raw-gradient-purple: var(--raw-electric);
-  --raw-green: var(--raw-teal);
+  /* Legacy token names — productVisuals.ts's BrandTone union ('purple' | 'green' | 'orange')
+     predates this redesign; keeping these aliases means every FeatureIcon/tone consumer
+     resolves to the correct new color without a rename sweep across every section file. */
+  --brand-purple-hover: #5a1fc4;
+  --brand-purple-deep: var(--brand-navy);
+  --brand-orange: var(--brand-orange-accent);
+  --brand-green: var(--brand-lime);
 
-  --background: #ffffff;
-  --surface: #ffffff;
-  --surface-purple: #eef3fb;
-  --surface-green: #e7f7f7;
+  --color-primary: var(--brand-purple);
+  --color-secondary: var(--brand-lime);
+  --color-accent: var(--brand-orange-accent);
 
-  --foreground: #1f2937;
-  --foreground-muted: #64748b;
-  --foreground-subtle: #94a3b8;
+  --bg-primary: #f8fafe;
+  --bg-secondary: #f0f5fc;
+  --bg-card: #ffffff;
+  --bg-elevated: #f4f8fd;
+  --bg-strong: #e7edf9;
+  --bg-footer: #f0f5fc;
+  --bg-nav: var(--brand-navy-deep);
+  --bg-band: var(--brand-navy-deep);
+  --bg-cta-from: var(--brand-navy-deep);
+  --bg-cta-to: var(--brand-navy);
 
-  --border: #e5e7eb;
-  --grid-line: rgb(1 38 116 / 0.06);
+  --text-primary: #111936;
+  --text-secondary: #4a5570;
+  --text-muted: #667085;
+
+  --background: var(--bg-primary);
+  --surface: var(--bg-secondary);
+  --surface-purple: rgb(109 40 232 / 0.1);
+  --surface-green: rgb(22 232 92 / 0.1);
+  --surface-orange: rgb(255 122 24 / 0.1);
+
+  --foreground: var(--text-primary);
+  --foreground-muted: var(--text-secondary);
+  --foreground-subtle: var(--text-muted);
+
+  --border: #dfe6f3;
 }
 
 @theme {
   --font-sans: 'Manrope Variable', 'Manrope', system-ui, sans-serif;
 
-  --color-primary: var(--raw-purple);
-  --color-gradient-purple: var(--raw-gradient-purple);
-  --color-primary-darker: var(--raw-purple);
+  --color-primary: var(--brand-purple);
+  --color-primary-hover: var(--brand-purple-hover);
+  --color-primary-darker: var(--brand-purple-dark);
+  --color-gradient-purple: var(--brand-purple-dark);
 
-  --color-lime: var(--raw-green);
-  --color-accent: var(--raw-green);
-  --color-success: var(--raw-green);
+  --color-secondary: var(--brand-lime);
+  --color-lime: var(--brand-lime);
+  --color-lime-bright: var(--brand-lime-bright);
+  --color-orange-bright: var(--brand-orange-accent);
+  --color-success: var(--brand-lime);
 
-  --color-background: var(--background);
-  --color-surface: var(--surface);
-  --color-surface-secondary: var(--surface-purple);
+  --color-accent: var(--brand-orange-accent);
+
+  --color-navy: var(--brand-navy);
+  --color-navy-deep: var(--brand-navy-deep);
+  --color-purple-bright: var(--brand-purple-bright);
+  --color-blue-accent: var(--brand-blue-accent);
+
+  --color-background: var(--bg-primary);
+  --color-surface: var(--bg-secondary);
+  --color-surface-secondary: var(--bg-card);
   --color-surface-purple: var(--surface-purple);
   --color-surface-green: var(--surface-green);
-  --color-surface-strong: var(--background);
-  --color-ink: var(--foreground);
-  --color-ink-muted: var(--foreground-muted);
-  --color-ink-subtle: var(--foreground-subtle);
+  --color-surface-orange: var(--surface-orange);
+  --color-surface-strong: var(--bg-strong);
+  --color-card: var(--bg-card);
+  --color-elevated: var(--bg-elevated);
+  --color-footer: var(--bg-footer);
+  --color-nav: var(--bg-nav);
+  --color-band: var(--bg-band);
+  --color-cta-from: var(--bg-cta-from);
+  --color-cta-to: var(--bg-cta-to);
+
+  --color-ink: var(--text-primary);
+  --color-ink-muted: var(--text-secondary);
+  --color-ink-subtle: var(--text-muted);
   --color-border: var(--border);
   --color-destructive: #dc2626;
 
@@ -98,40 +152,17 @@
   max-width: 80rem;
 }
 
-@utility grid-pattern {
+@utility ambient-glow {
   background-image:
-    linear-gradient(var(--grid-line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
-  background-size: 48px 48px;
+    radial-gradient(ellipse 72% 58% at 82% -6%, rgb(109 40 232 / 0.14), transparent 58%),
+    radial-gradient(ellipse 48% 42% at 6% 96%, rgb(22 232 92 / 0.06), transparent 54%),
+    radial-gradient(ellipse 38% 34% at 94% 88%, rgb(255 122 24 / 0.05), transparent 50%);
 }
 
-@utility bg-brand-gradient {
-  background-image: linear-gradient(
-    135deg,
-    var(--raw-navy) 0%,
-    var(--raw-electric) 55%,
-    var(--raw-teal) 100%
-  );
-}
-
-@utility text-brand-gradient {
-  background-image: linear-gradient(
-    135deg,
-    var(--raw-navy) 0%,
-    var(--raw-electric) 55%,
-    var(--raw-teal) 100%
-  );
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-@utility clip-hero-diagonal {
-  clip-path: polygon(16% 0, 100% 0, 100% 100%, 0 100%);
-}
-
-@utility clip-cta-diagonal {
-  clip-path: polygon(0 0, 100% 0, 100% 78%, 0 100%);
+/** Scattered dot texture — used sparingly behind heroes/dark bands for a templated, designed feel. */
+@utility dot-grid {
+  background-image: radial-gradient(currentColor 1.5px, transparent 1.5px);
+  background-size: 18px 18px;
 }
 
 @utility skip-link {
@@ -139,12 +170,7 @@
   left: 1rem;
   top: -3rem;
   z-index: 100;
-  background-image: linear-gradient(
-    135deg,
-    var(--raw-navy) 0%,
-    var(--raw-electric) 55%,
-    var(--raw-teal) 100%
-  );
+  background-color: var(--brand-purple);
   color: #ffffff;
   padding: 0.75rem 1.25rem;
   border-radius: 0.75rem;
@@ -155,19 +181,26 @@
   html {
     scroll-behavior: smooth;
     color-scheme: light;
+    overflow-x: clip;
   }
 
   body {
     @apply m-0 min-h-svh bg-background font-sans text-ink antialiased;
+    background-image: radial-gradient(
+      ellipse 110% 70% at 50% -18%,
+      rgb(109 40 232 / 0.07),
+      transparent 58%
+    );
     font-size: 1rem;
     line-height: 1.65;
+    overflow-x: clip;
   }
 
   h1,
   h2,
   h3,
   h4 {
-    @apply font-sans font-semibold text-ink;
+    @apply font-sans font-bold text-ink;
     letter-spacing: -0.025em;
   }
 
@@ -176,12 +209,12 @@
   }
 
   ::selection {
-    background: rgb(1 38 116 / 0.16);
-    color: var(--color-ink);
+    background: rgb(109 40 232 / 0.2);
+    color: #111936;
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-primary);
+    outline: 2px solid var(--brand-purple);
     outline-offset: 2px;
     border-radius: 0.25rem;
   }

@@ -41,11 +41,7 @@ export default function TermsPage() {
   return (
     <>
       <PageTitle title="Terms of Service" />
-      <PageHero
-        eyebrow="Legal"
-        title="Terms of Service"
-        description="The agreement between you and MileSoftware when you use the platform."
-      />
+      <PageHero eyebrow="Legal" title="Terms of Service" description="The agreement that covers your use of the platform." />
       <section className="bg-background py-20">
         <Container className="max-w-3xl">
           <p className="text-sm text-ink-muted">Last updated: July 2026</p>

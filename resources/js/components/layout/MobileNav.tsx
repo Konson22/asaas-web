@@ -21,7 +21,7 @@ export function MobileNav({ open, onOpenChange }: MobileNavProps) {
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent side="right" className="flex flex-col gap-6 overflow-y-auto bg-background p-6">
+      <DialogContent side="right" className="flex flex-col gap-6 overflow-y-auto bg-elevated p-6">
         <DialogTitle asChild>
           <Logo />
         </DialogTitle>
@@ -39,7 +39,7 @@ export function MobileNav({ open, onOpenChange }: MobileNavProps) {
                 onClick={() => onOpenChange(false)}
                 className={cn(
                   'rounded-lg px-3 py-3 text-base font-semibold transition-colors',
-                  isActive ? 'bg-surface-purple text-primary' : 'text-ink hover:bg-primary/5',
+                  isActive ? 'bg-primary/10 text-primary' : 'text-ink hover:bg-primary/5',
                 )}
                 aria-current={isActive ? 'page' : undefined}
               >
@@ -49,7 +49,7 @@ export function MobileNav({ open, onOpenChange }: MobileNavProps) {
           })}
 
           <div className="mt-2 flex flex-col gap-1 border-t border-border pt-3">
-            <p className="px-3 pb-1 text-xs font-semibold uppercase tracking-wide text-ink-muted">Apps</p>
+            <p className="px-3 pb-1 text-xs font-semibold uppercase tracking-wide text-ink-muted">Products</p>
             {products.length > 0 ? (
               products.map((product) => (
                 <Link
@@ -67,7 +67,7 @@ export function MobileNav({ open, onOpenChange }: MobileNavProps) {
                 onClick={() => onOpenChange(false)}
                 className="rounded-lg px-3 py-2.5 text-sm font-medium text-ink-muted transition-colors hover:bg-primary/5 hover:text-ink"
               >
-                View all apps
+                View all products
               </Link>
             )}
           </div>
@@ -114,7 +114,7 @@ export function MobileNav({ open, onOpenChange }: MobileNavProps) {
               <a href={getPlatformUrl('/login')}>Sign in</a>
             </Button>
             <Button variant="cta" asChild onClick={() => onOpenChange(false)}>
-              <Link href="/contact">Request Demo</Link>
+              <Link href="/contact">Get Started</Link>
             </Button>
           </div>
         </div>

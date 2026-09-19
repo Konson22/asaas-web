@@ -3,6 +3,7 @@ import { SectionHeading } from '@/components/common/SectionHeading'
 import { Reveal } from '@/components/common/Reveal'
 import { Badge } from '@/components/ui/badge'
 import { permissionFeatures } from '@/data/permissions'
+import { cycleBrandTone, moduleToneClasses } from '@/lib/productVisuals'
 
 export function PermissionsSection() {
   return (
@@ -22,9 +23,9 @@ export function PermissionsSection() {
             const Icon = feature.icon
             return (
               <Reveal key={feature.id} delay={index * 0.05}>
-                <div className="flex h-full flex-col gap-4 rounded-card border border-border bg-surface p-6">
-                  <div className="flex size-11 items-center justify-center rounded-xl bg-surface-purple">
-                    <Icon className="size-5 text-primary" />
+                <div className="flex h-full flex-col gap-4 rounded-card border border-border bg-card p-6">
+                  <div className={`flex size-11 items-center justify-center rounded-xl ${moduleToneClasses[cycleBrandTone(index)]}`}>
+                    <Icon className="size-5" />
                   </div>
                   <h3 className="text-lg font-semibold text-ink">{feature.title}</h3>
                   <p className="text-sm text-ink-muted">{feature.description}</p>

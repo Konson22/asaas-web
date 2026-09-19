@@ -4,19 +4,19 @@ import { contactInfo, socialLinks } from '@/data/social'
 
 export function TopBar() {
   return (
-    <div className="hidden border-b border-border bg-background md:block">
+    <div className="hidden border-b border-white/10 bg-nav md:block">
       <Container className="flex h-9 items-center justify-between text-xs">
         <div className="flex items-center gap-5">
           <a
             href={`mailto:${contactInfo.email}`}
-            className="flex items-center gap-1.5 text-ink-muted transition-colors hover:text-primary"
+            className="flex items-center gap-1.5 text-white/70 transition-colors hover:text-white"
           >
             <Mail className="size-3.5" aria-hidden="true" />
             {contactInfo.email}
           </a>
           <a
             href={`tel:${contactInfo.phone.replace(/\s+/g, '')}`}
-            className="flex items-center gap-1.5 text-ink-muted transition-colors hover:text-primary"
+            className="flex items-center gap-1.5 text-white/70 transition-colors hover:text-white"
           >
             <Phone className="size-3.5" aria-hidden="true" />
             {contactInfo.phone}
@@ -33,7 +33,7 @@ export function TopBar() {
                 target="_blank"
                 rel="noreferrer noopener"
                 aria-label={social.label}
-                className="text-ink-muted transition-colors hover:text-primary"
+                className="text-white/70 transition-colors hover:text-white"
               >
                 <Icon className="size-3.5" />
               </a>

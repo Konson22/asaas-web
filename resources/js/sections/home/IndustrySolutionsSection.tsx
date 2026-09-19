@@ -8,6 +8,7 @@ import { FeatureIcon } from '@/components/common/FeatureIcon'
 import { Card } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { industries } from '@/data/industries'
+import { cycleBrandTone } from '@/lib/productVisuals'
 import { cn } from '@/lib/utils'
 
 export function IndustrySolutionsSection() {
@@ -67,7 +68,7 @@ export function IndustrySolutionsSection() {
                   className="min-w-0 shrink-0 grow-0 basis-full pl-6 sm:basis-1/2 lg:basis-1/3"
                 >
                   <Card className="flex h-full flex-col gap-4 p-6">
-                    <FeatureIcon icon={industry.icon} tone={index === 1 ? 'green' : 'blue'} />
+                    <FeatureIcon icon={industry.icon} tone={cycleBrandTone(index)} />
                     <h3 className="text-lg font-semibold text-ink">{industry.name}</h3>
                     <p className="text-sm text-ink-muted">{industry.description}</p>
                     <ul className="flex flex-col gap-1.5 text-sm text-ink-muted">
@@ -98,7 +99,7 @@ export function IndustrySolutionsSection() {
               onClick={() => emblaApi?.scrollTo(index)}
               className={cn(
                 'h-1.5 rounded-full transition-all',
-                index === selectedIndex ? 'w-6 bg-lime' : 'w-1.5 bg-border',
+                index === selectedIndex ? 'w-6 bg-primary' : 'w-1.5 bg-border',
               )}
             />
           ))}

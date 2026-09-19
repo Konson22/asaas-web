@@ -2,15 +2,14 @@ import { cn } from '@/lib/utils'
 
 interface LogoProps {
   className?: string
-  /** 'light' (default) for white surfaces — dark lockup.
-   *  'dark' for navy-gradient bands if a reversed lockup is needed. */
+  /** `light` is the lockup for dark surfaces. `dark` is for light surfaces. */
   variant?: 'light' | 'dark'
 }
 
-export function Logo({ className, variant = 'light' }: LogoProps) {
+export function Logo({ className, variant = 'dark' }: LogoProps) {
   return (
     <img
-      src={variant === 'dark' ? '/images/dark-logo.png' : '/images/light-logo.png'}
+      src={variant === 'light' ? '/images/light-logo-on-dark.png' : '/images/light-logo.png'}
       alt="MileSoftwares"
       className={cn('h-8 w-auto', className)}
     />

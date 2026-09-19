@@ -14,15 +14,10 @@ export function ProductShowcaseSection() {
   }
 
   return (
-    <section className="scroll-mt-20 relative overflow-hidden bg-surface-purple py-24">
+    <section className="scroll-mt-20 relative overflow-hidden bg-surface py-24 lg:py-28">
       <Container className="relative flex flex-col gap-12">
         <SectionHeading
-          title={
-            <>
-              Choose the solution built for your{' '}
-              <span className="text-brand-gradient">exact</span> operational reality
-            </>
-          }
+          title="Choose the solution built for your exact operational reality"
           description="Stop paying for generic modules you don’t need. Every Asas product is engineered for a specific way of doing business."
         />
 
@@ -52,7 +47,7 @@ export function ProductShowcaseSection() {
                   </div>
                   <div className="relative mx-auto w-full">
                     <div className="pointer-events-none absolute inset-4 rounded-2xl bg-primary/15 blur-3xl" />
-                    <div className="relative overflow-hidden rounded-card border border-border bg-background">
+                    <div className="relative overflow-hidden rounded-2xl border border-border bg-card">
                       {getProductVisual(product.code).image ? (
                         <img
                           src={getProductVisual(product.code).image}
@@ -61,7 +56,7 @@ export function ProductShowcaseSection() {
                           loading="lazy"
                         />
                       ) : (
-                        <div className="flex aspect-[4/3] w-full items-center justify-center bg-surface-purple text-primary">
+                        <div className="flex aspect-[4/3] w-full items-center justify-center bg-elevated text-primary">
                           {(() => {
                             const Icon = getProductVisual(product.code).icon
                             return <Icon className="size-16" />

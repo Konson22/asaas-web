@@ -1,60 +1,92 @@
+import { Link } from '@inertiajs/react'
+import { CheckCircle2, ArrowRight, Quote } from 'lucide-react'
 import { Container } from '@/components/common/Container'
-import { SectionHeading } from '@/components/common/SectionHeading'
 import { Reveal } from '@/components/common/Reveal'
-import { FeatureIcon } from '@/components/common/FeatureIcon'
-import { Badge } from '@/components/ui/badge'
-import { whyChooseUsFeatures } from '@/data/whyChooseUs'
-import { cn } from '@/lib/utils'
+import { Button } from '@/components/ui/button'
+
+const benefits = [
+  'Tailored solutions for your business',
+  'Modern technologies and best practices',
+  'Training and ongoing support',
+  'Flexible payment options',
+  'Local support in South Sudan',
+]
+
+// Real numbers (years in business, clients served, projects delivered) aren't available for
+// MileSoftwares yet, so this deliberately uses honest qualitative badges in the reference's
+// exact 3-column layout instead of inventing stats like "100+ Projects Delivered".
+const badges = [
+  { id: 'delivery', label: 'Proven Delivery' },
+  { id: 'trust', label: 'Client Trust' },
+  { id: 'expertise', label: 'Local Expertise' },
+]
 
 export function WhyChooseUsSection() {
-  const featured = whyChooseUsFeatures.slice(0, 2)
-  const rest = whyChooseUsFeatures.slice(2)
-
   return (
-    <section className="bg-background py-24">
-      <Container className="flex flex-col gap-12">
-        <div className="flex flex-col items-center gap-4 text-center">
-          <Badge variant="accent">Why businesses choose MileSoftware</Badge>
-          <SectionHeading
-            title={
-              <>
-                A strategic partner, not another rigid{' '}
-                <span className="text-primary">ERP</span>
-              </>
-            }
-            description="Five reasons businesses move to MileSoftware — and stay."
-            className="gap-4"
-          />
-        </div>
+    <section className="bg-background py-20 lg:py-24">
+      <Container className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+        <Reveal className="flex flex-col gap-6">
+          <div className="flex flex-col gap-4">
+            <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-primary">
+              <span className="h-px w-4 bg-primary/50" aria-hidden="true" />
+              Why Choose Us
+            </span>
+            <h2 className="max-w-md text-[clamp(1.9rem,4vw,2.75rem)] font-bold leading-tight tracking-tight text-ink">
+              Your <span className="text-primary">Technology</span>
+              <br />
+              Partner for Growth
+            </h2>
+            <p className="max-w-md text-base text-ink-muted">
+              We combine technical expertise, industry experience and a commitment to our
+              clients&apos; success. Our solutions are reliable, scalable and built around your
+              goals.
+            </p>
+          </div>
 
-        <div className="grid gap-10 lg:grid-cols-2">
-          {featured.map((feature, index) => {
-            const isOffline = feature.id === 'uninterrupted'
-            return (
-              <Reveal key={feature.id} delay={index * 0.05}>
-                <div className="flex gap-5">
-                  <FeatureIcon icon={feature.icon} tone={isOffline ? 'blue' : 'blue'} />
-                  <div className="flex flex-col gap-2">
-                    <h3 className="text-xl font-semibold text-ink">{feature.title}</h3>
-                    <p className="text-sm text-ink-muted">{feature.description}</p>
-                  </div>
-                </div>
-              </Reveal>
-            )
-          })}
-        </div>
+          <ul className="flex flex-col gap-3">
+            {benefits.map((item) => (
+              <li key={item} className="flex items-center gap-3 text-sm font-medium text-ink sm:text-base">
+                <CheckCircle2 className="size-5 shrink-0 text-lime" aria-hidden="true" />
+                {item}
+              </li>
+            ))}
+          </ul>
 
-        <div className="grid gap-5 sm:grid-cols-3">
-          {rest.map((feature, index) => (
-            <Reveal key={feature.id} delay={index * 0.05}>
-              <div className={cn('flex h-full flex-col gap-4 p-6', index === 1 && 'rounded-card border border-border bg-surface')}>
-                <FeatureIcon icon={feature.icon} tone={feature.id === 'scales' ? 'blue' : 'blue'} />
-                <h3 className="text-lg font-semibold text-ink">{feature.title}</h3>
-                <p className="text-sm text-ink-muted">{feature.description}</p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
+          <Button variant="primary" size="lg" asChild className="w-fit">
+            <Link href="/about">
+              Learn More About Us
+              <ArrowRight className="size-4" />
+            </Link>
+          </Button>
+        </Reveal>
+
+        <Reveal delay={0.05}>
+          <div className="relative overflow-hidden rounded-[1.75rem] bg-navy-deep p-8 sm:p-10">
+            <div className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-primary/30 blur-3xl" aria-hidden="true" />
+            <div className="pointer-events-none absolute -bottom-20 -left-10 h-64 w-64 rounded-full bg-primary-darker/60 blur-3xl" aria-hidden="true" />
+
+            <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-4 sm:p-6">
+              <img
+                src="/images/hero/desktop-transparent-bg.png"
+                alt="MileSoftwares dashboard"
+                className="mx-auto w-full max-w-sm object-contain"
+              />
+            </div>
+
+            <Quote className="relative mt-8 size-7 text-lime" aria-hidden="true" />
+            <p className="relative mt-2 max-w-xs text-lg font-semibold text-white">
+              We don&apos;t just build software, we build long-term partnerships.
+            </p>
+
+            <div className="relative mt-8 grid grid-cols-3 gap-4 border-t border-white/10 pt-6">
+              {badges.map((badge) => (
+                <p key={badge.id} className="text-sm font-bold text-lime sm:text-base">
+                  {badge.label}
+                </p>
+              ))}
+            </div>
+          </div>
+        </Reveal>
       </Container>
     </section>
   )

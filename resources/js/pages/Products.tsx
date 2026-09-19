@@ -10,7 +10,7 @@ import { CtaSection } from '@/sections/home/CtaSection'
 import { useProducts } from '@/hooks/useProducts'
 import { useRegisterableApplications } from '@/hooks/useRegisterableApplications'
 import { getProductRegisterUrl } from '@/lib/platform'
-import { getProductVisual } from '@/lib/productVisuals'
+import { getProductVisual, moduleToneClasses } from '@/lib/productVisuals'
 
 export default function ProductsPage() {
   const { products, loading, error } = useProducts()
@@ -29,13 +29,8 @@ export default function ProductsPage() {
       <PageTitle title="Products" />
       <PageHero
         eyebrow="Products"
-        title={
-          <>
-            Choose the product built for your <span className="text-brand-gradient">business</span>
-          </>
-        }
-        description="Each MileSoftware product is purpose-built for a specific industry. Pick one to start a free trial — or learn more before you decide."
-        size="compact"
+        title="Choose the product built for your business"
+        description="Purpose-built products for each industry. Start a trial or learn more."
       />
 
       <section id="products" className="scroll-mt-20 bg-surface py-24">
@@ -65,7 +60,7 @@ export default function ProductsPage() {
                     <Card className="flex h-full flex-col overflow-hidden">
                       <Link
                         href={`/products/${product.slug}`}
-                        className="relative flex aspect-[16/10] items-center justify-center overflow-hidden bg-background outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-inset"
+                        className="relative flex aspect-[16/10] items-center justify-center overflow-hidden bg-gradient-to-b from-surface to-card outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-inset"
                         aria-label={`Learn more about ${product.name}`}
                       >
                         {visual.image ? (
@@ -76,7 +71,7 @@ export default function ProductsPage() {
                             loading="lazy"
                           />
                         ) : (
-                          <span className="flex size-20 items-center justify-center rounded-2xl bg-surface-purple text-primary">
+                          <span className={`flex size-20 items-center justify-center rounded-2xl ${moduleToneClasses[visual.tone]}`}>
                             <Icon className="size-9" />
                           </span>
                         )}
@@ -133,10 +128,10 @@ export default function ProductsPage() {
         description="Tell us how you run your business and we’ll recommend the right MileSoftware product — or walk you through a live demo."
         actions={
           <>
-            <Button variant="onGradient" size="lg" asChild>
+            <Button variant="bandGreen" size="lg" asChild>
               <Link href="/contact">Request a demo</Link>
             </Button>
-            <Button variant="onGradientOutline" size="lg" asChild>
+            <Button variant="bandOrange" size="lg" asChild>
               <Link href="/contact">Contact sales</Link>
             </Button>
           </>

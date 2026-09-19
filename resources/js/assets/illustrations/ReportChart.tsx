@@ -2,9 +2,9 @@ import { cn } from '@/lib/utils'
 
 const series = [
   { label: 'Revenue', color: 'bg-primary', values: [55, 70, 60, 85, 75, 95] },
-  { label: 'Profit', color: 'bg-accent', values: [30, 35, 32, 45, 40, 52] },
+  { label: 'Profit', color: 'bg-lime', values: [30, 35, 32, 45, 40, 52] },
   { label: 'Expenses', color: 'bg-ink-muted', values: [25, 28, 27, 30, 29, 33] },
-  { label: 'Inventory', color: 'bg-brand-gradient', values: [40, 42, 38, 46, 44, 48] },
+  { label: 'Inventory', color: 'bg-accent', values: [40, 42, 38, 46, 44, 48] },
 ]
 
 interface ReportChartProps {
@@ -14,7 +14,7 @@ interface ReportChartProps {
 /** Abstract multi-series bar chart using only the brand palette — no rainbow charts. */
 export function ReportChart({ className }: ReportChartProps) {
   return (
-    <div className={cn('rounded-card border border-border bg-surface p-6', className)}>
+    <div className={cn('rounded-card border border-border bg-card p-6', className)}>
       <div className="mb-6 flex flex-wrap items-center gap-5">
         {series.map((s) => (
           <div key={s.label} className="flex items-center gap-2">
