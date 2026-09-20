@@ -43,10 +43,6 @@ export function WhatWeDoSection() {
             </h2>
           </div>
           <div className="flex flex-col gap-4 lg:max-w-sm lg:items-end">
-            <p className="text-base text-ink-muted lg:text-right">
-              We design and develop powerful, user-friendly software systems to help you manage,
-              operate and grow your business efficiently.
-            </p>
             <Button variant="outline" size="sm" asChild className="shrink-0">
               <Link href="/products">
                 View All Products

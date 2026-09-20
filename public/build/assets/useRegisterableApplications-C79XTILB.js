@@ -1,1 +1,0 @@
-import{S as e}from"./app-BupzfPlL.js";function t(){let{registerableApplications:t=[]}=e().props;return t}export{t};

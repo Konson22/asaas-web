@@ -28,7 +28,12 @@ export default function AboutPage() {
       <PageTitle title="About" />
       <PageHero
         eyebrow="About MileSoftwares"
-        title="Software designed around real operations."
+        image="/images/pages-hero/about-hero.png"
+        title={
+          <>
+            Software designed around <span className="text-cyan">real operations.</span>
+          </>
+        }
         description="Configurable applications for pharmacies, schools, inventory, restaurants, and M&E."
       />
 

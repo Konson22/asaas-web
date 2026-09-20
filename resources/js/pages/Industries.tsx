@@ -18,7 +18,13 @@ export default function IndustriesPage() {
       <PageTitle title="Industries" />
       <PageHero
         eyebrow="Industries"
-        title="Built for the way your industry works"
+        image="/images/pages-hero/about-hero.png"
+
+        title={
+          <>
+            Built for the way <span className="text-cyan">your industry</span> works
+          </>
+        }
         description="Retail, pharmacy, restaurants, and more — software that matches your workflow."
       />
       <Suspense fallback={<SectionFallback />}>

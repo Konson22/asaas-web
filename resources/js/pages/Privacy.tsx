@@ -33,7 +33,12 @@ export default function PrivacyPage() {
   return (
     <>
       <PageTitle title="Privacy Policy" />
-      <PageHero eyebrow="Legal" title="Privacy Policy" description="How we collect, use, and protect your information." />
+      <PageHero
+        size="compact"
+        eyebrow="Legal"
+        title="Privacy Policy"
+        description="How we collect, use, and protect your information."
+      />
       <section className="bg-background py-20">
         <Container className="max-w-3xl">
           <p className="text-sm text-ink-muted">Last updated: July 2026</p>

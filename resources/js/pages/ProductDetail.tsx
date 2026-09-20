@@ -37,6 +37,7 @@ export default function ProductDetailPage({ product }: { product: ProductDetailT
       <PageHero
         lead={
           <Breadcrumbs
+            tone="dark"
             items={[{ label: 'Home', href: '/' }, { label: 'Products', href: '/products' }, { label: product.name }]}
           />
         }
@@ -44,20 +45,20 @@ export default function ProductDetailPage({ product }: { product: ProductDetailT
         title={product.name}
         description={product.tagline ?? undefined}
       >
-        <div className="mt-1 flex flex-col gap-2 sm:flex-row">
+        <div className="mt-2 flex flex-col gap-3 sm:flex-row">
           {showTrialCta && product.capability_badges.includes('cloud') && canRegister ? (
-            <Button variant="cta" size="sm" asChild>
+            <Button variant="cta" asChild>
               <a href={getProductRegisterUrl(product.code)}>
                 <Cloud className="size-4" />
                 {primaryLabel}
               </a>
             </Button>
           ) : (
-            <Button variant="cta" size="sm" asChild>
+            <Button variant="cta" asChild>
               <a href="/contact">{primaryLabel}</a>
             </Button>
           )}
-          <Button variant="secondary" size="sm" asChild>
+          <Button variant="onGradientOutline" asChild>
             <a href="/contact">{secondaryLabel}</a>
           </Button>
         </div>

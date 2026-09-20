@@ -17,7 +17,12 @@ export default function FaqPage() {
       <PageTitle title="FAQ" />
       <PageHero
         eyebrow="FAQ"
-        title="Frequently asked questions"
+          image="/images/pages-hero/faq-hero.png"
+        title={
+          <>
+            Frequently asked <span className="text-cyan">questions</span>
+          </>
+        }
         description="Offline mode, multi-branch, desktop and mobile, permissions, and more."
       />
       <Suspense fallback={<SectionFallback />}>

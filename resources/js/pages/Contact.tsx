@@ -39,7 +39,12 @@ export default function ContactPage() {
       <PageTitle title="Contact" />
       <PageHero
         eyebrow="Contact"
-        title="Let's get your business running on one platform"
+        image="/images/pages-hero/contact-hero.png"
+        title={
+          <>
+            Let&apos;s get your business running on <span className="text-cyan">one platform</span>
+          </>
+        }
         description="Start a trial or talk to us about cloud, offline, and multi-branch setups."
       />
 
