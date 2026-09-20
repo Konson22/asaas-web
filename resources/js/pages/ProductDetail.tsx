@@ -1,7 +1,6 @@
 import { Cloud } from 'lucide-react'
 import { PageTitle } from '@/components/common/PageTitle'
 import { PageHero } from '@/components/common/PageHero'
-import { Breadcrumbs } from '@/components/common/Breadcrumbs'
 import { Button } from '@/components/ui/button'
 import { CtaSection } from '@/sections/home/CtaSection'
 import { ProductOverview } from '@/sections/product/ProductOverview'
@@ -35,13 +34,7 @@ export default function ProductDetailPage({ product }: { product: ProductDetailT
     <>
       <PageTitle title={product.seo.title} />
       <PageHero
-        lead={
-          <Breadcrumbs
-            tone="dark"
-            items={[{ label: 'Home', href: '/' }, { label: 'Products', href: '/products' }, { label: product.name }]}
-          />
-        }
-        eyebrow={product.category?.name ?? 'Products'}
+        // eyebrow={product.category?.name ?? 'Products'}
         title={product.name}
         description={product.tagline ?? undefined}
       >

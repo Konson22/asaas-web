@@ -1,1 +1,0 @@
-import{C as e}from"./app-ZhX2ARo9.js";function t(){let{registerableApplications:t=[]}=e().props;return t}export{t};

@@ -49,6 +49,8 @@ export default function PricingPage() {
       <PageTitle title="Asas Pricing and Deployment Options" />
       <PageHero
         eyebrow="Pricing"
+        image="/images/pages-hero/pricing-hero.png"
+
         title={
           <>
             Flexible pricing for <span className="text-cyan">every business</span>

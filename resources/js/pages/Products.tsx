@@ -29,6 +29,7 @@ export default function ProductsPage() {
       <PageTitle title="Products" />
       <PageHero
         eyebrow="Products"
+        image="/images/pages-hero/products-hero.png"
         title={
           <>
             Choose the product built for <span className="text-cyan">your business</span>
