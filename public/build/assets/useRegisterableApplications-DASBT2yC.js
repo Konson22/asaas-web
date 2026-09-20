@@ -1,1 +1,0 @@
-import{S as e}from"./app-DeDS4Rm6.js";function t(){let{registerableApplications:t=[]}=e().props;return t}export{t};
