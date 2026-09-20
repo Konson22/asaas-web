@@ -18,6 +18,12 @@ import {
  * (wrong brand, garbled placeholder text), so they were retired rather than re-themed; the
  * `image` field stays on `ProductVisual` for when real product screenshots exist.
  *
+ * `uicon` is the Flaticon UIcons (@flaticon/flaticon-uicons, regular/rounded style — see
+ * app.css import) class used as the product mark on the homepage lineup
+ * (HomeProductCardsSection) and anywhere else a product needs a large, named visual.
+ * Free-tier Flaticon UIcons require attribution, which lives in the Footer credit line
+ * rather than per icon.
+ *
  * `BrandTone` keeps its legacy 'purple' | 'green' | 'orange' names from the pre-2026-09-20
  * identity (renaming would ripple through every consumer below for a label only) — they now
  * resolve to the blue palette via app.css: purple → Primary Blue, green → Cyan, orange →
@@ -28,20 +34,21 @@ export type BrandTone = 'purple' | 'green' | 'orange'
 interface ProductVisual {
   image?: string
   icon: LucideIcon
+  uicon: string
   tone: BrandTone
 }
 
 const visuals: Record<string, ProductVisual> = {
-  'retail-pos': { icon: ShoppingCart, tone: 'orange' },
-  pharmacy: { icon: Pill, tone: 'green' },
-  restaurant: { icon: UtensilsCrossed, tone: 'orange' },
-  inventory: { icon: Boxes, tone: 'purple' },
-  services: { icon: Briefcase, tone: 'green' },
-  distribution: { icon: Warehouse, tone: 'orange' },
-  school: { icon: GraduationCap, tone: 'purple' },
+  'retail-pos': { icon: ShoppingCart, uicon: 'fi-rr-shopping-cart', tone: 'orange' },
+  pharmacy: { icon: Pill, uicon: 'fi-rr-prescription-bottle-pill', tone: 'green' },
+  restaurant: { icon: UtensilsCrossed, uicon: 'fi-rr-utensils', tone: 'orange' },
+  inventory: { icon: Boxes, uicon: 'fi-rr-inventory-alt', tone: 'purple' },
+  services: { icon: Briefcase, uicon: 'fi-rr-briefcase', tone: 'green' },
+  distribution: { icon: Warehouse, uicon: 'fi-rr-warehouse-alt', tone: 'orange' },
+  school: { icon: GraduationCap, uicon: 'fi-rr-graduation-cap', tone: 'purple' },
 }
 
-const fallback: ProductVisual = { icon: Package, tone: 'purple' }
+const fallback: ProductVisual = { icon: Package, uicon: 'fi-rr-package', tone: 'purple' }
 
 export function getProductVisual(code: string): ProductVisual {
   return visuals[code] ?? fallback

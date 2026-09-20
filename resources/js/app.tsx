@@ -17,8 +17,8 @@ createInertiaApp({
   title: (title) => (title ? `${title} · ${appName}` : appName),
   resolve: async (name) => {
     const page = await resolvePageComponent(
-      `./pages/${name}.tsx`,
-      import.meta.glob('./pages/**/*.tsx'),
+      [`./pages/${name}.tsx`, `./pages/${name}/index.tsx`],
+      import.meta.glob(['./pages/*.tsx', './pages/**/index.tsx']),
     )
 
     const pageModule = page as { default: { layout?: (page: ReactNode) => ReactNode } }

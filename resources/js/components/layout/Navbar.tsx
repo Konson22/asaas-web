@@ -63,7 +63,7 @@ export function Navbar() {
       <TopBar />
       <header
         className={cn(
-          'sticky top-0 z-40 border-b bg-nav/95 backdrop-blur transition-shadow duration-200',
+          'sticky top-0 z-40 border-b bg-white transition-shadow duration-200',
           scrolled ? 'border-border shadow-[0_1px_0_0_rgb(10_37_64_/0.04),0_8px_24px_-16px_rgb(10_37_64_/0.15)]' : 'border-transparent',
         )}
       >

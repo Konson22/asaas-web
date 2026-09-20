@@ -120,6 +120,17 @@ export function Footer() {
               Terms of Service
             </Link>
             <span className="text-xs font-medium text-white/45">Built for a Smarter Tomorrow.</span>
+            {/* Required by the free-tier Flaticon UIcons license (product icons in
+                HomeProductCardsSection/productVisuals) — drop this if a Premium Flaticon
+                subscription is ever purchased instead. */}
+            <a
+              href="https://www.flaticon.com/uicons"
+              target="_blank"
+              rel="noreferrer noopener"
+              className="text-xs text-white/45 transition-colors hover:text-cyan"
+            >
+              Icons by Flaticon
+            </a>
           </div>
         </Container>
       </div>
