@@ -15,23 +15,23 @@ const benefits = [
 export function StatsStripSection() {
   return (
     <section className="relative overflow-hidden bg-navy-deep py-20 lg:py-24">
-      <img
-        src="/images/more-than-software.png"
-        alt=""
-        className="pointer-events-none absolute inset-0 size-full object-cover select-none"
-        aria-hidden="true"
-      />
+      <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+        <div className="ambient-glow absolute inset-0 opacity-60" />
+        <div className="absolute -left-24 top-1/2 h-80 w-80 -translate-y-1/2 rounded-full bg-primary/20 blur-3xl" />
+        <div className="absolute -right-16 bottom-[-6rem] h-72 w-72 rounded-full bg-cyan/10 blur-3xl" />
+        <div className="dot-grid absolute left-10 top-10 h-24 w-24 text-white/10" />
+      </div>
 
       <Container className="relative flex flex-col items-center gap-10 text-center">
         <Reveal className="flex flex-col items-center gap-4">
-          <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-purple-bright">
-            <span className="h-px w-4 bg-purple-bright/60" aria-hidden="true" />
+          <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-blue-bright">
+            <span className="h-px w-4 bg-blue-bright/60" aria-hidden="true" />
             More Than Software
           </span>
           <h2 className="max-w-xl text-[clamp(1.9rem,4vw,2.75rem)] font-bold leading-tight tracking-tight text-white">
             Nobody runs your business
             <br />
-            <span className="text-lime">exactly like you do.</span>
+            <span className="text-cyan">exactly like you do.</span>
           </h2>
           <p className="max-w-lg text-base text-white/70">
             That&apos;s why we create flexible software solutions that adapt to your processes

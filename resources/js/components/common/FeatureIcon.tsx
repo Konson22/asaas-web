@@ -4,8 +4,9 @@ import type { BrandTone } from '@/lib/productVisuals'
 
 interface FeatureIconProps {
   icon: LucideIcon
-  /** Purple is the primary brand tone. Blue is a minor 4th tone used only for card/icon
-   * variety (What We Do, product grid) — see app.css's --brand-blue-accent comment. */
+  /** 'purple' resolves to Primary Blue, the main brand tone. 'blue' is a minor 4th tone
+   * (→ Cyan) used only for card/icon variety (What We Do, product grid) — see app.css's
+   * --brand-blue-accent comment. */
   tone?: BrandTone | 'blue' | 'white'
   className?: string
 }

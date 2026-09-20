@@ -61,15 +61,20 @@ export function Navbar() {
   return (
     <>
       <TopBar />
-      <header className="sticky top-0 z-40 border-b border-white/10 bg-nav">
+      <header
+        className={cn(
+          'sticky top-0 z-40 border-b bg-nav/95 backdrop-blur transition-shadow duration-200',
+          scrolled ? 'border-border shadow-[0_1px_0_0_rgb(10_37_64_/0.04),0_8px_24px_-16px_rgb(10_37_64_/0.15)]' : 'border-transparent',
+        )}
+      >
         <Container
           className={cn(
             'flex items-center justify-between transition-[padding] duration-200',
-            scrolled ? 'py-2' : 'py-3',
+            scrolled ? 'py-2.5' : 'py-3.5',
           )}
         >
           <Link href="/" className="shrink-0" aria-label="MileSoftwares home">
-            <Logo variant="light" className={cn('w-auto transition-[height] duration-200', scrolled ? 'h-9' : 'h-11')} />
+            <Logo className={cn('w-auto transition-[height] duration-200', scrolled ? 'h-8' : 'h-9')} />
           </Link>
 
           <nav className="hidden items-center gap-0.5 lg:flex" aria-label="Primary">
@@ -77,9 +82,7 @@ export function Navbar() {
               href="/"
               className={cn(
                 'relative rounded-lg px-3 py-2 text-sm font-medium transition-colors',
-                pathname === '/'
-                  ? 'text-white'
-                  : 'text-white/70 hover:text-white',
+                pathname === '/' ? 'text-ink' : 'text-ink-muted hover:text-ink',
               )}
               aria-current={pathname === '/' ? 'page' : undefined}
             >
@@ -97,9 +100,7 @@ export function Navbar() {
                 aria-haspopup="menu"
                 className={cn(
                   'flex items-center gap-1 rounded-lg px-3 py-2 text-sm font-medium transition-colors',
-                  appsOpen || appsActive
-                    ? 'text-white'
-                    : 'text-white/70 hover:text-white',
+                  appsOpen || appsActive ? 'text-ink' : 'text-ink-muted hover:text-ink',
                 )}
               >
                 Products
@@ -112,7 +113,7 @@ export function Navbar() {
               {appsOpen ? (
                 <div
                   role="menu"
-                  className="absolute left-0 top-full z-50 mt-2 w-72 overflow-hidden rounded-xl border border-border bg-white py-1.5 shadow-xl shadow-navy-deep/20"
+                  className="absolute left-0 top-full z-50 mt-2 w-72 overflow-hidden rounded-xl border border-border bg-white py-1.5 shadow-xl shadow-navy-deep/10"
                 >
                   {products.length > 0 ? (
                     products.map((product) => (
@@ -168,9 +169,7 @@ export function Navbar() {
                     href={link.href}
                     className={cn(
                       'relative rounded-lg px-3 py-2 text-sm font-medium transition-colors',
-                      isActive
-                        ? 'text-white'
-                        : 'text-white/70 hover:text-white',
+                      isActive ? 'text-ink' : 'text-ink-muted hover:text-ink',
                     )}
                     aria-current={isActive ? 'page' : undefined}
                   >
@@ -181,6 +180,20 @@ export function Navbar() {
                   </Comp>
                 )
               })}
+
+            <Link
+              href="/contact"
+              className={cn(
+                'relative rounded-lg px-3 py-2 text-sm font-medium transition-colors',
+                pathname === '/contact' ? 'text-ink' : 'text-ink-muted hover:text-ink',
+              )}
+              aria-current={pathname === '/contact' ? 'page' : undefined}
+            >
+              Contact
+              {pathname === '/contact' ? (
+                <span className="absolute inset-x-3 -bottom-px h-0.5 rounded-full bg-primary" />
+              ) : null}
+            </Link>
           </nav>
 
           <div className="hidden items-center gap-1 lg:flex">
@@ -189,11 +202,11 @@ export function Navbar() {
             <Link
               href="/faq"
               aria-label="Search help & FAQs"
-              className="inline-flex size-9 items-center justify-center rounded-lg text-white/70 transition-colors hover:bg-white/10 hover:text-white"
+              className="inline-flex size-9 items-center justify-center rounded-lg text-ink-muted transition-colors hover:bg-primary/5 hover:text-ink"
             >
               <Search className="size-4" />
             </Link>
-            <Button variant="ghost" size="sm" className="text-white/80 hover:bg-white/10 hover:text-white" asChild>
+            <Button variant="ghost" size="sm" asChild>
               <a href={getPlatformUrl('/login')}>Sign in</a>
             </Button>
             <Button variant="cta" size="sm" asChild className="ml-1">
@@ -204,7 +217,7 @@ export function Navbar() {
           <div className="flex items-center gap-2 lg:hidden">
             <button
               type="button"
-              className="inline-flex items-center justify-center rounded-lg p-2 text-white transition-colors hover:bg-white/10"
+              className="inline-flex items-center justify-center rounded-lg p-2 text-ink transition-colors hover:bg-primary/5"
               onClick={() => setMobileOpen(true)}
               aria-label="Open menu"
             >

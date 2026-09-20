@@ -5,81 +5,92 @@
 /**
  * MileSoftwares brand tokens — light theme
  *
- * Redesign (2026-09-19) — Navy + Purple + Lime Green + Orange identity.
+ * Redesign (2026-09-20) — Blue + Navy + Cyan identity, built around the new MileSoftwares
+ * folded-M logo (deep navy → electric blue → cyan gradient mark).
  *
- * Deep Navy (foundation): #080B2C / Navy #10134A
- * Purple (brand accent):  #6D28E8 / bright #8B3DFF / dark #35118A
- * Lime Green (CTA/action): #16E85C / bright #39F06E
- * Orange (small accent only, 3–5% of the page): #FF7A18
- * Light surfaces: #F8FAFE → #FFFFFF, section wash #F0F5FC
+ * Deep Navy (footer/CTA/hero foundation): #061B3A
+ * Dark Navy (secondary dark surface):     #0A2540
+ * Primary Blue (brand/CTA):               #1268F3
+ * Bright Blue (secondary accent):         #078BF5
+ * Cyan (highlight accent):                #18C8F4
+ * Light surfaces: #FFFFFF → Light Blue #EAF5FF / Very Light Blue #F5FAFF
+ *
+ * Legacy token names below (--brand-purple*, --brand-lime*, --brand-orange*) predate this
+ * redesign (an earlier purple/lime/orange identity). They're kept as aliases — repointed to
+ * the blue palette — so every existing component/section that already references them (via
+ * bg-primary, text-lime, moduleToneClasses, FeatureIcon tones, etc.) resolves to the correct
+ * new color without a class-rename sweep across every file. New code should prefer the plain
+ * --brand-blue / --brand-blue-bright / --brand-cyan names directly.
  */
 
 :root {
-  --brand-navy-deep: #080b2c;
-  --brand-navy: #10134a;
-  --brand-purple-dark: #35118a;
-  --brand-purple: #6d28e8;
-  --brand-purple-bright: #8b3dff;
-  --brand-lime: #16e85c;
-  --brand-lime-bright: #39f06e;
-  --brand-orange-accent: #ff7a18;
-  /* Minor 4th icon tone for card/product variety only (What We Do, product grid) — never a
-     section background or CTA color, so it doesn't compete with purple as the brand accent. */
-  --brand-blue-accent: #2f6fed;
+  --brand-navy-deep: #061b3a;
+  --brand-navy: #0a2540;
+  --brand-blue: #1268f3;
+  --brand-blue-bright: #078bf5;
+  --brand-blue-hover: #0e5ad1;
+  --brand-cyan: #18c8f4;
 
-  /* Legacy token names — productVisuals.ts's BrandTone union ('purple' | 'green' | 'orange')
-     predates this redesign; keeping these aliases means every FeatureIcon/tone consumer
-     resolves to the correct new color without a rename sweep across every section file. */
-  --brand-purple-hover: #5a1fc4;
+  /* Legacy aliases — see comment above. */
+  --brand-purple-dark: var(--brand-navy);
+  --brand-purple: var(--brand-blue);
+  --brand-purple-bright: var(--brand-blue-bright);
+  --brand-purple-hover: var(--brand-blue-hover);
   --brand-purple-deep: var(--brand-navy);
-  --brand-orange: var(--brand-orange-accent);
-  --brand-green: var(--brand-lime);
+  --brand-lime: var(--brand-cyan);
+  --brand-lime-bright: var(--brand-blue-bright);
+  --brand-orange-accent: var(--brand-blue-bright);
+  --brand-orange: var(--brand-blue-bright);
+  --brand-green: var(--brand-cyan);
+  /* 4th minor icon tone for card/product variety only (What We Do, product grid) — never a
+     section background or CTA color. */
+  --brand-blue-accent: var(--brand-cyan);
 
-  --color-primary: var(--brand-purple);
-  --color-secondary: var(--brand-lime);
-  --color-accent: var(--brand-orange-accent);
+  --color-primary: var(--brand-blue);
+  --color-secondary: var(--brand-cyan);
+  --color-accent: var(--brand-blue-bright);
 
-  --bg-primary: #f8fafe;
-  --bg-secondary: #f0f5fc;
+  --bg-primary: #ffffff;
+  --bg-secondary: #f5faff;
   --bg-card: #ffffff;
-  --bg-elevated: #f4f8fd;
-  --bg-strong: #e7edf9;
-  --bg-footer: #f0f5fc;
-  --bg-nav: var(--brand-navy-deep);
+  --bg-elevated: #f5faff;
+  --bg-strong: #eaf5ff;
+  --bg-footer: var(--brand-navy-deep);
+  --bg-nav: #ffffff;
   --bg-band: var(--brand-navy-deep);
   --bg-cta-from: var(--brand-navy-deep);
   --bg-cta-to: var(--brand-navy);
 
-  --text-primary: #111936;
-  --text-secondary: #4a5570;
-  --text-muted: #667085;
+  --text-primary: #0a2540;
+  --text-secondary: #48586e;
+  --text-muted: #64748b;
 
   --background: var(--bg-primary);
   --surface: var(--bg-secondary);
-  --surface-purple: rgb(109 40 232 / 0.1);
-  --surface-green: rgb(22 232 92 / 0.1);
-  --surface-orange: rgb(255 122 24 / 0.1);
+  --surface-purple: rgb(18 104 243 / 0.1);
+  --surface-green: rgb(24 200 244 / 0.1);
+  --surface-orange: rgb(7 139 245 / 0.1);
 
   --foreground: var(--text-primary);
   --foreground-muted: var(--text-secondary);
   --foreground-subtle: var(--text-muted);
 
-  --border: #dfe6f3;
+  --border: #e5e7eb;
 }
 
 @theme {
   --font-sans: 'Manrope Variable', 'Manrope', system-ui, sans-serif;
 
-  --color-primary: var(--brand-purple);
-  --color-primary-hover: var(--brand-purple-hover);
+  --color-primary: var(--brand-blue);
+  --color-primary-hover: var(--brand-blue-hover);
   --color-primary-darker: var(--brand-purple-dark);
   --color-gradient-purple: var(--brand-purple-dark);
 
-  --color-secondary: var(--brand-lime);
+  --color-secondary: var(--brand-cyan);
   --color-lime: var(--brand-lime);
   --color-lime-bright: var(--brand-lime-bright);
   --color-orange-bright: var(--brand-orange-accent);
-  --color-success: var(--brand-lime);
+  --color-success: var(--brand-cyan);
 
   --color-accent: var(--brand-orange-accent);
 
@@ -87,6 +98,8 @@
   --color-navy-deep: var(--brand-navy-deep);
   --color-purple-bright: var(--brand-purple-bright);
   --color-blue-accent: var(--brand-blue-accent);
+  --color-blue-bright: var(--brand-blue-bright);
+  --color-cyan: var(--brand-cyan);
 
   --color-background: var(--bg-primary);
   --color-surface: var(--bg-secondary);
@@ -109,7 +122,7 @@
   --color-border: var(--border);
   --color-destructive: #dc2626;
 
-  --radius-card: 1rem;
+  --radius-card: 0.875rem;
 
   --animate-accordion-down: accordion-down 0.2s ease-out;
   --animate-accordion-up: accordion-up 0.2s ease-out;
@@ -154,12 +167,13 @@
 
 @utility ambient-glow {
   background-image:
-    radial-gradient(ellipse 72% 58% at 82% -6%, rgb(109 40 232 / 0.14), transparent 58%),
-    radial-gradient(ellipse 48% 42% at 6% 96%, rgb(22 232 92 / 0.06), transparent 54%),
-    radial-gradient(ellipse 38% 34% at 94% 88%, rgb(255 122 24 / 0.05), transparent 50%);
+    radial-gradient(ellipse 72% 58% at 82% -6%, rgb(18 104 243 / 0.1), transparent 58%),
+    radial-gradient(ellipse 48% 42% at 6% 96%, rgb(24 200 244 / 0.07), transparent 54%),
+    radial-gradient(ellipse 38% 34% at 94% 88%, rgb(7 139 245 / 0.06), transparent 50%);
 }
 
-/** Scattered dot texture — used sparingly behind heroes/dark bands for a templated, designed feel. */
+/** Scattered dot texture — used sparingly behind heroes/dark bands for a designed feel,
+    echoing the faceted geometry of the MileSoftwares mark. */
 @utility dot-grid {
   background-image: radial-gradient(currentColor 1.5px, transparent 1.5px);
   background-size: 18px 18px;
@@ -170,7 +184,7 @@
   left: 1rem;
   top: -3rem;
   z-index: 100;
-  background-color: var(--brand-purple);
+  background-color: var(--brand-blue);
   color: #ffffff;
   padding: 0.75rem 1.25rem;
   border-radius: 0.75rem;
@@ -188,7 +202,7 @@
     @apply m-0 min-h-svh bg-background font-sans text-ink antialiased;
     background-image: radial-gradient(
       ellipse 110% 70% at 50% -18%,
-      rgb(109 40 232 / 0.07),
+      rgb(18 104 243 / 0.05),
       transparent 58%
     );
     font-size: 1rem;
@@ -209,12 +223,12 @@
   }
 
   ::selection {
-    background: rgb(109 40 232 / 0.2);
-    color: #111936;
+    background: rgb(18 104 243 / 0.18);
+    color: #0a2540;
   }
 
   :focus-visible {
-    outline: 2px solid var(--brand-purple);
+    outline: 2px solid var(--brand-blue);
     outline-offset: 2px;
     border-radius: 0.25rem;
   }

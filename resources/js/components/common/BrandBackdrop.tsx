@@ -2,7 +2,7 @@ import { cn } from '@/lib/utils'
 
 interface BrandBackdropProps {
   className?: string
-  /** Extra green orb — keep this rare so the accent stays selective. */
+  /** Extra cyan orb — keep this rare so the accent stays selective. */
   withAccent?: boolean
   /** Use on dark CTA bands so the wash stays visible. */
   inverse?: boolean

@@ -7,12 +7,13 @@ import { WhatWeDoSection } from '@/sections/home/WhatWeDoSection'
 import { ProfessionalsSection } from '@/sections/home/ProfessionalsSection'
 import { StatsStripSection } from '@/sections/home/StatsStripSection'
 import { HomeProductCardsSection } from '@/sections/home/HomeProductCardsSection'
+import { AiSection } from '@/sections/home/AiSection'
 import { WhyChooseUsSection } from '@/sections/home/WhyChooseUsSection'
 import { CtaSection } from '@/sections/home/CtaSection'
 
-// Homepage redesign (2026-09-19) — restructured to match the reference's exact section set:
-// Hero / What We Do / Built Here.Supported Here. / More Than Software / Products /
-// Why Choose MileSoftwares / Final CTA. The previous homepage additionally included
+// Homepage redesign (2026-09-20) — blue/navy/cyan brand refresh, restructured section set:
+// Hero / What We Do / Built Here.Supported Here. / More Than Software / Products / AI-Ready
+// Systems / Why MileSoftwares / Final CTA. The previous homepage additionally included
 // HeroFeatureCards, BrandStatementSection, MediaBannerSection, OfflineCapabilitySection,
 // DeploymentSection, HowItWorksSection, PricingSection and HomeContactSection — none deleted,
 // just no longer part of the tightened homepage flow (Pricing already has its own full /pricing
@@ -26,6 +27,7 @@ export default function HomePage() {
       <ProfessionalsSection />
       <StatsStripSection />
       <HomeProductCardsSection />
+      <AiSection />
       <WhyChooseUsSection />
       <CtaSection
         layout="banner"

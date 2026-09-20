@@ -125,7 +125,7 @@ export default function ProductsPage() {
 
       <CtaSection
         title="Not sure which product fits?"
-        description="Tell us how you run your business and we’ll recommend the right MileSoftware product — or walk you through a live demo."
+        description="Tell us how you run your business and we’ll recommend the right MileSoftwares product — or walk you through a live demo."
         actions={
           <>
             <Button variant="bandGreen" size="lg" asChild>

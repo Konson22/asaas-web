@@ -1,0 +1,1 @@
+import{n as e,o as t,r as n}from"./Container-CAEMIfHs.js";t();var r=e();function i({className:e,...t}){return(0,r.jsx)(`div`,{className:n(`rounded-card border border-border bg-card transition-colors duration-300 hover:border-primary/30 hover:bg-elevated/60`,e),...t})}export{i as t};

@@ -40,12 +40,12 @@ export function ProfessionalsSection() {
       <Container className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
         <Reveal>
           <div className="relative">
-            <div className="pointer-events-none absolute -inset-8 rounded-full bg-primary/12 blur-3xl" aria-hidden="true" />
+            <div className="pointer-events-none absolute -inset-8 rounded-full bg-primary/10 blur-3xl" aria-hidden="true" />
             <div className="dot-grid pointer-events-none absolute -right-4 top-6 hidden h-28 w-28 text-primary/15 sm:block" aria-hidden="true" />
             <img
-              src="/images/hero/desktop-transparent-bg.png"
-              alt="MileSoftwares dashboard"
-              className="relative w-full object-contain drop-shadow-[0_24px_48px_rgb(17_25_54_/0.1)]"
+              src="/images/dashboard-devices-bright.png"
+              alt="MileSoftwares dashboard on desktop and mobile"
+              className="relative w-full object-contain drop-shadow-[0_24px_48px_rgb(10_37_64_/0.14)]"
             />
           </div>
         </Reveal>

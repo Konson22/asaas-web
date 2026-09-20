@@ -24,41 +24,47 @@ export function HeroSection() {
         }
 
   return (
-    <section className="relative overflow-hidden bg-navy-deep pb-20 pt-16 lg:pb-28 lg:pt-20">
+    <section className="relative overflow-hidden bg-navy-deep pb-24 pt-16 lg:pb-32 lg:pt-20">
+      {/* Real product-mockup photo as the hero backdrop, not an illustration — the dark navy
+          half reads naturally behind the copy, the device mockup carries the right side. */}
       <img
-        src="/images/hero/hero-bg.png"
+        src="/images/dashboard-devices-blue.png"
         alt=""
-        className="pointer-events-none absolute inset-0 size-full object-cover object-bottom select-none"
+        className="pointer-events-none absolute inset-0 size-full object-cover object-right select-none"
         aria-hidden="true"
       />
+      <div
+        className="pointer-events-none absolute inset-0 bg-gradient-to-r from-navy-deep via-navy-deep/85 to-navy-deep/10"
+        aria-hidden="true"
+      />
+      <div className="pointer-events-none absolute -top-40 right-[-6rem] h-[28rem] w-[28rem] rounded-full bg-cyan/10 blur-3xl" aria-hidden="true" />
 
-      <Container className="relative flex flex-col gap-14 lg:flex-row lg:items-center lg:gap-14">
-        <div className="order-2 flex flex-col items-start gap-6 lg:order-1 lg:w-[54%]">
-
+      <Container className="relative flex flex-col gap-14 lg:min-h-[30rem] lg:justify-center">
+        <div className="flex flex-col items-start gap-6 lg:max-w-xl">
           <motion.h1
             {...fadeUp(0.04)}
-            className="text-[clamp(2.6rem,5.4vw,4.25rem)] font-bold leading-[1.05] tracking-tight text-white"
+            className="text-[clamp(2.6rem,5.4vw,4.1rem)] font-bold leading-[1.05] tracking-tight text-white"
           >
-            Your Business Works Differently.
+            Software Built
             <br />
-            <span className="text-lime">Your Software</span> Should Too.
+            Around <span className="text-cyan">Your Business.</span>
           </motion.h1>
 
           <motion.p {...fadeUp(0.08)} className="max-w-xl text-lg leading-relaxed text-white/75">
-            From sales and inventory to accounting, payroll and operations, MileSoftwares gives
-            you business software designed around how you actually work, not the other way
-            around.
+            MileSoftwares builds custom business systems, web and mobile applications, SaaS
+            products, automation, and AI-enabled software — designed around how your business
+            actually operates, not the other way around.
           </motion.p>
 
           <motion.div {...fadeUp(0.12)} className="flex flex-wrap items-center gap-3">
             <Button variant="cta" size="lg" asChild>
-              <Link href="/contact">
-                Get a Free Demo
+              <Link href="/industries">
+                Explore Solutions
                 <ArrowRight className="size-4" />
               </Link>
             </Button>
             <Button variant="onGradientOutline" size="lg" asChild>
-              <Link href="/industries">Explore Solutions</Link>
+              <Link href="/contact">Talk to Us</Link>
             </Button>
           </motion.div>
 
@@ -67,7 +73,7 @@ export function HeroSection() {
               const Icon = item.icon
               return (
                 <span key={item.id} className="flex items-center gap-2.5 text-sm font-medium text-white/80">
-                  <span className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-white/10 text-lime">
+                  <span className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-white/10 text-cyan">
                     <Icon className="size-4" />
                   </span>
                   {item.label}
@@ -76,47 +82,25 @@ export function HeroSection() {
             })}
           </motion.div>
         </div>
-
-        <motion.div
-          initial={reduceMotion ? undefined : { opacity: 0, scale: 0.96 }}
-          animate={reduceMotion ? undefined : { opacity: 1, scale: 1 }}
-          transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          className="relative order-1 mx-auto w-full max-w-md lg:order-2 lg:max-w-none lg:min-w-0 lg:flex-1"
-        >
-          <div
-            className="absolute inset-4 -z-10 rounded-[2.5rem] bg-gradient-to-br from-primary/80 to-primary-darker sm:inset-8 lg:inset-x-10 lg:inset-y-6"
-            aria-hidden="true"
-          />
-          <div className="dot-grid pointer-events-none absolute -right-3 -top-3 h-24 w-24 text-accent/40" aria-hidden="true" />
-          <div className="pointer-events-none absolute -inset-10 rounded-full bg-primary/25 blur-3xl" aria-hidden="true" />
-          <div className="pointer-events-none absolute -right-4 top-10 h-28 w-28 rounded-full bg-lime/15 blur-2xl" aria-hidden="true" />
-          <img
-            src="/images/hero/desktop-transparent-bg.png"
-            alt="MileSoftwares application dashboard"
-            className="relative w-full object-contain p-6 drop-shadow-[0_24px_48px_rgb(8_11_44_/0.35)] sm:p-10"
-          />
-
-          <div className="absolute -left-3 bottom-3 hidden w-28 sm:block lg:-left-6 lg:w-32">
-            <img
-              src="/images/hero/mobileapp-transparent-bg.png"
-              alt="MileSoftwares mobile app"
-              className="w-full object-contain drop-shadow-[0_12px_24px_rgb(8_11_44_/0.3)]"
-            />
-          </div>
-
-          <div className="absolute -bottom-5 right-2 hidden items-center gap-3 rounded-2xl border border-border bg-white px-4 py-3 shadow-[0_20px_40px_-16px_rgb(8_11_44_/0.3)] sm:flex lg:right-6">
-            <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-lime/15 text-lime">
-              <ArrowRight className="size-4 -rotate-45" />
-            </span>
-            <div className="leading-tight">
-              <p className="text-sm font-bold text-ink">90-day free trial</p>
-              <p className="text-xs text-ink-muted">No card required</p>
-            </div>
-          </div>
-        </motion.div>
       </Container>
 
-      {/* Smooth curve into the next (light) section, echoing the reference's rounded hero edge. */}
+      {/* Floating proof point over the device mockup baked into the background photo. */}
+      <motion.div
+        initial={reduceMotion ? undefined : { opacity: 0, y: 12 }}
+        animate={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.3 }}
+        className="absolute bottom-8 right-6 z-10 hidden items-center gap-3 rounded-2xl border border-border bg-white px-4 py-3 shadow-[0_20px_40px_-20px_rgb(6_27_58_/0.35)] sm:flex lg:right-[6%]"
+      >
+        <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-cyan/15 text-cyan">
+          <ArrowRight className="size-4 -rotate-45" />
+        </span>
+        <div className="leading-tight">
+          <p className="text-sm font-bold text-ink">90-day free trial</p>
+          <p className="text-xs text-ink-muted">No card required</p>
+        </div>
+      </motion.div>
+
+      {/* Smooth curve into the next (light) section. */}
       <svg
         className="pointer-events-none absolute inset-x-0 bottom-0 h-10 w-full text-background sm:h-14"
         viewBox="0 0 1440 60"

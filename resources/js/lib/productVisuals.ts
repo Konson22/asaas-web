@@ -13,8 +13,15 @@ import {
 /**
  * The central catalogue doesn't have uploaded product images/icons yet (Phase 1 only seeded
  * data, not files), so visuals stay local to the marketing site, keyed by the platform's
- * stable `code`. Products without a screenshot fall back to an icon card instead of a
- * mismatched photo.
+ * stable `code`. Every product renders as an icon card — the previous per-product PNGs were
+ * AI-generated fake device mockups with the old "Asas Vantage" wordmark baked into the pixels
+ * (wrong brand, garbled placeholder text), so they were retired rather than re-themed; the
+ * `image` field stays on `ProductVisual` for when real product screenshots exist.
+ *
+ * `BrandTone` keeps its legacy 'purple' | 'green' | 'orange' names from the pre-2026-09-20
+ * identity (renaming would ripple through every consumer below for a label only) — they now
+ * resolve to the blue palette via app.css: purple → Primary Blue, green → Cyan, orange →
+ * Bright Blue, so cycling through the three still reads as three distinct brand blues.
  */
 export type BrandTone = 'purple' | 'green' | 'orange'
 
@@ -25,11 +32,11 @@ interface ProductVisual {
 }
 
 const visuals: Record<string, ProductVisual> = {
-  'retail-pos': { image: '/images/products/POS.png', icon: ShoppingCart, tone: 'orange' },
-  pharmacy: { image: '/images/products/pharmacy.png', icon: Pill, tone: 'green' },
-  restaurant: { image: '/images/products/restaurant.png', icon: UtensilsCrossed, tone: 'orange' },
-  inventory: { image: '/images/products/inventory.png', icon: Boxes, tone: 'purple' },
-  services: { image: '/images/products/services.png', icon: Briefcase, tone: 'green' },
+  'retail-pos': { icon: ShoppingCart, tone: 'orange' },
+  pharmacy: { icon: Pill, tone: 'green' },
+  restaurant: { icon: UtensilsCrossed, tone: 'orange' },
+  inventory: { icon: Boxes, tone: 'purple' },
+  services: { icon: Briefcase, tone: 'green' },
   distribution: { icon: Warehouse, tone: 'orange' },
   school: { icon: GraduationCap, tone: 'purple' },
 }

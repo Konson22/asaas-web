@@ -8,22 +8,21 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        // Purple brand button — secondary strong action (e.g. "Explore All Products").
+        // Solid brand blue — secondary strong action (e.g. "Explore All Products").
         primary:
-          'bg-primary text-white shadow-[0_12px_24px_-12px_rgb(109_40_232_/0.7)] hover:-translate-y-0.5 hover:bg-primary-hover hover:shadow-[0_18px_32px_-12px_rgb(109_40_232_/0.85)]',
-        // Lime green — THE primary CTA everywhere ("Get a Free Demo", "Get Started").
-        cta: 'bg-lime text-navy-deep shadow-[0_12px_24px_-12px_rgb(22_232_92_/0.55)] hover:-translate-y-0.5 hover:bg-lime-bright hover:shadow-[0_18px_32px_-12px_rgb(22_232_92_/0.6)]',
-        accent: 'border border-lime/50 bg-white text-ink hover:border-lime hover:bg-lime/10',
+          'bg-primary text-white shadow-[0_10px_20px_-12px_rgb(18_104_243_/0.55)] hover:-translate-y-0.5 hover:bg-primary-hover hover:shadow-[0_14px_28px_-12px_rgb(18_104_243_/0.6)]',
+        // Blue → cyan gradient — THE primary CTA everywhere ("Get Started", "Talk to Us").
+        cta: 'bg-gradient-to-r from-primary to-blue-bright text-white shadow-[0_10px_20px_-12px_rgb(18_104_243_/0.5)] hover:-translate-y-0.5 hover:shadow-[0_16px_30px_-12px_rgb(18_104_243_/0.55)]',
+        accent: 'border border-cyan/40 bg-white text-ink hover:border-cyan hover:bg-cyan/10',
         secondary: 'border border-border bg-white text-ink hover:border-primary/40 hover:bg-primary/5',
-        onGradient: 'bg-lime text-navy-deep shadow-sm hover:bg-lime-bright',
+        onGradient: 'bg-white text-primary shadow-sm hover:bg-white/90',
         // Dark-section secondary (light border, white text) — "Explore Solutions", "Contact Us".
         onGradientOutline:
           'border border-white/30 bg-transparent text-white hover:border-white/60 hover:bg-white/10',
+        // Same treatment as `cta` — kept as its own variant name for existing callers (Products.tsx)
+        // so every primary action on the site reads as one consistent blue-to-cyan gradient.
         bandGreen:
-          'bg-lime text-navy-deep shadow-[0_12px_24px_-12px_rgb(22_232_92_/0.55)] hover:-translate-y-0.5 hover:bg-lime-bright',
-        // Kept as its own variant name for existing callers (Products.tsx, BrandStatementSection)
-        // but repurposed to the dark-section outline style, not a solid orange fill — orange
-        // stays a small accent, never a major button/page color.
+          'bg-gradient-to-r from-primary to-blue-bright text-white shadow-[0_10px_20px_-12px_rgb(18_104_243_/0.5)] hover:-translate-y-0.5 hover:shadow-[0_16px_30px_-12px_rgb(18_104_243_/0.55)]',
         bandOrange:
           'border border-white/30 bg-transparent text-white hover:border-white/60 hover:bg-white/10',
         outline: 'border border-border bg-white text-ink hover:border-primary/50 hover:bg-primary/5',
