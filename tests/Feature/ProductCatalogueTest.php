@@ -97,7 +97,8 @@ class ProductCatalogueTest extends TestCase
         $this->get('/')
             ->assertOk()
             ->assertInertia(fn ($page) => $page
-                ->component('Home')
+                // Home is pages/Home/index.tsx, not pages/Home.tsx
+                ->component('Home', false)
                 ->has('products', 1)
                 ->where('products.0.code', 'pharmacy'));
     }
