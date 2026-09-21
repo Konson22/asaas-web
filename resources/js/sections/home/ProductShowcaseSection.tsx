@@ -48,9 +48,9 @@ export function ProductShowcaseSection() {
                   <div className="relative mx-auto w-full">
                     <div className="pointer-events-none absolute inset-4 rounded-2xl bg-primary/15 blur-3xl" />
                     <div className="relative overflow-hidden rounded-2xl border border-border bg-card">
-                      {getProductVisual(product.code).image ? (
+                      {product.image || getProductVisual(product.code).image ? (
                         <img
-                          src={getProductVisual(product.code).image}
+                          src={product.image || getProductVisual(product.code).image}
                           alt={`${product.name} product preview`}
                           className="aspect-[4/3] w-full object-contain object-center"
                           loading="lazy"

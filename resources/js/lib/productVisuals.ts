@@ -11,16 +11,11 @@ import {
 } from 'lucide-react'
 
 /**
- * The central catalogue doesn't have uploaded product images/icons yet (Phase 1 only seeded
- * data, not files), so visuals stay local to the marketing site, keyed by the platform's
- * stable `code`. Every product renders as an icon card — the previous per-product PNGs were
- * AI-generated fake device mockups with the old "Asas Vantage" wordmark baked into the pixels
- * (wrong brand, garbled placeholder text), so they were retired rather than re-themed; the
- * `image` field stays on `ProductVisual` for when real product screenshots exist.
+ * The central catalogue doesn't ship product artwork, so visuals stay local to the marketing
+ * site, keyed by the platform's stable `code`. `image` is the collage shown on product cards.
  *
  * `uicon` is the Flaticon UIcons (@flaticon/flaticon-uicons, regular/rounded style — see
- * app.css import) class used as the product mark on the homepage lineup
- * (HomeProductCardsSection) and anywhere else a product needs a large, named visual.
+ * app.css import) class used wherever a product needs a compact named mark.
  * Free-tier Flaticon UIcons require attribution, which lives in the Footer credit line
  * rather than per icon.
  *
@@ -39,13 +34,13 @@ interface ProductVisual {
 }
 
 const visuals: Record<string, ProductVisual> = {
-  'retail-pos': { icon: ShoppingCart, uicon: 'fi-rr-shopping-cart', tone: 'orange' },
-  pharmacy: { icon: Pill, uicon: 'fi-rr-prescription-bottle-pill', tone: 'green' },
-  restaurant: { icon: UtensilsCrossed, uicon: 'fi-rr-utensils', tone: 'orange' },
-  inventory: { icon: Boxes, uicon: 'fi-rr-inventory-alt', tone: 'purple' },
-  services: { icon: Briefcase, uicon: 'fi-rr-briefcase', tone: 'green' },
-  distribution: { icon: Warehouse, uicon: 'fi-rr-warehouse-alt', tone: 'orange' },
-  school: { icon: GraduationCap, uicon: 'fi-rr-graduation-cap', tone: 'purple' },
+  'retail-pos': { image: '/images/products/POS.png', icon: ShoppingCart, uicon: 'fi-rr-shopping-cart', tone: 'orange' },
+  pharmacy: { image: '/images/products/pharmacy.png', icon: Pill, uicon: 'fi-rr-prescription-bottle-pill', tone: 'green' },
+  restaurant: { image: '/images/products/restaurant.png', icon: UtensilsCrossed, uicon: 'fi-rr-utensils', tone: 'orange' },
+  inventory: { image: '/images/products/inventory.png', icon: Boxes, uicon: 'fi-rr-inventory-alt', tone: 'purple' },
+  services: { image: '/images/products/services.png', icon: Briefcase, uicon: 'fi-rr-briefcase', tone: 'green' },
+  distribution: { image: '/images/products/distribution.png', icon: Warehouse, uicon: 'fi-rr-warehouse-alt', tone: 'orange' },
+  school: { image: '/images/products/school.png', icon: GraduationCap, uicon: 'fi-rr-graduation-cap', tone: 'purple' },
 }
 
 const fallback: ProductVisual = { icon: Package, uicon: 'fi-rr-package', tone: 'purple' }

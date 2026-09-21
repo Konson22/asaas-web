@@ -17,12 +17,9 @@ export default function ProductsPage() {
   const registerableApplications = useRegisterableApplications()
   const registerable = new Set(registerableApplications)
 
-  // Pharma leads the catalogue on this page; everything else keeps its normal order.
-  const orderedProducts = [...products].sort((a, b) => {
-    if (a.code === 'pharmacy') return -1
-    if (b.code === 'pharmacy') return 1
-    return 0
-  })
+  const orderedProducts = [...products].sort(
+    (a, b) => (a.sort_order ?? 0) - (b.sort_order ?? 0) || a.name.localeCompare(b.name),
+  )
 
   return (
     <>
@@ -58,6 +55,7 @@ export default function ProductsPage() {
                 const canRegister = registerable.has(product.code)
                 const visual = getProductVisual(product.code)
                 const Icon = visual.icon
+                const image = product.image || visual.image
                 const isCloud = product.capabilities.includes('cloud')
 
                 return (
@@ -68,11 +66,11 @@ export default function ProductsPage() {
                         className="relative flex aspect-[16/10] items-center justify-center overflow-hidden bg-gradient-to-b from-surface to-card outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-inset"
                         aria-label={`Learn more about ${product.name}`}
                       >
-                        {visual.image ? (
+                        {image ? (
                           <img
-                            src={visual.image}
+                            src={image}
                             alt={`${product.name} product preview`}
-                            className="size-full object-contain p-2 transition-transform duration-300 hover:scale-[1.02]"
+                            className="absolute inset-0 size-full object-contain p-2 transition-transform duration-300 hover:scale-[1.02]"
                             loading="lazy"
                           />
                         ) : (

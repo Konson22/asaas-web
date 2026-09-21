@@ -1,0 +1,1 @@
+import{C as e}from"./app-CMJKsJU6.js";function t(){let{registerableApplications:t=[]}=e().props;return t}export{t};

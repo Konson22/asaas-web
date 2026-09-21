@@ -15,9 +15,11 @@ export interface ProductSummary {
   tagline: string | null
   short_description: string | null
   category: string | null
+  image: string | null
   icon: string | null
   status: string
   is_featured: boolean
+  sort_order: number
   trial_days: number | null
   capabilities: string[]
   starting_price: StartingPrice
