@@ -73,8 +73,8 @@ export function Navbar() {
             scrolled ? 'py-2.5' : 'py-3.5',
           )}
         >
-          <Link href="/" className="shrink-0" aria-label="MileSoftwares home">
-            <Logo className={cn('w-auto transition-[height] duration-200', scrolled ? 'h-8' : 'h-9')} />
+          <Link href="/" className="shrink-0" aria-label="Miles Global Softwares home">
+            <Logo className={cn('w-auto transition-[height] duration-200', scrolled ? 'h-11' : 'h-14')} />
           </Link>
 
           <nav className="hidden items-center gap-0.5 lg:flex" aria-label="Primary">

@@ -29,7 +29,7 @@ export function Footer() {
       <div className="h-px bg-gradient-to-r from-transparent via-blue-bright/50 to-transparent" />
       <Container className="grid gap-12 py-16 sm:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1.1fr] lg:py-20">
         <div className="flex flex-col gap-4">
-          <Logo variant="light" />
+          <Logo variant="light" className="h-14" />
           <p className="text-sm font-semibold uppercase tracking-[0.14em] text-white/50">
             Innovate &bull; Build &bull; Grow
           </p>

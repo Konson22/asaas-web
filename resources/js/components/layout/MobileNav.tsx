@@ -23,7 +23,7 @@ export function MobileNav({ open, onOpenChange }: MobileNavProps) {
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent side="right" className="flex flex-col gap-6 overflow-y-auto bg-elevated p-6">
         <DialogTitle asChild>
-          <Logo />
+          <Logo className="h-14" />
         </DialogTitle>
 
         <nav className="flex flex-col gap-1" aria-label="Mobile">
